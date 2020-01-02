@@ -1,9 +1,6 @@
 package gregtech.api.util;
 
 
-import codechicken.lib.vec.Rotation;
-import codechicken.lib.vec.Transformation;
-import codechicken.lib.vec.Vector3;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.google.common.collect.Lists;
@@ -60,7 +57,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.*;
 import java.util.Map.Entry;
@@ -72,30 +69,30 @@ import java.util.stream.IntStream;
 import static gregtech.api.GTValues.V;
 
 public class GTUtility {
+	
+	public static Runnable combine(Runnable... runnables) {
+		return () -> {
+			for (Runnable runnable : runnables) {
+				if (runnable != null)
+					runnable.run();
+			}
+		};
+	}
 
-    public static Runnable combine(Runnable... runnables) {
-        return () -> {
-            for (Runnable runnable : runnables) {
-                if (runnable != null)
-                    runnable.run();
-            }
-        };
-    }
+	public static void copyInventoryItems(IItemHandler src, IItemHandlerModifiable dest) {
+		for (int i = 0; i < src.getSlots(); i++) {
+			ItemStack itemStack = src.getStackInSlot(i);
+			dest.setStackInSlot(i, itemStack.isEmpty() ? ItemStack.EMPTY : itemStack.copy());
+		}
+	}
 
-    public static void copyInventoryItems(IItemHandler src, IItemHandlerModifiable dest) {
-        for (int i = 0; i < src.getSlots(); i++) {
-            ItemStack itemStack = src.getStackInSlot(i);
-            dest.setStackInSlot(i, itemStack.isEmpty() ? ItemStack.EMPTY : itemStack.copy());
-        }
-    }
-
-    public static <T> IntStream indices(T[] array) {
-        int[] indices = new int[array.length];
-        for (int i = 0; i < indices.length; i++)
-            indices[i] = i;
-        return Arrays.stream(indices);
-    }
-
+	public static <T> IntStream indices(T[] array) {
+		int[] indices = new int[array.length];
+		for (int i = 0; i < indices.length; i++)
+			indices[i] = i;
+		return Arrays.stream(indices);
+	}
+	
     public static <T> String[] mapToString(T[] array, Function<T, String> mapper) {
         String[] result = new String[array.length];
         for (int i = 0; i < array.length; i++) {
@@ -245,9 +242,7 @@ public class GTUtility {
                 continue; //if we can't insert anything, continue
             //split our stack and put result in slot
             ItemStack stackInSlot = itemStack.splitStack(amountToInsert);
-            if (!simulate) {
-                slot.putStack(stackInSlot);
-            }
+            slot.putStack(stackInSlot);
             merged = true;
             if (itemStack.isEmpty())
                 return true; //if we inserted all items, return
@@ -714,7 +709,7 @@ public class GTUtility {
             return worldPower;
         }
     }
-
+    
     public static Comparator<ItemStack> createItemStackComparator() {
         return Comparator.<ItemStack, Integer>comparing(it -> Item.REGISTRY.getIDForObject(it.getItem()))
             .thenComparing(ItemStack::getItemDamage)
@@ -722,4 +717,12 @@ public class GTUtility {
             .thenComparing(it -> -it.getTagCompound().hashCode())
             .thenComparing(ItemStack::getCount);
     }
+    
+	public static String format(long value) {
+		return new DecimalFormat("###,###.##").format(value);
+	}
+
+	public static String format(double value) {
+		return new DecimalFormat("###,###.##").format(value);
+	}
 }

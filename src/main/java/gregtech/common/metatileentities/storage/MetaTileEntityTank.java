@@ -723,7 +723,8 @@ public class MetaTileEntityTank extends MetaTileEntity implements IFastRenderMet
     @Override
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.format("gregtech.universal.tooltip.fluid_storage_capacity", tankSize));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.fluid_storage_capacity", tankSize));
+    	tooltip.add(I18n.format("gregtech.universal.tooltip.fluid_storage_capacity", GTUtility.format(tankSize)));
 
         NBTTagCompound tagCompound = stack.getTagCompound();
         if (tagCompound != null && tagCompound.hasKey("Fluid", NBT.TAG_COMPOUND)) {
@@ -731,7 +732,8 @@ public class MetaTileEntityTank extends MetaTileEntity implements IFastRenderMet
             if (fluidStack == null)
                 return;
             tooltip.add(I18n.format("gregtech.machine.fluid_tank.fluid",
-                fluidStack.amount, I18n.format(fluidStack.getUnlocalizedName())));
+//                fluidStack.amount, I18n.format(fluidStack.getUnlocalizedName())));
+            	GTUtility.format(fluidStack.amount), I18n.format(fluidStack.getUnlocalizedName())));
         }
     }
 
