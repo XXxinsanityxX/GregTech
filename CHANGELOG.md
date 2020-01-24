@@ -1,5 +1,16 @@
 ## Changelog
 
+### 1.9.0
+* Nefr chemistry recipes - TheDarkDnKTv
+* Some tweaks - TheDarkDnKTv
+* Changed github link in build file, fixed speed of steam machines and returned some pump tweaks - TheDarkDnKTv
+* Add missed localization - TheDarkDnKTv
+* Nukepowered GT changes, tooltips, chemestry recipes - TheDarkDnKTv
+* Add chemestry changes, solve merge conflicts - TheDarkDnKTv
+* Revert "Pump, Rotor recipe tweaks (#987)" - TheDarkDnKTv
+* Revert awful 'new' recipes - TheDarkDnKTv
+* Do not allow ghost ingredient placing and picking if widget group is not visible - Archengius
+
 ### 1.8.9
 * Fluid pipes visuals rework - Archengius
 * Added Rebreather - Archengius

@@ -242,7 +242,9 @@ public class GTUtility {
                 continue; //if we can't insert anything, continue
             //split our stack and put result in slot
             ItemStack stackInSlot = itemStack.splitStack(amountToInsert);
-            slot.putStack(stackInSlot);
+            if (!simulate) {
+            	slot.putStack(stackInSlot);
+            }
             merged = true;
             if (itemStack.isEmpty())
                 return true; //if we inserted all items, return
