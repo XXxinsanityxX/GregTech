@@ -17,6 +17,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.fluids.IFluidTank;
 
@@ -160,11 +161,7 @@ public class RecipeLogicSteam extends AbstractRecipeLogic {
 
     @Override
     protected int[] calculateOverclock(int EUt, long voltage, int duration) {
-        if (!isHighPressure) {
-            //disallow overclocking for low pressure bronze machines
-            return new int[]{EUt, duration};
-        }
-        return super.calculateOverclock(EUt, voltage, duration);
+        return new int[] {EUt, MathHelper.floor(duration * (isHighPressure ? 1.15D : 1.4D))};
     }
 
     @Override
