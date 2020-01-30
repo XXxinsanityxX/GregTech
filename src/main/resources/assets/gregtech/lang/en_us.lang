@@ -2859,6 +2859,7 @@ gregtech.machine.rotor_holder.zpm.name=Rotor Holder (ZPM)
 gregtech.machine.rotor_holder.uv.name=Rotor Holder (UV)
 gregtech.machine.rotor_holder.max.name=Rotor Holder (MAX)
 
+gregtech.machine.fluid_tank.max_multiblock=Max Multiblock Size: %dx%dx%d
 gregtech.machine.fluid_tank.fluid=Contains %s mb of %s
 
 gregtech.machine.item_controller.tooltip.redstone=Requires Redstone Input To Work
@@ -2932,6 +2933,7 @@ gregtech.multiblock.idling=Idling.
 gregtech.multiblock.not_enough_energy=WARNING: Machine needs more energy.
 gregtech.multiblock.progress=Progress: %s%%
 gregtech.multiblock.invalid_structure=Invalid structure.
+gregtech.multiblock.invalid_structure.tooltip=This block is a controller of the multiblock structure. For building help, see structure template in JEI
 gregtech.multiblock.validation_failed=Invalid amount of inputs/outputs.
 gregtech.multiblock.max_energy_per_tick=Max EU/t: %s (%s)
 gregtech.multiblock.generation_eu=Outputting: %s EU/t
@@ -2956,6 +2958,13 @@ gregtech.multiblock.turbine.low_rotor_durability=WARNING: Rotor Durability below
 
 gregtech.multiblock.large_boiler.temperature=Temperature: %s / %s C
 gregtech.multiblock.large_boiler.steam_output=Steam Output: %s mb/t
+gregtech.multiblock.large_boiler.throttle=Throttle: %d %% (%d %% eff.)
+gregtech.multiblock.large_boiler.message_throttle_change=Throttle changed to: %d %%
+gregtech.multiblock.large_boiler.message_throttle_too_hot=Boiler is running too hot to throttle!
+gregtech.multiblock.large_boiler.heat_efficiency=Heat Efficiency: %d%%
+gregtech.multiblock.large_boiler.heat_efficiency.tooltip=The higher boiler temperature is, the higher it's fuel efficiency
+gregtech.multiblock.large_boiler.throttle.tooltip=Boiler can output less steam and consume less fuel, but it comes with price: the fuel efficiency is lower at higher throttle rates.
+gregtech.multiblock.large_boiler.throttle_modify=Modify Throttle:
 
 gregtech.command.usage=Usage: /gregtech <worldgen/util>
 gregtech.command.worldgen.usage=Usage: /gregtech worldgen <reload>
