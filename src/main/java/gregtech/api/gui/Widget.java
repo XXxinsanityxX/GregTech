@@ -28,7 +28,6 @@ import java.awt.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 /**
  * Widget is functional element of ModularUI
@@ -353,25 +352,25 @@ public abstract class Widget {
         }
     }
 
-    public static class ClientSideField<T> {
-        @SideOnly(Side.CLIENT)
-        private T fieldValue;
-
-        public ClientSideField(Supplier<T> initializer) {
-            if (isClientSide()) {
-                this.fieldValue = initializer.get();
-            }
-        }
-
-        public void useOnClient(Consumer<T> callback) {
-            if (isClientSide()) {
-                callback.accept(fieldValue);
-            }
-        }
-
-        @SideOnly(Side.CLIENT)
-        public T get() {
-            return fieldValue;
-        }
-    }
+//    public static class ClientSideField<T> {
+//        @SideOnly(Side.CLIENT)
+//        private T fieldValue;
+//
+//        public ClientSideField(Supplier<T> initializer) {
+//            if (isClientSide()) {
+//                this.fieldValue = initializer.get();
+//            }
+//        }
+//
+//        public void useOnClient(Consumer<T> callback) {
+//            if (isClientSide()) {
+//                callback.accept(fieldValue);
+//            }
+//        }
+//
+//        @SideOnly(Side.CLIENT)
+//        public T get() {
+//            return fieldValue;
+//        }
+//    }
 }

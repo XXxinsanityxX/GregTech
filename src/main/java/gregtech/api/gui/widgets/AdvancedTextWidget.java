@@ -30,17 +30,23 @@ import java.util.stream.Collectors;
  */
 public class AdvancedTextWidget extends Widget {
     protected int maxWidthLimit;
-
-    private ClientSideField<WrapScreen> wrapScreen = new ClientSideField<>(WrapScreen::new);
+    
+//    private ClientSideField<WrapScreen> wrapScreen = new ClientSideField<>(WrapScreen::new);
     protected Consumer<List<ITextComponent>> textSupplier;
     protected BiConsumer<String, ClickData> clickHandler;
     private List<ITextComponent> displayText = new ArrayList<>();
     private int color;
+    
+    @SideOnly(Side.CLIENT)
+    private WrapScreen wrapScreen;
 
     public AdvancedTextWidget(int xPosition, int yPosition, Consumer<List<ITextComponent>> text, int color) {
         super(new Position(xPosition, yPosition), Size.ZERO);
         this.textSupplier = text;
         this.color = color;
+        if (Widget.isClientSide()) {
+        	this.wrapScreen = new WrapScreen();
+        }
     }
 
     public static ITextComponent withButton(ITextComponent textComponent, String componentData) {
@@ -74,7 +80,8 @@ public class AdvancedTextWidget extends Widget {
     @SideOnly(Side.CLIENT)
     private void resizeWrapScreen() {
         if (sizes != null) {
-            this.wrapScreen.get().setWorldAndResolution(Minecraft.getMinecraft(), sizes.getScreenWidth(), sizes.getScreenHeight());
+//            this.wrapScreen.get().setWorldAndResolution(Minecraft.getMinecraft(), sizes.getScreenWidth(), sizes.getScreenHeight());
+            this.wrapScreen.setWorldAndResolution(Minecraft.getMinecraft(), sizes.getScreenWidth(), sizes.getScreenHeight());
         }
     }
 
@@ -147,7 +154,7 @@ public class AdvancedTextWidget extends Widget {
     private void formatDisplayText() {
         FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
         this.displayText = displayText.stream()
-            .flatMap(c -> GuiUtilRenderComponents.splitText(c, maxWidthLimit, fontRenderer, true, true).stream())
+            .flatMap(c -> GuiUtilRenderComponents.splitText(c, maxWidthLimit > 0 ? maxWidthLimit : 100, fontRenderer, true, true).stream())
             .collect(Collectors.toList());
     }
 
@@ -202,7 +209,8 @@ public class AdvancedTextWidget extends Widget {
         ITextComponent textComponent = getTextUnderMouse(mouseX, mouseY);
         if (textComponent != null) {
             if (handleCustomComponentClick(textComponent) ||
-                wrapScreen.get().handleComponentClick(textComponent)) {
+//                wrapScreen.get().handleComponentClick(textComponent)) {
+            	wrapScreen.handleComponentClick(textComponent)) {
                 playButtonClickSound();
                 return true;
             }
@@ -227,7 +235,8 @@ public class AdvancedTextWidget extends Widget {
         super.drawInForeground(mouseX, mouseY);
         ITextComponent component = getTextUnderMouse(mouseX, mouseY);
         if (component != null) {
-            wrapScreen.get().handleComponentHover(component, mouseX, mouseY);
+//            wrapScreen.get().handleComponentHover(component, mouseX, mouseY);
+            wrapScreen.handleComponentHover(component, mouseX, mouseY);
         }
     }
 
