@@ -2889,6 +2889,8 @@ gregtech.multiblock.max_energy_per_tick=Максимум EU/т: %s (%s)
 gregtech.multiblock.generation_eu=Генерирует: %s EU/т
 
 gregtech.multiblock.blast_furnace.max_temperature=Максимальная температура: %sK
+gregtech.multiblock.blast_furnace.coil_overclock=Разгон по кольцам
+gregtech.multiblock.blast_furnace.coil_overclock.desc=Каждые 900К свыше точки плавления ускоряют рецепт на 25%% потребляя на 15%% больше EU/t
 gregtech.multiblock.multi_furnace.heating_coil_level=Уровень нагревательной катушки: %s
 gregtech.multiblock.multi_furnace.heating_coil_discount=EU усиление нагревательной катушки: %sx
 gregtech.multiblock.distillation_tower.distilling_fluid=Дистилляция %s

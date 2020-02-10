@@ -2939,6 +2939,8 @@ gregtech.multiblock.max_energy_per_tick=Max EU/t: %s (%s)
 gregtech.multiblock.generation_eu=Outputting: %s EU/t
 
 gregtech.multiblock.blast_furnace.max_temperature=Max Temperature: %sK
+gregtech.multiblock.blast_furnace.coil_overclock=Coil overclock
+gregtech.multiblock.blast_furnace.coil_overclock.desc=Every 900K above melting point will boost recipe speed on 25%% and increase EU/t on 15%%
 gregtech.multiblock.multi_furnace.heating_coil_level=Heating Coil Level: %s
 gregtech.multiblock.multi_furnace.heating_coil_discount=Heating Coil EU Boost: %sx
 gregtech.multiblock.distillation_tower.distilling_fluid=Distilling %s
