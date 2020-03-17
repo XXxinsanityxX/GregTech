@@ -5,6 +5,7 @@ import gregtech.api.gui.Widget;
 import gregtech.api.gui.igredient.IIngredientSlot;
 import gregtech.api.gui.resources.RenderUtil;
 import gregtech.api.gui.resources.TextureArea;
+import gregtech.api.util.GTUtility;
 import gregtech.api.util.Position;
 import gregtech.api.util.Size;
 import net.minecraft.client.Minecraft;
@@ -92,7 +93,8 @@ public class TankWidget extends Widget implements IIngredientSlot {
     }
 
     public String getFormattedFluidAmount() {
-        return String.format("%,d", lastFluidInTank == null ? 0 : lastFluidInTank.amount);
+//        return String.format("%,d", lastFluidInTank == null ? 0 : lastFluidInTank.amount);
+    	return GTUtility.format(lastFluidInTank == null ? 0 : lastFluidInTank.amount);
     }
 
     public String getFluidLocalizedName() {

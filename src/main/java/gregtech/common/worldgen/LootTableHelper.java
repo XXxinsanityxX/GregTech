@@ -44,9 +44,9 @@ public class LootTableHelper {
 
     public static void initialize() {
         try {
-            Field gsonField = Arrays.stream(LootTableManager.class.getDeclaredFields())
-                .filter(it -> Gson.class.isAssignableFrom(it.getType()))
-                .findFirst().orElseThrow(() -> new RuntimeException("Failed to find Gson field!"));
+        	Field gsonField = Arrays.stream(LootTableManager.class.getDeclaredFields())
+                    .filter(it -> Gson.class.isAssignableFrom(it.getType()))
+                    .findFirst().orElseThrow(() -> new RuntimeException("Failed to find Gson field!"));
             gsonField.setAccessible(true);
             Gson gsonInstance = (Gson) gsonField.get(null);
             replaceGsonTypeHierarchySerializer(gsonInstance, LootEntry.class, LootTableEntrySerializerDelegate::new);
@@ -83,7 +83,7 @@ public class LootTableHelper {
                 } else {
                     lootConditions = new LootCondition[0];
                 }
-                LootTableEntrySerializer serializer = serializerMap.get(type);
+                LootTableEntrySerializer<?> serializer = serializerMap.get(type);
                 return serializer.deserialize(jsonobject, context, weight, quality, lootConditions);
             }
             return delegatedDeserializer.deserialize(json, typeOfT, context);

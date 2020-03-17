@@ -13,6 +13,8 @@ import gregtech.api.gui.widgets.tab.VerticalTabListRenderer.VerticalStartCorner;
 import gregtech.api.util.Position;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.Tuple;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +65,7 @@ public class TabGroup extends AbstractWidgetGroup {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public boolean mouseClicked(int mouseX, int mouseY, int button) {
         super.mouseClicked(mouseX, mouseY, button);
         Tuple<ITabInfo, int[]> tabOnMouse = getTabOnMouse(mouseX, mouseY);

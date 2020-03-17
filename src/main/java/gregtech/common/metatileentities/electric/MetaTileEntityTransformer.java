@@ -13,6 +13,7 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.TieredMetaTileEntity;
 import gregtech.api.render.Textures;
+import gregtech.api.util.GTUtility;
 import gregtech.api.util.PipelineUtil;
 import gregtech.common.tools.DamageValues;
 import net.minecraft.client.resources.I18n;
@@ -169,15 +170,23 @@ public class MetaTileEntityTransformer extends TieredMetaTileEntity {
         long higherAmperage = energyContainer.getOutputAmperage();
 
         tooltip.add(I18n.format("gregtech.machine.transformer.tooltip_tool_usage"));
-        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", energyContainer.getEnergyCapacity()));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", energyContainer.getEnergyCapacity()));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", GTUtility.format(energyContainer.getEnergyCapacity())));
+        
         tooltip.add(I18n.format("gregtech.machine.transformer.tooltip_transform_down"));
-        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", higherVoltage, higherTierName));
-        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", lowerVoltage, lowerTierName));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", higherVoltage, higherTierName));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", lowerVoltage, lowerTierName));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", GTUtility.format(higherVoltage), higherTierName));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", GTUtility.format(lowerVoltage), lowerTierName));
+        
         tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_in", lowerAmperage));
         tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out", higherAmperage));
         tooltip.add(I18n.format("gregtech.machine.transformer.tooltip_transform_up"));
-        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", lowerVoltage, lowerTierName));
-        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", higherVoltage, higherTierName));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", lowerVoltage, lowerTierName));
+//        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", higherVoltage, higherTierName));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", GTUtility.format(lowerVoltage), lowerTierName));
+        tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", GTUtility.format(higherVoltage), higherTierName));
+        
         tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_in", higherAmperage));
         tooltip.add(I18n.format("gregtech.universal.tooltip.amperage_out", lowerAmperage));
     }

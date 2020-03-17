@@ -7,6 +7,7 @@ import gregtech.api.items.metaitem.stats.IItemNameProvider;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
+import gregtech.api.util.GTUtility;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -73,7 +74,10 @@ public abstract class AbstractMaterialPartBehavior implements IItemBehaviour, II
         IngotMaterial material = getPartMaterial(stack);
         int maxRotorDurability = getPartMaxDurability(stack);
         int rotorDamage = getPartDamage(stack);
-        lines.add(I18n.format("metaitem.tool.tooltip.durability", maxRotorDurability - rotorDamage, maxRotorDurability));
+//        lines.add(I18n.format("metaitem.tool.tooltip.durability", maxRotorDurability - rotorDamage, maxRotorDurability));
+        lines.add(I18n.format("metaitem.tool.tooltip.durability", 
+        		GTUtility.format(maxRotorDurability - rotorDamage), 
+        		GTUtility.format(maxRotorDurability)));
         lines.add(I18n.format("metaitem.tool.tooltip.primary_material", material.getLocalizedName(), material.harvestLevel));
     }
 

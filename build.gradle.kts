@@ -71,7 +71,7 @@ val git: Git = Git.open(File("."))
 
 val modVersion = getVersionFromJava(file("src/main/java/gregtech/GregTechVersion.java"))
 val modVersionNoBuild = modVersion.substring(0, modVersion.lastIndexOf('.'))
-version = "$mcVersion-$modVersion"
+version = "$mcVersion-NP-$modVersion"
 group = "gregtech"
 
 configure<BasePluginConvention> {
@@ -501,11 +501,11 @@ bintray {
     publish = true
     override = true //not sure why it is needed
     pkg {
-        repo = "dev"
+        repo = "np-changes"
         name = "GregTechCE"
         userOrg = "gregtech"
         setLicenses("LGPL-3.0")
-        vcsUrl = "https://github.com/GregTechCE/GregTech.git"
+        vcsUrl = "https://github.com/TheDarkDnKTv/GregTech.git"
         version {
             name = project.version as String
             released = ZonedDateTime.now(ZoneOffset.UTC).format(DateTimeFormatter.ISO_INSTANT)

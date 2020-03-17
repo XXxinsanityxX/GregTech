@@ -1,5 +1,8 @@
 package gregtech.common.metatileentities.multi.electric;
 
+import gregtech.api.capability.impl.MultiblockRecipeLogic;
+import gregtech.api.gui.Widget.ClickData;
+import gregtech.api.gui.widgets.AdvancedTextWidget;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
@@ -18,8 +21,11 @@ import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.BlockWireCoil.CoilType;
 import gregtech.common.blocks.MetaBlocks;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 
 import java.util.List;
@@ -34,9 +40,11 @@ public class MetaTileEntityElectricBlastFurnace extends RecipeMapMultiblockContr
     };
 
     private int blastFurnaceTemperature;
+    private boolean overclock = false;
 
     public MetaTileEntityElectricBlastFurnace(ResourceLocation metaTileEntityId) {
         super(metaTileEntityId, RecipeMaps.BLAST_RECIPES);
+        this.recipeMapWorkable = new BlastFurnanceWorkable(this);
     }
 
     @Override
@@ -48,10 +56,28 @@ public class MetaTileEntityElectricBlastFurnace extends RecipeMapMultiblockContr
     protected void addDisplayText(List<ITextComponent> textList) {
         if (isStructureFormed()) {
             textList.add(new TextComponentTranslation("gregtech.multiblock.blast_furnace.max_temperature", blastFurnaceTemperature));
+            
+            ITextComponent overclockText = new TextComponentTranslation("gregtech.multiblock.blast_furnace.coil_overclock");
+            ITextComponent button = new TextComponentString(this.overclock ? "[ON]" : "[OFF]");
+            overclockText.appendText(": ");
+            overclockText.appendSibling(AdvancedTextWidget.withButton(button, "switch_overclock"));
+            overclockText = AdvancedTextWidget.withHoverTextTranslate(overclockText, "gregtech.multiblock.blast_furnace.coil_overclock.desc");
+            
+            textList.add(overclockText);
         }
         super.addDisplayText(textList);
     }
-
+    
+	@Override
+    protected void handleDisplayClick(String componentData, ClickData clickData) {
+    	super.handleDisplayClick(componentData, clickData);
+    	if (componentData.equals("switch_overclock")) {
+    		this.overclock = !this.overclock;
+    		writeCustomData(111, buf -> buf.writeBoolean(this.overclock));
+    	}
+    }
+    
+    
     @Override
     protected void formStructure(PatternMatchContext context) {
         super.formStructure(context);
@@ -105,5 +131,69 @@ public class MetaTileEntityElectricBlastFurnace extends RecipeMapMultiblockContr
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return Textures.HEAT_PROOF_CASING;
     }
+    
+    @Override
+    public NBTTagCompound writeToNBT(NBTTagCompound data) {
+    	data.setBoolean("overclock", this.overclock);
+    	return super.writeToNBT(data);
+    }
+    
+    @Override
+    public void readFromNBT(NBTTagCompound data) {
+    	this.overclock = data.getBoolean("overclock");
+    	super.readFromNBT(data);
+    }
+    
+    @Override
+    public void writeInitialSyncData(PacketBuffer buf) {
+    	super.writeInitialSyncData(buf);
+    	buf.writeBoolean(this.overclock);
+    }
+    
+    @Override
+    public void receiveInitialSyncData(PacketBuffer buf) {
+    	super.receiveInitialSyncData(buf);
+    	this.overclock = buf.readBoolean();
+    }
+    
+    @Override
+    public void receiveCustomData(int dataId, PacketBuffer buf) {
+    	super.receiveCustomData(dataId, buf);
+    	if (dataId == 111) {
+    		this.overclock = buf.readBoolean();
+    	}
+    }
+    
+    protected class BlastFurnanceWorkable extends MultiblockRecipeLogic {
 
+		public BlastFurnanceWorkable(RecipeMapMultiblockController tileEntity) {
+			super(tileEntity);
+		}
+    	
+		@Override
+		protected void setupRecipe(Recipe recipe) {
+			int excessTemp = blastFurnaceTemperature - recipe.getIntegerProperty("blast_furnace_temperature");
+			int recipeDuration = recipe.getDuration();
+			int initialEUt = recipe.getEUt();
+			
+			while (excessTemp >= 900 && overclock && (initialEUt * 1.15F) <= getMaxVoltage()) {
+				if (overclock) {
+					recipeDuration = Math.max(1, (int)(recipeDuration * 0.75));
+					initialEUt = Math.min(Integer.MAX_VALUE, (int)(initialEUt * 1.15F));
+				} else {
+					initialEUt = Math.max(1, (int)(initialEUt * 0.9F));
+				}
+				excessTemp -= 900;
+			}
+			
+			Recipe modified = recipeMap.recipeBuilder()
+					.inputsIngredients(recipe.getInputs())
+					.outputs(recipe.getOutputs())
+					.EUt(initialEUt)
+					.duration(recipeDuration)
+					.build().getResult();
+			super.setupRecipe(modified);
+		}
+    }
+    
 }

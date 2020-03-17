@@ -1,5 +1,43 @@
 ## Changelog
 
+### 1.9.1
+* Fix of lootmap, again - TheDarkDnKTv
+* Fix new brocken widget - TheDarkDnKTv
+* Merge branch 'master' into np-changes - TheDarkDnKTv
+* Fix null pointer in AdvancedTextWidget - Archengius
+* Fix of GTUtility - TheDarkDnKTv
+* Merge branch 'master' into np-changes - TheDarkDnKTv
+* Fluid Tank changes: - Archengius
+* Large Boiler Multiblock changes: - Archengius
+* Fixed workbench ui not working on server - Archengius
+* Implemented text copying for /gt util hand - Archengius
+* Bump version - Archengius
+* Added boiler throttling (#1010) - pyure
+* Pump: stop and re-calculate when touching solid-top block (#1006) - oxalica
+* Fix Arch's TabGroup - TheDarkDnKTv
+* Bump fix - TheDarkDnKTv
+* Bump - TheDarkDnKTv
+* Nefr chemistry recipes - TheDarkDnKTv
+* Some tweaks - TheDarkDnKTv
+* Changed github link in build file, fixed speed of steam machines and returned some pump tweaks - TheDarkDnKTv
+* Add missed localization - TheDarkDnKTv
+* Nukepowered GT changes, tooltips, chemestry recipes - TheDarkDnKTv
+* Add chemestry changes, solve merge conflicts - TheDarkDnKTv
+* Revert "Pump, Rotor recipe tweaks (#987)" - TheDarkDnKTv
+* Revert awful 'new' recipes - TheDarkDnKTv
+* Do not allow ghost ingredient placing and picking if widget group is not visible - Archengius
+
+### 1.9.0
+* Nefr chemistry recipes - TheDarkDnKTv
+* Some tweaks - TheDarkDnKTv
+* Changed github link in build file, fixed speed of steam machines and returned some pump tweaks - TheDarkDnKTv
+* Add missed localization - TheDarkDnKTv
+* Nukepowered GT changes, tooltips, chemestry recipes - TheDarkDnKTv
+* Add chemestry changes, solve merge conflicts - TheDarkDnKTv
+* Revert "Pump, Rotor recipe tweaks (#987)" - TheDarkDnKTv
+* Revert awful 'new' recipes - TheDarkDnKTv
+* Do not allow ghost ingredient placing and picking if widget group is not visible - Archengius
+
 ### 1.8.9
 * Fluid pipes visuals rework - Archengius
 * Added Rebreather - Archengius

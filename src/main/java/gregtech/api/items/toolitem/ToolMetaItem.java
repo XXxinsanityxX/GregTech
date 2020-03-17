@@ -412,7 +412,10 @@ public class ToolMetaItem<T extends ToolMetaItem<?>.MetaToolValueItem> extends M
         SolidMaterial primaryMaterial = getToolMaterial(itemStack);
         int maxInternalDamage = getMaxItemDamage(itemStack);
         if (toolStats.isUsingDurability(itemStack) && maxInternalDamage > 0) {
-            lines.add(I18n.format("metaitem.tool.tooltip.durability", maxInternalDamage - getItemDamage(itemStack), maxInternalDamage));
+//            lines.add(I18n.format("metaitem.tool.tooltip.durability", maxInternalDamage - getItemDamage(itemStack), maxInternalDamage));
+        	  lines.add(I18n.format("metaitem.tool.tooltip.durability", 
+        			GTUtility.format(maxInternalDamage - getItemDamage(itemStack)), 
+                  	GTUtility.format(maxInternalDamage)));
         }
         lines.add(I18n.format("metaitem.tool.tooltip.primary_material", primaryMaterial.getLocalizedName(), getHarvestLevel(itemStack)));
         lines.add(I18n.format("metaitem.tool.tooltip.attack_damage", toolStats.getBaseDamage(itemStack) + primaryMaterial.harvestLevel));
