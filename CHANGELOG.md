@@ -1,6 +1,85 @@
 ## Changelog
 
 ### 1.9.1
+* Nerf amount of metal casings given by recipes to 1 - XXxinsanityxX
+* Update CHANGELOG.md - XXxinsanityxX
+* Revert "Container recipes for assembler" - XXxinsanityxX
+* This reverts commit 4c18b0b727c92bc5e386506489bde22bfde9f1b5 - XXxinsanityxX
+* Np changes - XXxinsanityxX
+* Container recipes for assembler - TheDarkDnKTv
+* Taught assembler to craft from batteries and move capacity from it to output item - TheDarkDnKTv
+* Changes in blast furnance recipe logic - TheDarkDnKTv
+* Now every next coil tier will give 10% energy discount. Added coil overclock. While enabled, will boost recipe speed on 25% - TheDarkDnKTv
+* Fix of lootmap, again - TheDarkDnKTv
+* Fix new brocken widget - TheDarkDnKTv
+* Scanner: - Archengius
+* Surface rocks: - Archengius
+* Crafting station: - Archengius
+* Fixed sort button not working properly - Archengius
+* Multiblock JEI preview now includes all blocks used in template in recipe lookup - Archengius
+* Merge branch 'master' into np-changes - TheDarkDnKTv
+* Fix null pointer in AdvancedTextWidget - Archengius
+* Fix of GTUtility - TheDarkDnKTv
+* Merge branch 'master' into np-changes - TheDarkDnKTv
+* Fluid Tank changes: - Archengius
+* Large Boiler Multiblock changes: - Archengius
+* Fixed workbench ui not working on server - Archengius
+* Implemented text copying for /gt util hand - Archengius
+* Bump version - Archengius
+* Added boiler throttling (#1010) - pyure
+* Pump: stop and re-calculate when touching solid-top block (#1006) - oxalica
+* Fix Arch's TabGroup - TheDarkDnKTv
+* Bump fix - TheDarkDnKTv
+* Bump - TheDarkDnKTv
+* Nefr chemistry recipes - TheDarkDnKTv
+* Some tweaks - TheDarkDnKTv
+* Changed github link in build file, fixed speed of steam machines and returned some pump tweaks - TheDarkDnKTv
+* Add missed localization - TheDarkDnKTv
+* Nukepowered GT changes, tooltips, chemestry recipes - TheDarkDnKTv
+* Add chemestry changes, solve merge conflicts - TheDarkDnKTv
+* Revert "Pump, Rotor recipe tweaks (#987)" - TheDarkDnKTv
+* Revert awful 'new' recipes - TheDarkDnKTv
+* Do not allow ghost ingredient placing and picking if widget group is not visible - Archengius
+* Added Crafting Station (Bronze Age) - Archengius
+* Process wood recipes after everything else - Archengius
+* Fixed crash when breaking a tool - Archengius
+* Bump version - Archengius
+* Merge branch 'arch-dev' of github.com:GregTechCE/GregTech - Archengius
+*  Conflicts: - Archengius
+* 	src/main/java/gregtech/api/util/GTUtility.java - Archengius
+* 	src/main/java/gregtech/common/inventory/itemsource/ItemSourceList.java - Archengius
+* 	src/main/java/gregtech/common/metatileentities/storage/CachedRecipeData.java - Archengius
+* 	src/main/java/gregtech/common/metatileentities/storage/MetaTileEntityWorkbench.java - Archengius
+* Some stuff prior to merging - Archengius
+* Advanced crafting table work - Dragon2488
+* Working work - Archengius
+* Work - Archengius
+* # Conflicts: - Archengius
+* #	src/main/java/gregtech/common/asm/GTCETransformer.java - Archengius
+* #	src/main/java/gregtech/common/asm/LayerCustomHeadVisitor.java - Archengius
+* #	src/main/java/gregtech/common/asm/SpecialArmorApplyVisitor.java - Archengius
+* #	src/main/java/gregtech/common/asm/util/TargetClassVisitor.java - Archengius
+* Fix inability to paint unpainted glass and glass panes with spray cans - Archengius
+* Implemented config option to hide facades from search and JEI - Archengius
+* Fixed crash with multiblocks and chanced outputs - Archengius
+* Forgot to add annotations import, sorry. Fixes build. (#1003) - Bohdan Schepansky
+* Fix of MetaArmor render issuue (#1000) - TheDarkDnKTv
+* Fixing wrong interface check in ArmorMetaItem - TheDarkDnKTv
+* Fixing armor render issue, now required ChickenASM - TheDarkDnKTv
+* Fixed proper loading for mod without ChickenASM - TheDarkDnKTv
+* ObfMapoping was moved to gregtech.common.asm.util - TheDarkDnKTv
+* Make IngotMaterial class accessible by zenscript/crafttweaker (#1002) - Bohdan Schepansky
+* Just like @ZenClass("mods.gregtech.material.SolidMaterial"), DustMaterial, FluidMaterial - Bohdan Schepansky
+* Pump, Rotor recipe tweaks (#987) - pyure
+* Cleanup - pyure
+* Upper-case key for pump ingredient - pyure
+* Update ru_ru.lang (#976) - Bohdan Schepansky
+* AbstractRecipeLogic : Changed Fields access modfier to protected from private. This is for custom recipe logic which subclasses it to not have to use reflection to touch these fields anyway. (#981) - zeyad001
+* Add burntime to Wood material (#980) - TheDarkDnKTv
+* Added vanila burn time to Wood material stuff - TheDarkDnKTv
+* Unfinished work - Archengius
+
+### 1.9.1
 * Revert "Container recipes for assembler" - XXxinsanityxX
 * This reverts commit 4c18b0b727c92bc5e386506489bde22bfde9f1b5 - XXxinsanityxX
 * Np changes - XXxinsanityxX
