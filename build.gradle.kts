@@ -71,7 +71,7 @@ val git: Git = Git.open(File("."))
 
 val modVersion = getVersionFromJava(file("src/main/java/gregtech/GregTechVersion.java"))
 val modVersionNoBuild = modVersion.substring(0, modVersion.lastIndexOf('.'))
-version = "$mcVersion-NP-$modVersion"
+version = "$mcVersion-$modVersion"
 group = "gregtech"
 
 configure<BasePluginConvention> {

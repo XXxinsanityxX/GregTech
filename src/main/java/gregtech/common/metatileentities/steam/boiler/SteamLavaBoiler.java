@@ -17,7 +17,7 @@ public class SteamLavaBoiler extends SteamBoiler {
     private FluidTank lavaFluidTank;
 
     public SteamLavaBoiler(ResourceLocation metaTileEntityId, boolean isHighPressure) {
-        super(metaTileEntityId, isHighPressure, Textures.LAVA_BOILER_OVERLAY, 100);
+        super(metaTileEntityId, isHighPressure, Textures.LAVA_BOILER_OVERLAY, 200);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class SteamLavaBoiler extends SteamBoiler {
 
     }
 
-    public static final int LAVA_PER_OPERATION = 100;
+    public static final int LAVA_PER_OPERATION = 200;
 
     @Override
     protected void tryConsumeNewFuel() {

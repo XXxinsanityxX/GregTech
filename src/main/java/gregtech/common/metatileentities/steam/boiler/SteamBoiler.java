@@ -40,7 +40,7 @@ import java.util.List;
 public abstract class SteamBoiler extends MetaTileEntity {
 
     private static final EnumFacing[] STEAM_PUSH_DIRECTIONS = ArrayUtils.add(EnumFacing.HORIZONTALS, EnumFacing.UP);
-    public static final int BOILING_CYCLE_LENGTH = 25;
+    public static final int BOILING_CYCLE_LENGTH = 20;
     public static final int HIGH_PRESSURE_BOILING_CYCLE_LENGTH = 10;
 
     public final TextureArea BRONZE_BACKGROUND_TEXTURE;
@@ -292,10 +292,5 @@ public abstract class SteamBoiler extends MetaTileEntity {
 
     private int getBoilingCycleLength() {
         return isHighPressure ? HIGH_PRESSURE_BOILING_CYCLE_LENGTH : BOILING_CYCLE_LENGTH;
-    }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, boolean advanced) {
-        tooltip.add(I18n.format("gregtech.machine.steam_boiler.tooltip_produces", baseSteamOutput, getBoilingCycleLength()));
     }
 }

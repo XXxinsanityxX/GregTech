@@ -1866,18 +1866,20 @@ tile.concrete.dark_bricks.mossy.name=Mossy Dark Concrete Bricks
 tile.concrete.dark_bricks.chiseled.name=Chiseled Dark Concrete Bricks
 
 # Steam machines
-gregtech.machine.steam_boiler.tooltip_produces=Produces %dmb of steam in %d ticks
-
 gregtech.machine.steam_boiler_coal_bronze.name=Small Steam Coal Boiler
-gregtech.machine.steam_boiler_coal_bronze.tooltip=An early way to get Steam Power
+gregtech.machine.steam_boiler_coal_bronze.tooltip=An early way to get Steam Power./nProduces 125l of steam in 20 ticks
+
 gregtech.machine.steam_boiler_coal_steel.name=High Pressure Steam Coal Boiler
-gregtech.machine.steam_boiler_coal_steel.tooltip=Faster than the Small Steam Coal Boiler
+gregtech.machine.steam_boiler_coal_steel.tooltip=Faster than the Small Steam Coal Boiler./nProduces 125l of steam in 10 ticks
+
 gregtech.machine.steam_boiler_solar_bronze.name=Steam Solar Boiler
-gregtech.machine.steam_boiler_solar_bronze.tooltip=Steam Power by Sun
+gregtech.machine.steam_boiler_solar_bronze.tooltip=Steam Power by Sun./nProduces 100l of steam in 20 ticks
+
 gregtech.machine.steam_boiler_lava_bronze.name=Small Steam Lava Boiler
-gregtech.machine.steam_boiler_lava_bronze.tooltip=A Boiler running off Lava
+gregtech.machine.steam_boiler_lava_bronze.tooltip=A Boiler running off Lava./nProduces 200l of steam in 20 ticks
+
 gregtech.machine.steam_boiler_lava_steel.name=High Pressure Steam Lava Boiler
-gregtech.machine.steam_boiler_lava_steel.tooltip=Faster than Small Steam Lava Boiler
+gregtech.machine.steam_boiler_lava_steel.tooltip=Faster than Small Steam Lava Boiler./nProduces 200l of steam in 10 ticks
 
 gregtech.machine.steam_extractor_bronze.name=Steam Extractor
 gregtech.machine.steam_extractor_bronze.tooltip=Extracting your first Rubber
