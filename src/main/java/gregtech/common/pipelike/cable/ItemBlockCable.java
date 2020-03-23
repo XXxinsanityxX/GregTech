@@ -1,7 +1,8 @@
 package gregtech.common.pipelike.cable;
 
 import gregtech.api.GTValues;
-import gregtech.api.pipenet.block.material.ItemBlockMaterialPipe;
+import gregtech.api.pipenet.block.BlockPipe;
+import gregtech.api.pipenet.block.ItemBlockPipe;
 import gregtech.api.util.GTUtility;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -13,9 +14,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemBlockCable extends ItemBlockMaterialPipe<Insulation, WireProperties> {
+public class ItemBlockCable extends ItemBlockPipe<Insulation, WireProperties> {
 
-    public ItemBlockCable(BlockCable block) {
+    public ItemBlockCable(BlockPipe<Insulation, WireProperties, ?> block) {
         super(block);
     }
 

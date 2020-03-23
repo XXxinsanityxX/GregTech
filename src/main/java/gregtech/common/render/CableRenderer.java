@@ -26,7 +26,6 @@ import gregtech.common.pipelike.cable.BlockCable;
 import gregtech.common.pipelike.cable.Insulation;
 import gregtech.common.pipelike.cable.ItemBlockCable;
 import gregtech.common.pipelike.cable.WireProperties;
-import gregtech.common.pipelike.cable.tile.TileEntityCable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -116,7 +115,7 @@ public class CableRenderer implements ICCBlockRenderer, IItemRenderer {
         IVertexOperation[] pipeline = {new Translation(pos)};
 
         BlockCable blockCable = (BlockCable) state.getBlock();
-        TileEntityCable tileEntityCable = (TileEntityCable) blockCable.getPipeTileEntity(world, pos);
+        IPipeTile<Insulation, WireProperties> tileEntityCable = blockCable.getPipeTileEntity(world, pos);
         if (tileEntityCable == null) return false;
         int paintingColor = tileEntityCable.getInsulationColor();
         int connectedSidesMask = blockCable.getActualConnections(tileEntityCable, world);
@@ -258,7 +257,7 @@ public class CableRenderer implements ICCBlockRenderer, IItemRenderer {
         if (tileEntity == null) {
             return Pair.of(TextureUtils.getMissingSprite(), 0xFFFFFF);
         }
-        Material material = ((TileEntityCable) tileEntity).getPipeMaterial();
+        Material material = tileEntity.getPipeMaterial();
         Insulation insulation = tileEntity.getPipeType();
         if (material == null || insulation == null) {
             return Pair.of(TextureUtils.getMissingSprite(), 0xFFFFFF);

@@ -43,7 +43,7 @@ public class EnergyNet extends PipeNet<WireProperties> {
     public List<RoutePath> computePatches(BlockPos startPos) {
         ArrayList<RoutePath> readyPaths = new ArrayList<>();
         RoutePath currentPath = new RoutePath();
-        Node<WireProperties> firstNode = getNodeAt(startPos);
+        Node<WireProperties> firstNode = allNodes.get(startPos);
         currentPath.path.put(startPos, firstNode.data);
         readyPaths.add(currentPath.cloneAndCompute(startPos));
         HashSet<BlockPos> observedSet = new HashSet<>();
@@ -54,13 +54,13 @@ public class EnergyNet extends PipeNet<WireProperties> {
         while (true) {
             for (EnumFacing facing : EnumFacing.VALUES) {
                 currentPos.move(facing);
-                Node<WireProperties> secondNode = getNodeAt(currentPos);
+                Node<WireProperties> secondNode = allNodes.get(currentPos);
                 if (secondNode != null && canNodesConnect(firstNode, facing, secondNode, this) && !observedSet.contains(currentPos)) {
                     BlockPos immutablePos = currentPos.toImmutable();
                     observedSet.add(immutablePos);
                     firstNode = secondNode;
                     moveStack.push(facing.getOpposite());
-                    currentPath.path.put(immutablePos, getNodeAt(immutablePos).data);
+                    currentPath.path.put(immutablePos, allNodes.get(immutablePos).data);
                     if (secondNode.isActive) {
                         //if we are on active node, this is end of our path
                         RoutePath finalizedPath = currentPath.cloneAndCompute(immutablePos);

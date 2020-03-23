@@ -20,6 +20,7 @@ import gregtech.api.pipenet.WorldPipeNet;
 import gregtech.api.pipenet.tile.AttachmentType;
 import gregtech.api.pipenet.tile.IPipeTile;
 import gregtech.api.pipenet.tile.TileEntityPipeBase;
+import gregtech.api.unification.material.type.Material;
 import gregtech.common.tools.DamageValues;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -71,17 +72,51 @@ public abstract class BlockPipe<PipeType extends Enum<PipeType> & IPipeType<Node
 
     public abstract TileEntityPipeBase<PipeType, NodeDataType> createNewTileEntity(boolean supportsTicking);
 
-    public abstract NodeDataType createProperties(IPipeTile<PipeType, NodeDataType> pipeTile);
+    public NodeDataType createProperties(IPipeTile<PipeType, NodeDataType> pipeTile) {
+        PipeType pipeType = pipeTile.getPipeType();
+        Material material = pipeTile.getPipeMaterial();
+        if (pipeType == null || material == null) {
+            return getFallbackType();
+        }
+        return createProperties(pipeTile.getPipeType(), pipeTile.getPipeMaterial());
+    }
 
-    public abstract NodeDataType createItemProperties(ItemStack itemStack);
+    public NodeDataType createItemProperties(ItemStack itemStack) {
+        PipeType pipeType = getItemPipeType(itemStack);
+        Material material = getItemMaterial(itemStack);
+        if (pipeType == null || material == null) {
+            return getFallbackType();
+        }
+        return createProperties(pipeType, material);
+    }
 
-    public abstract ItemStack getDropItem(IPipeTile<PipeType, NodeDataType> pipeTile);
+    protected abstract NodeDataType createProperties(PipeType pipeType, Material material);
 
     protected abstract NodeDataType getFallbackType();
 
-    public abstract PipeType getItemPipeType(ItemStack itemStack);
+    public ItemStack getDropItem(IPipeTile<PipeType, NodeDataType> pipeTile) {
+        return getItem(pipeTile.getPipeType(), pipeTile.getPipeMaterial());
+    }
 
-    public abstract void setTileEntityData(TileEntityPipeBase<PipeType, NodeDataType> pipeTile, ItemStack itemStack);
+    public ItemStack getItem(PipeType pipeType, Material material) {
+        if (pipeType == null || material == null) {
+            return ItemStack.EMPTY;
+        }
+        int materialId = Material.MATERIAL_REGISTRY.getIDForObject(material);
+        return new ItemStack(this, 1, pipeType.ordinal() * 1000 + materialId);
+    }
+
+    public PipeType getItemPipeType(ItemStack itemStack) {
+        return getPipeTypeClass().getEnumConstants()[itemStack.getMetadata() / 1000];
+    }
+
+    public Material getItemMaterial(ItemStack itemStack) {
+        return Material.MATERIAL_REGISTRY.getObjectById(itemStack.getMetadata() % 1000);
+    }
+
+    public void setTileEntityData(TileEntityPipeBase<PipeType, NodeDataType> pipeTile, ItemStack itemStack) {
+        pipeTile.setPipeData(this, getItemPipeType(itemStack), getItemMaterial(itemStack));
+    }
 
     @Override
     public abstract void getSubBlocks(CreativeTabs itemIn, NonNullList<ItemStack> items);

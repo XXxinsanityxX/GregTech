@@ -4,19 +4,17 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.WorldSavedData;
 import net.minecraftforge.common.util.Constants.NBT;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>> extends WorldSavedData {
 
-    private World world;
-    protected boolean isFirstTick = true;
+    protected World world;
     protected List<T> pipeNets = new ArrayList<>();
-    protected Map<ChunkPos, List<T>> pipeNetsByChunk = new HashMap<>();
 
     public WorldPipeNet(String name) {
         super(name);
@@ -24,18 +22,6 @@ public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>
 
     public World getWorld() {
         return world;
-    }
-
-    protected void setWorldAndInit(World world) {
-        if (isFirstTick) {
-            this.world = world;
-            this.isFirstTick = false;
-            onWorldSet();
-        }
-    }
-
-    protected void onWorldSet() {
-        this.pipeNets.forEach(PipeNet::onConnectionsUpdate);
     }
 
     public void addNode(BlockPos nodePos, NodeDataType nodeData, int mark, int blockedConnections, boolean isActive) {
@@ -64,16 +50,6 @@ public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>
         }
     }
 
-    protected void addPipeNetToChunk(ChunkPos chunkPos, T pipeNet) {
-        this.pipeNetsByChunk.computeIfAbsent(chunkPos, any -> new ArrayList<>()).add(pipeNet);
-    }
-
-    protected void removePipeNetFromChunk(ChunkPos chunkPos, T pipeNet) {
-        List<T> list = this.pipeNetsByChunk.get(chunkPos);
-        if (list != null) list.remove(pipeNet);
-        if (list.isEmpty()) this.pipeNetsByChunk.remove(chunkPos);
-    }
-
     public void removeNode(BlockPos nodePos) {
         T pipeNet = getNetFromPos(nodePos);
         if (pipeNet != null) {
@@ -96,8 +72,7 @@ public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>
     }
 
     public T getNetFromPos(BlockPos blockPos) {
-        List<T> pipeNetsInChunk = pipeNetsByChunk.getOrDefault(new ChunkPos(blockPos), Collections.emptyList());
-        for (T pipeNet : pipeNetsInChunk) {
+        for (T pipeNet : pipeNets) {
             if (pipeNet.containsNode(blockPos))
                 return pipeNet;
         }
@@ -105,18 +80,12 @@ public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>
     }
 
     protected void addPipeNet(T pipeNet) {
-        addPipeNetSilently(pipeNet);
-    }
-
-    protected void addPipeNetSilently(T pipeNet) {
         this.pipeNets.add(pipeNet);
-        pipeNet.getContainedChunks().forEach(chunkPos -> addPipeNetToChunk(chunkPos, pipeNet));
         pipeNet.isValid = true;
     }
 
     protected void removePipeNet(T pipeNet) {
         this.pipeNets.remove(pipeNet);
-        pipeNet.getContainedChunks().forEach(chunkPos -> removePipeNetFromChunk(chunkPos, pipeNet));
         pipeNet.isValid = false;
     }
 
@@ -129,9 +98,11 @@ public abstract class WorldPipeNet<NodeDataType, T extends PipeNet<NodeDataType>
         for (int i = 0; i < allEnergyNets.tagCount(); i++) {
             NBTTagCompound pNetTag = allEnergyNets.getCompoundTagAt(i);
             T pipeNet = createNetInstance();
+            pipeNets.add(pipeNet);
+            pipeNet.isValid = true;
             pipeNet.deserializeNBT(pNetTag);
-            addPipeNetSilently(pipeNet);
         }
+        this.pipeNets.forEach(PipeNet::onConnectionsUpdate);
     }
 
     @Override

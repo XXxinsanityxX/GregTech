@@ -47,7 +47,7 @@ public class FluidPipeNet extends MonolithicPipeNet<FluidPipeProperties> {
     public void destroyNetwork(boolean isLeaking, boolean isBurning) {
         World world = worldData.getWorld();
         ((WorldFluidPipeNet) (Object) worldData).removePipeNet(this);
-        for (BlockPos nodePos : getAllNodes().keySet()) {
+        for (BlockPos nodePos : allNodes.keySet()) {
             TileEntity tileEntity = world.getTileEntity(nodePos);
             if (tileEntity instanceof TileEntityFluidPipe) {
                 if (isBurning) {
@@ -93,7 +93,7 @@ public class FluidPipeNet extends MonolithicPipeNet<FluidPipeProperties> {
     protected void onConnectionsUpdate() {
         super.onConnectionsUpdate();
         //monolithic net always contains exactly one kind of nodes, so this is always safe
-        int newTankCapacity = nodeData.throughput * getAllNodes().size();
+        int newTankCapacity = nodeData.throughput * allNodes.size();
         fluidNetTank.updateTankCapacity(newTankCapacity);
     }
 

@@ -1,7 +1,7 @@
 package gregtech.common.pipelike.fluidpipe;
 
-import gregtech.api.pipenet.block.material.ItemBlockMaterialPipe;
-import gregtech.api.util.GTUtility;
+import gregtech.api.pipenet.block.BlockPipe;
+import gregtech.api.pipenet.block.ItemBlockPipe;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
@@ -12,9 +12,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemBlockFluidPipe extends ItemBlockMaterialPipe<FluidPipeType, FluidPipeProperties> {
+public class ItemBlockFluidPipe extends ItemBlockPipe<FluidPipeType, FluidPipeProperties> {
 
-    public ItemBlockFluidPipe(BlockFluidPipe block) {
+    public ItemBlockFluidPipe(BlockPipe<FluidPipeType, FluidPipeProperties, ?> block) {
         super(block);
     }
 
