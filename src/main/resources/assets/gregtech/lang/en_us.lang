@@ -572,8 +572,6 @@ metaitem.cover.solar.panel.uv.tooltip=Ultimate Solar Panel
 
 metaitem.tool.cheat.name=Debug Scanner
 metaitem.tool.cheat.tooltip=Also an Infinite Energy Source
-metaitem.tool.scanner.name=Portable Scanner
-metaitem.tool.scanner.tooltip=Tricorder
 
 metaitem.duct.tape.name=BrainTech Aerospace Advanced Reinforced Duct Tape FAL-84
 metaitem.duct.tape.tooltip=If you can't fix it with this, use more of it!
@@ -1668,13 +1666,6 @@ tile.surface_rock_new.name=Surface Rock
 gregtech.block.surface_rock.material=Rock Material: %s
 gregtech.block.surface_rock.underground_materials=Underground Materials: %s
 
-metaitem.scanner.name=Scanner
-metaitem.scanner.tooltip=Right click on surface rocks/nto discover underground materials
-behavior.scanner.analyzing=Analyzing...
-behavior.scanner.analyzing_failed=Analyzing failed!
-behavior.scanner.analyzing_complete=Analyzing complete!
-behavior.scanner.not_enough_energy=Analyzing failed: Not Enough Energy!
-
 tile.casing.ulv=ULV Machine Casing
 tile.casing.lv=LV Machine Casing
 tile.casing.mv=MV Machine Casing
@@ -1790,15 +1781,6 @@ gregtech.machine.locked_safe.name=Locked Safe
 
 gregtech.machine.locked_safe.malfunctioning=§cMalfunctioning!
 gregtech.machine.locked_safe.requirements=§7Replacements required:
-
-#Workbench
-gregtech.machine.workbench.name=Crafting Station
-gregtech.machine.workbench.tab.workbench=Crafting
-gregtech.machine.workbench.tab.item_list=Storage
-gregtech.item_list.items_stored=§7Stored: %d
-
-gregtech.machine.workbench.tab.crafting=Crafting
-gregtech.machine.workbench.tab.container=Container
 
 # Tanks
 gregtech.machine.wooden_tank.name=Wooden Tank

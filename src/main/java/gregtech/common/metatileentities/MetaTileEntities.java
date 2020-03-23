@@ -144,7 +144,6 @@ public class MetaTileEntities {
     public static MetaTileEntityChest TITANIUM_CHEST;
     public static MetaTileEntityChest TUNGSTENSTEEL_CHEST;
     public static MetaTileEntityLockedSafe LOCKED_SAFE;
-    public static MetaTileEntityArmorTable ARMOR_TABLE;
 
     public static MetaTileEntityTank WOODEN_TANK;
     public static MetaTileEntityTank BRONZE_TANK;
@@ -155,7 +154,6 @@ public class MetaTileEntities {
 
 
     //MISC MACHINES SECTION
-    public static MetaTileEntityWorkbench WORKBENCH;
     public static MetaTileEntityPump[] PUMP = new MetaTileEntityPump[4];
     public static MetaTileEntityBlockBreaker[] BLOCK_BREAKER = new MetaTileEntityBlockBreaker[4];
     public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[4];
@@ -497,8 +495,6 @@ public class MetaTileEntities {
         FISHER[3] = GregTechAPI.registerMetaTileEntity(823, new MetaTileEntityFisher(gregtechId("fisher.ev"), 4));
 
         LOCKED_SAFE = GregTechAPI.registerMetaTileEntity(824, new MetaTileEntityLockedSafe(gregtechId("locked_safe")));
-        WORKBENCH = GregTechAPI.registerMetaTileEntity(825, new MetaTileEntityWorkbench(gregtechId("workbench")));
-        ARMOR_TABLE = GregTechAPI.registerMetaTileEntity(826, new MetaTileEntityArmorTable(gregtechId("armor_table")));
 
         for (int i = 1; i < 5; i++) {
             String voltageName = GTValues.VN[i].toLowerCase();
