@@ -2,7 +2,6 @@ package gregtech.common.inventory.itemsource.sources;
 
 import gregtech.api.util.ItemStackKey;
 import gregtech.common.inventory.itemsource.ItemSource;
-import gregtech.common.pipelike.inventory.network.UpdateResult;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.items.IItemHandler;
@@ -76,16 +75,6 @@ public abstract class InventoryItemSource extends ItemSource {
         }
         this.cachedRefreshResult = true;
         return true;
-    }
-
-    @Override
-    public UpdateResult update() {
-        //update stored item list once a second
-        long currentTick = world.getTotalWorldTime();
-        if (currentTick - lastStoredItemListUpdateTick >= 20) {
-            return recomputeItemStackCount() ? UpdateResult.CHANGED : UpdateResult.STANDBY;
-        }
-        return UpdateResult.STANDBY;
     }
 
     private boolean checkItemHandlerValid(boolean simulated) {

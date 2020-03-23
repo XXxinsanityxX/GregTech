@@ -47,4 +47,8 @@ public final class ItemStackKey {
     public String toString() {
         return itemStack.toString();
     }
+
+    public boolean isItemStackEqual(ItemStack stackInSlot) {
+        return false;
+    }
 }

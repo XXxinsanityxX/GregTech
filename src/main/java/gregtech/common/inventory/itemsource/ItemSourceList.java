@@ -4,7 +4,6 @@ import gregtech.api.util.GTUtility;
 import gregtech.api.util.ItemStackKey;
 import gregtech.common.inventory.IItemInfo;
 import gregtech.common.inventory.IItemList;
-import gregtech.common.pipelike.inventory.network.UpdateResult;
 import net.minecraft.util.ITickable;
 import net.minecraft.world.World;
 
@@ -12,7 +11,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class ItemSourceList implements IItemList, ITickable {
+public abstract class ItemSourceList implements IItemList, ITickable {
 
     protected final World world;
     protected final List<ItemSource> handlerInfoList = new CopyOnWriteArrayList<>();
@@ -61,11 +60,6 @@ public class ItemSourceList implements IItemList, ITickable {
     }
 
     @Override
-    public void update() {
-        this.handlerInfoList.forEach(ItemSource::update);
-    }
-
-    @Override
     public int insertItem(ItemStackKey itemStack, int amount, boolean simulate, InsertMode insertMode) {
         int amountToInsert = amount;
         if (insertMode == InsertMode.HIGHEST_PRIORITY) {
@@ -96,19 +90,6 @@ public class ItemSourceList implements IItemList, ITickable {
 
     public void notifyPriorityUpdated() {
         this.handlerInfoList.sort(comparator);
-    }
-
-    public boolean addItemHandler(ItemSource handlerInfo) {
-        if (!handlerInfoList.contains(handlerInfo)) {
-            handlerInfo.setStoredItemsChangeCallback((storedItems, removedItems) -> updateStoredItems(handlerInfo, storedItems, removedItems));
-            if (handlerInfo.update() == UpdateResult.INVALID) return false;
-            handlerInfo.setInvalidationCallback(() -> removeItemHandler(handlerInfo));
-            this.handlerInfoList.add(handlerInfo);
-            addItemHandlerPost(handlerInfo);
-            notifyPriorityUpdated();
-            return true;
-        }
-        return false;
     }
 
     public void removeItemHandler(ItemSource handlerInfo) {

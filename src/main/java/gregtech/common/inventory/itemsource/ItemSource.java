@@ -1,7 +1,6 @@
 package gregtech.common.inventory.itemsource;
 
 import gregtech.api.util.ItemStackKey;
-import gregtech.common.pipelike.inventory.network.UpdateResult;
 
 import java.util.Map;
 import java.util.Set;
@@ -13,9 +12,6 @@ public abstract class ItemSource {
     public abstract void setInvalidationCallback(Runnable invalidatedRunnable);
 
     public abstract void setStoredItemsChangeCallback(StoredItemsChangeCallback callback);
-
-    public abstract UpdateResult update();
-
     /**
      * @return items stored in this inventory
      */
