@@ -4,7 +4,6 @@
   "max_height": 45,
   "min_height": 10,
   "dimension_filter": ["is_nether"],
-  "surface_stone_material": "iron",
 
   "generator": {
     "type": "ellipsoid",

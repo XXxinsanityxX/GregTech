@@ -4,7 +4,6 @@
   "max_height": 30,
   "min_height": 20,
   "dimension_filter": ["name:the_end"],
-  "surface_stone_material": "molybdenum",
 
   "generator": {
     "type": "ellipsoid",
