@@ -5,13 +5,10 @@ import crafttweaker.annotations.ZenRegister;
 import crafttweaker.api.minecraft.CraftTweakerMC;
 import crafttweaker.api.world.IBiome;
 import gregtech.api.GTValues;
-import gregtech.api.unification.material.type.DustMaterial.MatFlags;
-import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.ore.StoneType;
 import gregtech.api.util.WorldBlockPredicate;
 import gregtech.api.worldgen.filler.BlockFiller;
 import gregtech.api.worldgen.populator.IVeinPopulator;
-import gregtech.api.worldgen.populator.SurfaceRockPopulator;
 import gregtech.api.worldgen.shape.ShapeGenerator;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -79,14 +76,6 @@ public class OreDepositDefinition {
         }
         if (configRoot.has("generation_predicate")) {
             this.generationPredicate = PredicateConfigUtils.createBlockStatePredicate(configRoot.get("generation_predicate"));
-        }
-        //legacy surface rock specifier support
-        if (configRoot.has("surface_stone_material")) {
-            IngotMaterial surfaceStoneMaterial = (IngotMaterial) OreConfigUtils.getMaterialByName(configRoot.get("surface_stone_material").getAsString());
-            if (!surfaceStoneMaterial.hasFlag(MatFlags.GENERATE_ORE)) {
-                throw new IllegalArgumentException("Material " + surfaceStoneMaterial + " doesn't have surface rock variant");
-            }
-            this.veinPopulator = new SurfaceRockPopulator(surfaceStoneMaterial);
         }
         if (configRoot.has("vein_populator")) {
             JsonObject object = configRoot.get("vein_populator").getAsJsonObject();

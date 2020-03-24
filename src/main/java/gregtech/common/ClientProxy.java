@@ -13,12 +13,10 @@ import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.api.util.GTLog;
 import gregtech.api.util.ModCompatibility;
 import gregtech.common.blocks.*;
-import gregtech.common.blocks.surfacerock.BlockSurfaceRockDeprecated;
 import gregtech.common.covers.facade.FacadeRenderer;
 import gregtech.common.items.MetaItems;
 import gregtech.common.render.CableRenderer;
 import gregtech.common.render.FluidPipeRenderer;
-import gregtech.common.render.StoneRenderer;
 import net.minecraft.block.BlockColored;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -91,24 +89,11 @@ public class ClientProxy extends CommonProxy {
     public static final IBlockColor FOAM_BLOCK_COLOR = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) ->
         state.getValue(BlockColored.COLOR).colorValue;
 
-    public static final IBlockColor SURFACE_ROCK_COLOR = (IBlockState state, IBlockAccess worldIn, BlockPos pos, int tintIndex) -> {
-        if (tintIndex == 1) {
-            if (state.getBlock() instanceof BlockSurfaceRockDeprecated) {
-                BlockSurfaceRockDeprecated surfaceRock = (BlockSurfaceRockDeprecated) state.getBlock();
-                return state.getValue(surfaceRock.materialProperty).materialRGB;
-            } else return 0xFFFFFF;
-        } else {
-            //flooded surface rock water variant
-            return BiomeColorHelper.getWaterColorAtPos(worldIn, pos);
-        }
-    };
-
     public void onPreLoad() {
         super.onPreLoad();
         MetaTileEntityRenderer.preInit();
         CableRenderer.preInit();
         FluidPipeRenderer.preInit();
-        StoneRenderer.preInit();
         MetaEntities.initRenderers();
         TextureUtils.addIconRegister(MetaFluids::registerSprites);
         MinecraftForge.EVENT_BUS.register(ToolRenderHandler.INSTANCE);
