@@ -49,6 +49,7 @@ import java.util.Collection;
 
 import static gregtech.api.GTValues.L;
 import static gregtech.api.GTValues.M;
+import static gregtech.common.items.MetaItems.LARGE_FLUID_CELL_STEEL;
 import static gregtech.common.items.MetaItems.RUBBER_DROP;
 
 public class MachineRecipeLoader {
@@ -367,8 +368,8 @@ public class MachineRecipeLoader {
 
         RecipeMaps.MIXER_RECIPES.recipeBuilder()
             .duration(1200).EUt(16)
-            .input(OrePrefix.dust, Materials.Ruby, 9)
-            .input(OrePrefix.dust, Materials.Redstone, 9)
+            .input(OrePrefix.dust, Materials.Ruby, 4)
+            .input(OrePrefix.dust, Materials.Redstone, 5)
             .outputs(MetaItems.ENERGIUM_DUST.getStackForm(9))
             .buildAndRegister();
 
@@ -378,11 +379,24 @@ public class MachineRecipeLoader {
             .duration(2000).EUt(120)
             .buildAndRegister();
 
-        RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder()
-            .inputs(MetaItems.ENERGIUM_DUST.getStackForm(9))
-            .fluidInputs(ModHandler.getDistilledWater(1800))
-            .outputs(MetaItems.ENERGY_CRYSTAL.getStackForm())
-            .duration(1500).EUt(120)
+        RecipeMaps.MIXER_RECIPES.recipeBuilder()
+            .duration(400).EUt(512)
+            .inputs(MetaItems.ENERGIUM_DUST.getStackForm(3))
+            .input(OrePrefix.dust, Materials.Lapis, 2)
+            .outputs(MetaItems.LAPOTRON_DUST.getStackForm(5))
+            .buildAndRegister();
+
+        RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().inputs(MetaItems.LAPOTRON_DUST.getStackForm(30))
+            .fluidInputs(Materials.Water.getFluid(1800))
+            .outputs(MetaItems.LAPOTRON_INERT.getStackForm())
+            .duration(2000).EUt(512)
+            .buildAndRegister();
+
+        RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
+            .input(OrePrefix.circuit, MarkerMaterials.Tier.Advanced, 2)
+            .inputs(MetaItems.LAPOTRON_INERT.getStackForm())
+            .outputs(MetaItems.LAPOTRON_CRYSTAL.getStackForm())
+            .duration(600).EUt(1024)
             .buildAndRegister();
     }
 
