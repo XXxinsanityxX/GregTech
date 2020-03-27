@@ -1136,6 +1136,9 @@ material.sodium_persulfate=Sodium Persulfate
 material.sodium_sulfide=Sodium Sulfide
 material.hydrogen_sulfide=Hydrogen Sulfide
 
+material.energetic_alloy=Energetic Alloy
+material.vibrant_alloy=Vibrant Alloy
+
 material.phosphorous_pentoxide=Phosphorous Pentoxide
 material.phosphoric_acid=Phosphoric Acid
 material.polyvinyl_acetate=Polyvinyl Acetate

@@ -367,29 +367,29 @@ public class MachineRecipeLoader {
             .buildAndRegister();
 
         RecipeMaps.MIXER_RECIPES.recipeBuilder()
-            .duration(1200).EUt(16)
+            .duration(300).EUt(120)
             .input(OrePrefix.dust, Materials.Ruby, 4)
             .input(OrePrefix.dust, Materials.Redstone, 5)
             .outputs(MetaItems.ENERGIUM_DUST.getStackForm(9))
             .buildAndRegister();
 
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().inputs(MetaItems.ENERGIUM_DUST.getStackForm(9))
-            .fluidInputs(Materials.Water.getFluid(1800))
+            .fluidInputs(Materials.EnergeticAlloy.getFluid(288))
             .outputs(MetaItems.ENERGY_CRYSTAL.getStackForm())
-            .duration(2000).EUt(120)
+            .duration(600).EUt(256)
             .buildAndRegister();
 
         RecipeMaps.MIXER_RECIPES.recipeBuilder()
-            .duration(400).EUt(512)
+            .duration(200).EUt(480)
             .inputs(MetaItems.ENERGIUM_DUST.getStackForm(3))
             .input(OrePrefix.dust, Materials.Lapis, 2)
             .outputs(MetaItems.LAPOTRON_DUST.getStackForm(5))
             .buildAndRegister();
 
         RecipeMaps.AUTOCLAVE_RECIPES.recipeBuilder().inputs(MetaItems.LAPOTRON_DUST.getStackForm(30))
-            .fluidInputs(Materials.Water.getFluid(1800))
+            .fluidInputs(Materials.VibrantAlloy.getFluid(288))
             .outputs(MetaItems.LAPOTRON_INERT.getStackForm())
-            .duration(2000).EUt(512)
+            .duration(1200).EUt(480)
             .buildAndRegister();
 
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder()
