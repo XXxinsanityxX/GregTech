@@ -50,6 +50,7 @@ val config: Properties = file("build.properties").inputStream().let {
 }
 
 val mcVersion = config["minecraft.version"] as String
+val gtVersion = config["gt.version"] as String
 val mcFullVersion = "$mcVersion-${config["forge.version"]}"
 val shortVersion = mcVersion.substring(0, mcVersion.lastIndexOf("."))
 val strippedVersion = shortVersion.replace(".", "") + "0"
@@ -64,7 +65,7 @@ val topVersion = config["top.version"] as String
 
 val git = Git.open(File("."))
 
-version = "$mcVersion-1.9.1-Unofficial"
+version = "$mcVersion-$gtVersion-Unofficial"
 group = "gregtech"
 
 configure<BasePluginConvention> {
@@ -136,12 +137,12 @@ val processResources: ProcessResources by tasks
 val sourceSets: SourceSetContainer = the<JavaPluginConvention>().sourceSets
 
 processResources.apply {
-    inputs.property("version", "1.9.0")
+    inputs.property("version", gtVersion)
     inputs.property("mcversion", mcFullVersion)
 
     from(sourceSets["main"].resources.srcDirs) {
         include("mcmod.info")
-        expand(mapOf("version" to "1.9.0",
+        expand(mapOf("version" to gtVersion,
             "mcversion" to mcFullVersion))
     }
 
