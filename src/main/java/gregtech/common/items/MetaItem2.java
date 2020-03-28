@@ -165,7 +165,7 @@ public class MetaItem2 extends MaterialMetaItem {
         TURBINE_ROTOR = addItem(508, "turbine_rotor").addComponents(new TurbineRotorBehavior());
         COVER_FACADE = addItem(509, "cover.facade").addComponents(new FacadeItem()).disableModelLoading();
         LAPOTRON_DUST = addItem(579, "lapotron_dust");
-        LAPOTRON_INERT = addItem(580, "lapotron_inert");
+        LAPOTRON_INERT = addItem(580, "lapotron_inert").setMaxStackSize(16);
     }
 
     public void registerRecipes() {

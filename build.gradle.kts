@@ -64,7 +64,7 @@ val topVersion = config["top.version"] as String
 
 val git = Git.open(File("."))
 
-version = "$mcVersion-1.9.0-Unofficial"
+version = "$mcVersion-1.9.1-Unofficial"
 group = "gregtech"
 
 configure<BasePluginConvention> {
