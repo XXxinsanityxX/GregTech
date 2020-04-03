@@ -483,8 +483,8 @@ public class Materials {
     public static IngotMaterial HSSG = new IngotMaterial(302, "hssg", 0x999900, MaterialIconSet.METALLIC, 3, of(new MaterialStack(TungstenSteel, 5), new MaterialStack(Chrome, 1), new MaterialStack(Molybdenum, 2), new MaterialStack(Vanadium, 1)), EXT2_METAL | GENERATE_RING | GENERATE_ROTOR | GENERATE_SMALL_GEAR | GENERATE_LONG_ROD | GENERATE_FRAME, null, 10.0F, 5.5f, 4000, 4500);
     public static IngotMaterial HSSE = new IngotMaterial(303, "hsse", 0x336600, MaterialIconSet.METALLIC, 4, of(new MaterialStack(HSSG, 6), new MaterialStack(Cobalt, 1), new MaterialStack(Manganese, 1), new MaterialStack(Silicon, 1)), EXT2_METAL | GENERATE_RING | GENERATE_ROTOR | GENERATE_SMALL_GEAR | GENERATE_LONG_ROD | GENERATE_FRAME, null, 10.0F, 8.0f, 5120, 5400);
     public static IngotMaterial HSSS = new IngotMaterial(304, "hsss", 0x660033, MaterialIconSet.METALLIC, 4, of(new MaterialStack(HSSG, 6), new MaterialStack(Iridium, 2), new MaterialStack(Osmium, 1)), EXT2_METAL | GENERATE_GEAR, null, 15.0F, 7.0f, 3000, 5400);
-    public static IngotMaterial EnergeticAlloy = new IngotMaterial(600, "energetic_alloy", 0xFFAA51, MaterialIconSet.METALLIC, 3, of(new MaterialStack(BlackSteel, 1), new MaterialStack(Gold, 1)), STD_METAL, null, 8.0F, 5.0f, 1024, 2200);
-    public static IngotMaterial VibrantAlloy = new IngotMaterial(601, "vibrant_alloy", 0x9DBC35, MaterialIconSet.METALLIC, 4, of(new MaterialStack(EnergeticAlloy, 1), new MaterialStack(Chrome, 1), new MaterialStack(EnderEye,1)), STD_METAL, null, 12.0F, 7.0f, 2048, 3200);
+    public static IngotMaterial EnergeticAlloy = new IngotMaterial(600, "energetic_alloy", 0xFFAA51, MaterialIconSet.METALLIC, 2, of(new MaterialStack(BlackSteel, 1), new MaterialStack(Gold, 1)), STD_METAL, null, 6.0F, 4.0f, 1024, 2200);
+    public static IngotMaterial VibrantAlloy = new IngotMaterial(601, "vibrant_alloy", 0x9DBC35, MaterialIconSet.METALLIC, 3, of(new MaterialStack(EnergeticAlloy, 1), new MaterialStack(Chrome, 1), new MaterialStack(EnderEye,1)), STD_METAL, null, 8.0F, 6.0f, 2048, 3200);
 
     /**
      * Clear matter materials
