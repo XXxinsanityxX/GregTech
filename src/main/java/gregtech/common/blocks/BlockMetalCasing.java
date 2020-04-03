@@ -35,7 +35,8 @@ public class BlockMetalCasing extends VariantBlock<BlockMetalCasing.MetalCasingT
         STAINLESS_CLEAN("stainless_clean"),
         TITANIUM_STABLE("titanium_stable"),
         TUNGSTENSTEEL_ROBUST("tungstensteel_robust"),
-        COKE_BRICKS("coke_bricks");
+        COKE_BRICKS("coke_bricks"),
+        POLYTETRAFLUOROETHYLENE_INERT("polytetrafluoroethylene_inert");
 
         private final String name;
 

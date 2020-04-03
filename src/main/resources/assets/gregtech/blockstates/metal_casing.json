@@ -45,6 +45,11 @@
           "all": "gregtech:blocks/casings/solid/machine_casing_stable_titanium"
         }
       },
+      "polytetrafluoroethylene_inert": {
+        "textures": {
+          "all": "gregtech:blocks/casings/solid/machine_casing_inert"
+        }
+      },
       "tungstensteel_robust": {
         "textures": {
           "all": "gregtech:blocks/casings/solid/machine_casing_robust_tungstensteel"

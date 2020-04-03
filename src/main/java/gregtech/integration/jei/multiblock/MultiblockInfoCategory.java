@@ -30,6 +30,7 @@ public class MultiblockInfoCategory implements IRecipeCategory<MultiblockInfoRec
             new MultiblockInfoRecipeWrapper(new PrimitiveBlastFurnaceInfo()),
             new MultiblockInfoRecipeWrapper(new CokeOvenInfo()),
             new MultiblockInfoRecipeWrapper(new VacuumFreezerInfo()),
+            new MultiblockInfoRecipeWrapper(new LCRInfo()),
             new MultiblockInfoRecipeWrapper(new ImplosionCompressorInfo()),
             new MultiblockInfoRecipeWrapper(new PyrolyzeOvenInfo()),
             new MultiblockInfoRecipeWrapper(new CrackerUnitInfo()),

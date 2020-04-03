@@ -447,6 +447,21 @@ public class RecipeMaps {
     /**
      * Example:
      * <pre>
+     * 		RecipeMap.LCR_RECIPES.recipeBuilder()
+     * 				.inputs(OreDictUnifier.get(OrePrefix.cell, Materials.Water, 1L))
+     * 				.outputs(OreDictUnifier.get(OrePrefix.cell, Materials.Ice, 1L))
+     * 				.duration(50)
+     * 				.buildAndRegister();
+     * </pre>
+     */
+
+    @ZenProperty
+    public static final RecipeMap<SimpleRecipeBuilder> LCR_RECIPES = new RecipeMap<>("lcr", 0, 2, 0, 1, 0, 3, 0, 2, new SimpleRecipeBuilder().EUt(30));
+
+
+    /**
+     * Example:
+     * <pre>
      *      RecipeMap.CHEMICAL_RECIPES.recipeBuilder()
      * 				.inputs(OreDictUnifier.get(OrePrefix.cell, Materials.NitrogenDioxide, 4), OreDictUnifier.get(OrePrefix.cell, Materials.Oxygen, 1))
      * 				.fluidInputs(Materials.Water.getFluid(2000))
