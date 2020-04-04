@@ -4,7 +4,6 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
 import gregtech.api.multiblock.BlockPattern;
 import gregtech.api.multiblock.FactoryBlockPattern;
 import gregtech.api.recipes.RecipeMaps;
@@ -12,10 +11,11 @@ import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
 import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.metatileentities.LargeSimpleRecipeMapMultiblockController;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 
-public class MetaTileEntityLCR extends RecipeMapMultiblockController {
+public class MetaTileEntityLCR extends LargeSimpleRecipeMapMultiblockController {
 
     private static final MultiblockAbility<?>[] ALLOWED_ABILITIES = {
         MultiblockAbility.IMPORT_ITEMS, MultiblockAbility.IMPORT_FLUIDS,
@@ -24,7 +24,7 @@ public class MetaTileEntityLCR extends RecipeMapMultiblockController {
     };
 
     public MetaTileEntityLCR(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMaps.LCR_RECIPES);
+        super(metaTileEntityId, RecipeMaps.CHEMICAL_RECIPES,100, 150,100, 1);
     }
 
     @Override

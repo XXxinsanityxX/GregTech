@@ -443,22 +443,6 @@ public class RecipeMaps {
 
     @ZenProperty
     public static final RecipeMap<SimpleRecipeBuilder> VACUUM_RECIPES = new RecipeMap<>("vacuum_freezer", 0, 1, 0, 1, 0, 1, 0, 1, new SimpleRecipeBuilder().EUt(120));
-
-    /**
-     * Example:
-     * <pre>
-     * 		RecipeMap.LCR_RECIPES.recipeBuilder()
-     * 				.inputs(OreDictUnifier.get(OrePrefix.cell, Materials.Water, 1L))
-     * 				.outputs(OreDictUnifier.get(OrePrefix.cell, Materials.Ice, 1L))
-     * 				.duration(50)
-     * 				.buildAndRegister();
-     * </pre>
-     */
-
-    @ZenProperty
-    public static final RecipeMap<SimpleRecipeBuilder> LCR_RECIPES = new RecipeMap<>("lcr", 0, 2, 0, 1, 0, 3, 0, 2, new SimpleRecipeBuilder().EUt(30));
-
-
     /**
      * Example:
      * <pre>
