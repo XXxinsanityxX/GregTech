@@ -405,6 +405,7 @@ public class Materials {
     public static GemMaterial Opal = new GemMaterial(213, "opal", 0x0000FF, MaterialIconSet.OPAL, 2, of(new MaterialStack(SiliconDioxide, 1)), STD_GEM | NO_SMASHING | NO_SMELTING | HIGH_SIFTER_OUTPUT, 7.5F, 3.0f, 312);
     public static GemMaterial Amethyst = new GemMaterial(214, "amethyst", 0xD232D2, MaterialIconSet.RUBY, 3, of(new MaterialStack(SiliconDioxide, 4), new MaterialStack(Iron, 1)), STD_GEM | NO_SMASHING | NO_SMELTING | HIGH_SIFTER_OUTPUT, 7.5F, 3.0f, 312);
     public static DustMaterial Redstone = new DustMaterial(215, "redstone", 0xC80000, MaterialIconSet.ROUGH, 2, of(new MaterialStack(Silicon, 1), new MaterialStack(Pyrite, 5), new MaterialStack(Ruby, 1), new MaterialStack(Mercury, 3)), GENERATE_PLATE | GENERATE_ORE | NO_SMASHING | SMELT_INTO_FLUID);
+    public static DustMaterial Electrotine = new DustMaterial(603, "electrotine", 0x3CB4C8, MaterialIconSet.SHINY, 0, of(new MaterialStack(Redstone, 1), new MaterialStack(Electrum, 1)),   GENERATE_ORE | NO_SMASHING);
     public static GemMaterial Lapis = new GemMaterial(216, "lapis", 0x4646DC, MaterialIconSet.LAPIS, 1, of(new MaterialStack(Lazurite, 12), new MaterialStack(Sodalite, 2), new MaterialStack(Pyrite, 1), new MaterialStack(Calcite, 1)), STD_GEM | NO_SMASHING | NO_SMELTING | CRYSTALLISABLE | NO_WORKING | DECOMPOSITION_BY_ELECTROLYZING);
     public static DustMaterial Blaze = new DustMaterial(217, "blaze", 0xFFC800, MaterialIconSet.DULL, 1, of(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1)), NO_SMELTING | SMELT_INTO_FLUID | MORTAR_GRINDABLE | BURNING);
     public static GemMaterial EnderPearl = new GemMaterial(218, "ender_pearl", 0x6CDCC8, MaterialIconSet.GEM_VERTICAL, 1, of(new MaterialStack(Beryllium, 1), new MaterialStack(Potassium, 4), new MaterialStack(Nitrogen, 5)), GENERATE_PLATE | GENERATE_LENSE | NO_SMASHING | NO_SMELTING);
@@ -485,6 +486,7 @@ public class Materials {
     public static IngotMaterial HSSS = new IngotMaterial(304, "hsss", 0x660033, MaterialIconSet.METALLIC, 4, of(new MaterialStack(HSSG, 6), new MaterialStack(Iridium, 2), new MaterialStack(Osmium, 1)), EXT2_METAL | GENERATE_GEAR, null, 15.0F, 7.0f, 3000, 5400);
     public static IngotMaterial EnergeticAlloy = new IngotMaterial(600, "energetic_alloy", 0xFFAA51, MaterialIconSet.METALLIC, 2, of(new MaterialStack(BlackSteel, 1), new MaterialStack(Gold, 1)), STD_METAL, null, 6.0F, 4.0f, 1024, 2200);
     public static IngotMaterial VibrantAlloy = new IngotMaterial(601, "vibrant_alloy", 0x9DBC35, MaterialIconSet.METALLIC, 3, of(new MaterialStack(EnergeticAlloy, 1), new MaterialStack(Chrome, 1), new MaterialStack(EnderEye,1)), STD_METAL, null, 8.0F, 6.0f, 2048, 3200);
+    public static IngotMaterial BlueAlloy = new IngotMaterial(602, "blue_alloy", 0x64B4FF, MaterialIconSet.METALLIC, 0, of(new MaterialStack(Silver, 1), new MaterialStack(Electrotine, 4)),  GENERATE_FINE_WIRE | GENERATE_BOLT_SCREW);
 
     /**
      * Clear matter materials
@@ -580,6 +582,8 @@ public class Materials {
         RockSalt.setOreMultiplier(3);
         Lepidolite.setOreMultiplier(5);
 
+        Electrotine.setOreMultiplier(2);
+
         Spodumene.setOreMultiplier(2);
         Spessartine.setOreMultiplier(2);
         Soapstone.setOreMultiplier(3);
@@ -639,6 +643,8 @@ public class Materials {
         Cuprite.addOreByProducts(Iron, Antimony, Malachite);
         Enargite.addOreByProducts(Pyrite, Zinc, Quartzite);
         Tennantite.addOreByProducts(Iron, Antimony, Zinc);
+
+        Electrotine.addOreByProducts(Redstone, Electrum);
 
         Chalcopyrite.addOreByProducts(Pyrite, Cobalt, Cadmium, Gold);
         Sphalerite.addOreByProducts(GarnetYellow, Cadmium, Gallium, Zinc);
