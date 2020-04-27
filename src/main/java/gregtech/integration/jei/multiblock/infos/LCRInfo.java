@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import gregtech.api.GTValues;
 import gregtech.api.metatileentity.multiblock.MultiblockControllerBase;
 import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
+import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.integration.jei.multiblock.MultiblockInfoPage;
@@ -29,7 +30,7 @@ public class LCRInfo extends MultiblockInfoPage {
             .aisle("XXX", "IXF", "XXX")
             .where('C', MetaTileEntities.LCR, EnumFacing.WEST)
             .where('X', MetaBlocks.METAL_CASING.getState(MetalCasingType.POLYTETRAFLUOROETHYLENE_INERT))
-            .where('#', Blocks.AIR.getDefaultState())
+            .where('#', MetaBlocks.WIRE_COIL.getState(BlockWireCoil.CoilType.CUPRONICKEL))
             .where('I', MetaTileEntities.ITEM_IMPORT_BUS[GTValues.HV], EnumFacing.SOUTH)
             .where('F', MetaTileEntities.FLUID_IMPORT_HATCH[GTValues.HV], EnumFacing.SOUTH)
             .where('E', MetaTileEntities.ENERGY_INPUT_HATCH[GTValues.HV], EnumFacing.EAST)

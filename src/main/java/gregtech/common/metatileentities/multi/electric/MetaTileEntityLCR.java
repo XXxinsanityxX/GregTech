@@ -10,6 +10,7 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.ICubeRenderer;
 import gregtech.api.render.Textures;
 import gregtech.common.blocks.BlockMetalCasing.MetalCasingType;
+import gregtech.common.blocks.BlockWireCoil;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.LargeSimpleRecipeMapMultiblockController;
 import net.minecraft.block.state.IBlockState;
@@ -24,7 +25,7 @@ public class MetaTileEntityLCR extends LargeSimpleRecipeMapMultiblockController 
     };
 
     public MetaTileEntityLCR(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMaps.CHEMICAL_RECIPES,100, 150,100, 1);
+        super(metaTileEntityId, RecipeMaps.CHEMICAL_RECIPES,100,200,100,1);
     }
 
     @Override
@@ -42,13 +43,17 @@ public class MetaTileEntityLCR extends LargeSimpleRecipeMapMultiblockController 
             .where('S', selfPredicate())
             .where('L', statePredicate(getCasingState()))
             .where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))
-            .where('#', isAirPredicate())
+            .where('#', statePredicate(getCoilState()))
             .build();
     }
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
         return Textures.INERT_CASING;
+    }
+
+    protected IBlockState getCoilState() {
+        return MetaBlocks.WIRE_COIL.getState(BlockWireCoil.CoilType.CUPRONICKEL);
     }
 
     protected IBlockState getCasingState() {
