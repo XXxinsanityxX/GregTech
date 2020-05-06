@@ -87,6 +87,13 @@
           "side": "gregtech:blocks/casings/steam/bronze/side"
         }
       },
+      "ultra_high_voltage": {
+        "textures": {
+          "bottom": "gregtech:blocks/casings/voltage/uhv/bottom",
+          "top": "gregtech:blocks/casings/voltage/uhv/top",
+          "side": "gregtech:blocks/casings/voltage/uhv/side"
+        }
+      },
       "bronze_bricks_hull": {
         "textures": {
           "bottom": "gregtech:blocks/casings/steam/bricked_bronze/bottom",

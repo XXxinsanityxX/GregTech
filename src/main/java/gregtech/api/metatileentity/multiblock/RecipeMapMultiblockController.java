@@ -117,12 +117,13 @@ public abstract class RecipeMapMultiblockController extends MultiblockWithDispla
         super.addDisplayText(textList);
         if (isStructureFormed()) {
             IEnergyContainer energyContainer = recipeMapWorkable.getEnergyContainer();
+            long maxVoltage = 0;
             if (energyContainer != null && energyContainer.getEnergyCapacity() > 0) {
-                long maxVoltage = energyContainer.getInputVoltage();
-                String voltageName = GTValues.VN[GTUtility.getTierByVoltage(maxVoltage)];
+                maxVoltage = energyContainer.getInputVoltage();
+                int tier = GTUtility.getTierByVoltage(maxVoltage);
+                String voltageName = GTValues.VN[tier > (GTValues.VN.length - 1) ? (GTValues.VN.length - 1) : tier];
                 textList.add(new TextComponentTranslation("gregtech.multiblock.max_energy_per_tick", maxVoltage, voltageName));
             }
-
             if (!recipeMapWorkable.isWorkingEnabled()) {
                 textList.add(new TextComponentTranslation("gregtech.multiblock.work_paused"));
 
