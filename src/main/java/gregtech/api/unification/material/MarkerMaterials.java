@@ -95,7 +95,8 @@ public class MarkerMaterials {
         public static Material Elite = new MarkerMaterial("elite");
         public static Material Master = new MarkerMaterial("master");
         public static Material Ultimate = new MarkerMaterial("ultimate");
-        public static Material Superconductor = new Material(354, "superconductor", 0xFFFFFF, MaterialIconSet.NONE, of(), 0L, null) {
+        public static Material Ultra_High = new MarkerMaterial("ultra_high");
+        public static Material Superconductor = new Material(442, "superconductor", 0xFFFFFF, MaterialIconSet.NONE, of(), 0L, null) {
         };
         public static Material Infinite = new MarkerMaterial("infinite");
     }
