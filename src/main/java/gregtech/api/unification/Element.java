@@ -139,7 +139,10 @@ public enum Element {
     //stargate
     Tr(119, 178, -1, null, "Tritanium", false),
     Dr(120, 180, -1, null, "Duranium", false),
-    Nq(121, 172, 140, null, "Naquadah", true);
+    Nq(121, 172, 140, null, "Naquadah", true),
+    //Other
+    Aw(121, 172, -1, null, "awdrac", false),
+    If(121, 172, -1, null, "inf", false);
 
     public final String name;
     public final long protons;

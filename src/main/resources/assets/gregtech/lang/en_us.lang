@@ -1389,6 +1389,9 @@ material.vanadium_steel=Vanadiumsteel
 material.hssg=HSS-G
 material.hsse=HSS-E
 material.hsss=HSS-S
+material.awdrac=Awakened Draconium
+material.electrumflux=Fluxed Electrum
+material.inf=Infinity
 
 material.any_copper=AnyCopper
 material.any_bronze=AnyBronze
@@ -1698,8 +1701,8 @@ tile.wire_coil.tungstensteel.name=Tungstensteel Coil Block
 tile.wire_coil.hss_g.name=HSS-G Coil Block
 tile.wire_coil.naquadah.name=Naquadah Coil Block
 tile.wire_coil.naquadah_alloy.name=Naquadah Alloy Coil Block
-tile.wire_coil.superconductor.name=Superconducting Coil Block
-tile.wire_coil.fusion_coil.name=Fusion Coil Block
+tile.wire_coil.electrumflux.name=Fluxed Electrum Coil Block
+tile.wire_coil.awdrac.name=Awakened Draconium Coil Block
 
 # Warning sign blocks
 tile.warning_sign.yellow_stripes.name=Yellow Stripes Block
@@ -1774,6 +1777,8 @@ tile.multiblock_casing.grate.name=Grate Machine Casing
 tile.multiblock_casing.assembler.name=Assembler Machine Casing
 tile.multiblock_casing.fusion.name=Fusion Machine Casing
 tile.multiblock_casing.fusion_mk2.name=Fusion Machine Casing MK II
+tile.multiblock_casing.superconductor.name=Superconducting Coil Block
+tile.multiblock_casing.fusion_coil.name=Fusion Coil Block
 
 # Creative tabs
 itemGroup.gregtech.main=GregTech CE

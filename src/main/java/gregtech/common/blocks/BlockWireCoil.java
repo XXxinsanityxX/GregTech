@@ -1,6 +1,5 @@
 package gregtech.common.blocks;
 
-import gregtech.api.unification.material.MarkerMaterials.Tier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.Material;
 import net.minecraft.block.SoundType;
@@ -62,8 +61,11 @@ public class BlockWireCoil extends VariantBlock<BlockWireCoil.CoilType> {
         HSS_G("hss_g", 5400, 8, 2, Materials.HSSG),
         NAQUADAH("naquadah", 7200, 16, 1, Materials.Naquadah),
         NAQUADAH_ALLOY("naquadah_alloy", 8600, 16, 2, Materials.NaquadahAlloy),
-        SUPERCONDUCTOR("superconductor", 9001, 16, 4, Tier.Superconductor),
-        FUSION_COIL("fusion_coil", 9700, 16, 8, null);
+        FLUXED_ELECTRUM("electrumflux", 12000,16,4,Materials.Fluxed_Electrum),
+        AW_DRACO("awdrac", 15000,16,4,Materials.AwDrac);
+
+        //SUPERCONDUCTOR("superconductor", 0, 16, 0, Tier.Superconductor),
+        //FUSION_COIL("fusion_coil", 0, 16, 0, null);
 
         private final String name;
         //electric blast furnace properties

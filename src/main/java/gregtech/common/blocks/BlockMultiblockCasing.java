@@ -31,6 +31,8 @@ public class BlockMultiblockCasing extends VariantBlock<BlockMultiblockCasing.Mu
         GRATE_CASING("grate"),
         ASSEMBLER_CASING("assembler"),
         FUSION_CASING("fusion"),
+        FUSION_COIL("fusion_coil"),
+        SUPERCONDUCTOR("superconductor"),
         FUSION_CASING_MK2("fusion_mk2");
 
         private final String name;

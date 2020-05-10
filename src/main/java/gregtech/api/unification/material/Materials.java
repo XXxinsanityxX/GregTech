@@ -513,7 +513,12 @@ public class Materials {
     public static DustMaterial Cocoa = new DustMaterial(440, "cocoa", 0xBE5F00, MaterialIconSet.ROUGH, 0, of(), 0);
     public static DustMaterial Wheat = new DustMaterial(441, "wheat", 0xFFFFC4, MaterialIconSet.FINE, 0, of(), 0);
 
-    //NEXT AVAILABLE ID 443
+    public static IngotMaterial AwDrac = new IngotMaterial(443, "awdrac", 0xF44E00, MaterialIconSet.SHINY, 6, of(), EXT2_METAL,Element.Aw,20.0f,6.0f,0);
+    public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), 0,Element.If,20.0f,6.0f,0);
+    public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,null,20.0f,6.0f,0);
+
+
+    //NEXT AVAILABLE ID 446
 
     static {
         for (DustMaterial dustMaterial : new DustMaterial[]{Bastnasite, Monazite}) {
@@ -835,6 +840,8 @@ public class Materials {
 
         NaquadahAlloy.setCableProperties(GTValues.V[8], 2, 4);
         Duranium.setCableProperties(GTValues.V[8], 1, 8);
+        AwDrac.setCableProperties(GTValues.V[9], 1, 4);
+        Fluxed_Electrum.setCableProperties(GTValues.V[8], 3, 2);
 
         Copper.setFluidPipeProperties(25, 1000, true);
         Bronze.setFluidPipeProperties(35, 2000, true);
