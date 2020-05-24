@@ -482,6 +482,16 @@ public class MetaTileEntities {
 
         LOCKED_SAFE = GregTechAPI.registerMetaTileEntity(830, new MetaTileEntityLockedSafe(gregtechId("locked_safe")));
 
+        QUANTUM_CHEST[0] = GregTechAPI.registerMetaTileEntity(1010, new MetaTileEntityQuantumChest(gregtechId("quantum_chest.luv"), 6, 128000000));
+        QUANTUM_CHEST[1] = GregTechAPI.registerMetaTileEntity(1011, new MetaTileEntityQuantumChest(gregtechId("quantum_chest.zpm"), 7, 256000000));
+        QUANTUM_CHEST[2] = GregTechAPI.registerMetaTileEntity(1012, new MetaTileEntityQuantumChest(gregtechId("quantum_chest.uv"), 8, 512000000));
+        QUANTUM_CHEST[3] = GregTechAPI.registerMetaTileEntity(1013, new MetaTileEntityQuantumChest(gregtechId("quantum_chest.uhv"), 9, 1024000000));
+
+        QUANTUM_TANK[0] = GregTechAPI.registerMetaTileEntity(1020, new MetaTileEntityQuantumTank(gregtechId("quantum_tank.luv"), 6, 128000000));
+        QUANTUM_TANK[1] = GregTechAPI.registerMetaTileEntity(1021, new MetaTileEntityQuantumTank(gregtechId("quantum_tank.zpm"), 7, 256000000));
+        QUANTUM_TANK[2] = GregTechAPI.registerMetaTileEntity(1022, new MetaTileEntityQuantumTank(gregtechId("quantum_tank.uv"), 8, 512000000));
+        QUANTUM_TANK[3] = GregTechAPI.registerMetaTileEntity(1023, new MetaTileEntityQuantumTank(gregtechId("quantum_tank.uhv"), 9, 1024000000));
+
         for (int i = 1; i < 5; i++) {
             String voltageName = GTValues.VN[i].toLowerCase();
             PUMP[i - 1] = new MetaTileEntityPump(gregtechId("pump." + voltageName), i);
@@ -492,14 +502,6 @@ public class MetaTileEntities {
 
         TESLA_COIL = new MetaTileEntityTeslaCoil(gregtechId("tesla_coil"));
         GregTechAPI.registerMetaTileEntity(1001, TESLA_COIL);
-
-        for (int i = 2; i < 6; i++) {
-            String voltageName = GTValues.VN[i].toLowerCase();
-            QUANTUM_CHEST[i - 2] = new MetaTileEntityQuantumChest(gregtechId("quantum_chest." + voltageName), i, 64 * 64000 * (i - 1));
-            QUANTUM_TANK[i - 2] = new MetaTileEntityQuantumTank(gregtechId("quantum_tank." + voltageName), i, 1000 * 64000 * (i - 1));
-            GregTechAPI.registerMetaTileEntity(1010 + (i - 2), QUANTUM_CHEST[i - 2]);
-            GregTechAPI.registerMetaTileEntity(1020 + (i - 2), QUANTUM_TANK[i - 2]);
-        }
 
         for (int i = 1; i < 5; i++) {
             String voltageName = GTValues.VN[i].toLowerCase();
