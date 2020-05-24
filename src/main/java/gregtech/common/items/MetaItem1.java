@@ -283,13 +283,6 @@ public class MetaItem1 extends MaterialMetaItem {
         COVER_SOLAR_PANEL = addItem(750, "cover.solar.panel");
         COVER_SOLAR_PANEL_ULV = addItem(751, "cover.solar.panel.ulv");
         COVER_SOLAR_PANEL_LV = addItem(752, "cover.solar.panel.lv");
-        COVER_SOLAR_PANEL_MV = addItem(753, "cover.solar.panel.mv");
-        COVER_SOLAR_PANEL_HV = addItem(754, "cover.solar.panel.hv");
-        COVER_SOLAR_PANEL_EV = addItem(755, "cover.solar.panel.ev");
-        COVER_SOLAR_PANEL_IV = addItem(756, "cover.solar.panel.iv");
-        COVER_SOLAR_PANEL_LUV = addItem(757, "cover.solar.panel.luv");
-        COVER_SOLAR_PANEL_ZPM = addItem(758, "cover.solar.panel.zpm");
-        COVER_SOLAR_PANEL_UV = addItem(759, "cover.solar.panel.uv");
 
         FLUID_CELL = addItem(762, "fluid_cell").addComponents(new FluidStats(1000, Integer.MIN_VALUE, Integer.MAX_VALUE, false));
         INTEGRATED_CIRCUIT = addItem(766, "circuit.integrated").addComponents(new IntCircuitBehaviour());
