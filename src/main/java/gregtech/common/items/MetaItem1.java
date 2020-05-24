@@ -182,6 +182,7 @@ public class MetaItem1 extends MaterialMetaItem {
         ELECTRIC_MOTOR_LUV = addItem(606, "electric.motor.luv");
         ELECTRIC_MOTOR_ZPM = addItem(607, "electric.motor.zpm");
         ELECTRIC_MOTOR_UV = addItem(608, "electric.motor.uv");
+        ELECTRIC_MOTOR_UHV = addItem(609, "electric.motor.uhv");
 
         ELECTRIC_PUMP_LV = addItem(610, "electric.pump.lv");
         ELECTRIC_PUMP_MV = addItem(611, "electric.pump.mv");
@@ -191,6 +192,7 @@ public class MetaItem1 extends MaterialMetaItem {
         ELECTRIC_PUMP_LUV = addItem(615, "electric.pump.luv");
         ELECTRIC_PUMP_ZPM = addItem(616, "electric.pump.zpm");
         ELECTRIC_PUMP_UV = addItem(617, "electric.pump.uv");
+        ELECTRIC_PUMP_UHV = addItem(618, "electric.pump.uhv");
 
         RUBBER_DROP = addItem(627, "rubber_drop").setBurnValue(200);
 
@@ -206,6 +208,7 @@ public class MetaItem1 extends MaterialMetaItem {
         CONVEYOR_MODULE_LUV = addItem(635, "conveyor.module.luv");
         CONVEYOR_MODULE_ZPM = addItem(636, "conveyor.module.zpm");
         CONVEYOR_MODULE_UV = addItem(637, "conveyor.module.uv");
+        CONVEYOR_MODULE_UHV = addItem(638, "conveyor.module.uhv");
 
         ELECTRIC_PISTON_LV = addItem(640, "electric.piston.lv");
         ELECTRIC_PISTON_MV = addItem(641, "electric.piston.mv");
@@ -215,6 +218,7 @@ public class MetaItem1 extends MaterialMetaItem {
         ELECTRIC_PISTON_LUV = addItem(645, "electric.piston.luv");
         ELECTRIC_PISTON_ZPM = addItem(646, "electric.piston.zpm");
         ELECTRIC_PISTON_UV = addItem(647, "electric.piston.uv");
+        ELECTRIC_PISTON_UHV = addItem(648, "electric.piston.uhv");
 
         ROBOT_ARM_LV = addItem(650, "robot.arm.lv");
         ROBOT_ARM_MV = addItem(651, "robot.arm.mv");
@@ -224,6 +228,7 @@ public class MetaItem1 extends MaterialMetaItem {
         ROBOT_ARM_LUV = addItem(655, "robot.arm.luv");
         ROBOT_ARM_ZPM = addItem(656, "robot.arm.zpm");
         ROBOT_ARM_UV = addItem(657, "robot.arm.uv");
+        ROBOT_ARM_UHV = addItem(658, "robot.arm.uhv");
 
         FIELD_GENERATOR_LV = addItem(670, "field.generator.lv");
         FIELD_GENERATOR_MV = addItem(671, "field.generator.mv");
@@ -233,6 +238,7 @@ public class MetaItem1 extends MaterialMetaItem {
         FIELD_GENERATOR_LUV = addItem(675, "field.generator.luv");
         FIELD_GENERATOR_ZPM = addItem(676, "field.generator.zpm");
         FIELD_GENERATOR_UV = addItem(677, "field.generator.uv");
+        FIELD_GENERATOR_UHV = addItem(678, "field.generator.uhv");
 
         EMITTER_LV = addItem(680, "emitter.lv");
         EMITTER_MV = addItem(681, "emitter.mv");
@@ -242,6 +248,7 @@ public class MetaItem1 extends MaterialMetaItem {
         EMITTER_LUV = addItem(685, "emitter.luv");
         EMITTER_ZPM = addItem(686, "emitter.zpm");
         EMITTER_UV = addItem(687, "emitter.uv");
+        EMITTER_UHV = addItem(688, "emitter.uhv");
 
         SENSOR_LV = addItem(690, "sensor.lv");
         SENSOR_MV = addItem(691, "sensor.mv");
@@ -251,6 +258,7 @@ public class MetaItem1 extends MaterialMetaItem {
         SENSOR_LUV = addItem(695, "sensor.luv");
         SENSOR_ZPM = addItem(696, "sensor.zpm");
         SENSOR_UV = addItem(697, "sensor.uv");
+        SENSOR_UHV = addItem(698, "sensor.uhv");
 
         TOOL_DATA_STICK = addItem(708, "tool.datastick");
         TOOL_DATA_ORB = addItem(707, "tool.dataorb");

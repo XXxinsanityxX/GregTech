@@ -59,8 +59,10 @@ public enum CraftingComponent {
                     return MetaItems.ELECTRIC_PUMP_LUV;
                 case 7:
                     return MetaItems.ELECTRIC_PUMP_ZPM;
-                default:
+                case 8:
                     return MetaItems.ELECTRIC_PUMP_UV;
+                default:
+                    return MetaItems.ELECTRIC_PUMP_UHV;
             }
         }
     },
@@ -219,8 +221,10 @@ public enum CraftingComponent {
                     return MetaItems.ELECTRIC_MOTOR_LUV;
                 case 7:
                     return MetaItems.ELECTRIC_MOTOR_ZPM;
-                default:
+                case 8:
                     return MetaItems.ELECTRIC_MOTOR_UV;
+                default:
+                    return MetaItems.ELECTRIC_MOTOR_UHV;
             }
         }
     },
@@ -267,8 +271,10 @@ public enum CraftingComponent {
                     return MetaItems.SENSOR_LUV;
                 case 7:
                     return MetaItems.SENSOR_ZPM;
-                default:
+                case 8:
                     return MetaItems.SENSOR_UV;
+                default:
+                    return MetaItems.SENSOR_UHV;
             }
         }
     },
@@ -311,8 +317,10 @@ public enum CraftingComponent {
                     return MetaItems.ELECTRIC_PISTON_LUV;
                 case 7:
                     return MetaItems.ELECTRIC_PISTON_ZPM;
-                default:
+                case 8:
                     return MetaItems.ELECTRIC_PISTON_UV;
+                default:
+                    return MetaItems.ELECTRIC_PISTON_UHV;
             }
         }
     },
@@ -335,8 +343,10 @@ public enum CraftingComponent {
                     return MetaItems.EMITTER_LUV;
                 case 7:
                     return MetaItems.EMITTER_ZPM;
-                default:
+                case 8:
                     return MetaItems.EMITTER_UV;
+                default:
+                    return MetaItems.EMITTER_UHV;
             }
         }
     },
@@ -359,8 +369,10 @@ public enum CraftingComponent {
                     return MetaItems.CONVEYOR_MODULE_LUV;
                 case 7:
                     return MetaItems.CONVEYOR_MODULE_ZPM;
-                default:
+                case 8:
                     return MetaItems.CONVEYOR_MODULE_UV;
+                default:
+                    return MetaItems.CONVEYOR_MODULE_UHV;
             }
         }
     },
@@ -383,8 +395,10 @@ public enum CraftingComponent {
                     return MetaItems.ROBOT_ARM_LUV;
                 case 7:
                     return MetaItems.ROBOT_ARM_ZPM;
-                default:
+                case 8:
                     return MetaItems.ROBOT_ARM_UV;
+                default:
+                    return MetaItems.ROBOT_ARM_UHV;
             }
         }
     },
@@ -485,8 +499,10 @@ public enum CraftingComponent {
                     return MetaItems.FIELD_GENERATOR_LUV;
                 case 7:
                     return MetaItems.FIELD_GENERATOR_ZPM;
-                default:
+                case 8:
                     return MetaItems.FIELD_GENERATOR_UV;
+                default:
+                    return MetaItems.FIELD_GENERATOR_UHV;
             }
         }
     },
