@@ -171,7 +171,7 @@ public class Materials {
     public static DustMaterial Magnetite = new DustMaterial(132, "magnetite", 0x1E1E1E, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4)), GENERATE_ORE);
     public static DustMaterial Molybdenite = new DustMaterial(133, "molybdenite", 0x191919, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Molybdenum, 1), new MaterialStack(Sulfur, 2)), GENERATE_ORE);
     public static IngotMaterial Nichrome = new IngotMaterial(134, "nichrome", 0xCDCEF6, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Nickel, 4), new MaterialStack(Chrome, 1)), EXT_METAL, null, 2700);
-    public static IngotMaterial NiobiumNitride = new IngotMaterial(135, "niobium_nitride", 0x1D291D, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1)), EXT_METAL, null, 2573);
+    public static IngotMaterial NiobiumNitride = new IngotMaterial(135, "niobium_nitride", 0x1D291D, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1)), 0, null);
     public static IngotMaterial NiobiumTitanium = new IngotMaterial(136, "niobium_titanium", 0x1D1D29, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Titanium, 1)), EXT2_METAL, null, 4500);
     public static FluidMaterial NitrogenDioxide = new FluidMaterial(137, "nitrogen_dioxide", 0x64AFFF, MaterialIconSet.FLUID, of(new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 2)), 0);
     public static DustMaterial Obsidian = new DustMaterial(138, "obsidian", 0x503264, MaterialIconSet.DULL, 3, of(new MaterialStack(Magnesium, 1), new MaterialStack(Iron, 1), new MaterialStack(Silicon, 2), new MaterialStack(Oxygen, 8)), NO_SMASHING | EXCLUDE_BLOCK_CRAFTING_RECIPES);
@@ -513,9 +513,9 @@ public class Materials {
     public static DustMaterial Cocoa = new DustMaterial(440, "cocoa", 0xBE5F00, MaterialIconSet.ROUGH, 0, of(), 0);
     public static DustMaterial Wheat = new DustMaterial(441, "wheat", 0xFFFFC4, MaterialIconSet.FINE, 0, of(), 0);
 
-    public static IngotMaterial AwDrac = new IngotMaterial(443, "awdrac", 0xF44E00, MaterialIconSet.SHINY, 6, of(), EXT2_METAL,Element.Aw);
-    public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,Element.If);
-    public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL);
+    public static IngotMaterial AwDrac = new IngotMaterial(443, "awdrac", 0xF44E00, MaterialIconSet.SHINY, 6, of(), EXT2_METAL,Element.Aw,9900);
+    public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,Element.If,10800);
+    public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,null,9000);
 
 
     //NEXT AVAILABLE ID 446

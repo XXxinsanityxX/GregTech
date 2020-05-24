@@ -94,38 +94,6 @@ public class MaterialRecipeHandler {
                     ModHandler.addSmeltingRecipe(new UnificationEntry(OrePrefix.dustTiny, metalMaterial), nuggetStack);
                 } else {
                     int duration = Math.max(1, (int) (material.getAverageMass() * metalMaterial.blastFurnaceTemperature / 50L));
-                    ModHandler.removeFurnaceSmelting(new UnificationEntry(OrePrefix.ingot, metalMaterial));
-
-                    BlastRecipeBuilder ingotSmeltingBuilder = RecipeMaps.BLAST_RECIPES.recipeBuilder()
-                        .input(dustPrefix, material)
-                        .outputs(ingotStack)
-                        .blastFurnaceTemp(metalMaterial.blastFurnaceTemperature)
-                        .duration(duration).EUt(120);
-                    if (circuitRequiringMaterials.contains(material)) {
-                        ingotSmeltingBuilder.inputs(new CountableIngredient(new IntCircuitIngredient(0), 0));
-                    }
-                    ingotSmeltingBuilder.buildAndRegister();
-
-                    if (!hasHotIngot) {
-                        BlastRecipeBuilder nuggetSmeltingBuilder = RecipeMaps.BLAST_RECIPES.recipeBuilder()
-                            .input(OrePrefix.dustTiny, material)
-                            .outputs(nuggetStack)
-                            .blastFurnaceTemp(metalMaterial.blastFurnaceTemperature)
-                            .duration(Math.max(1, duration / 9)).EUt(120);
-                        if (circuitRequiringMaterials.contains(material)) {
-                            nuggetSmeltingBuilder.inputs(IntCircuitIngredient.getIntegratedCircuit(0));
-                        }
-                        nuggetSmeltingBuilder.buildAndRegister();
-                    }
-
-                    if (hasHotIngot) {
-                        RecipeMaps.VACUUM_RECIPES.recipeBuilder()
-                            .input(OrePrefix.ingotHot, metalMaterial)
-                            .outputs(OreDictUnifier.get(OrePrefix.ingot, metalMaterial))
-                            .duration(metalMaterial.blastFurnaceTemperature / 16)
-                            .buildAndRegister();
-                    }
-
                     if (metalMaterial.blastFurnaceTemperature <= 1000) {
                         ModHandler.addRCFurnaceRecipe(new UnificationEntry(dustPrefix, metalMaterial), ingotStack, duration);
                         ModHandler.addRCFurnaceRecipe(new UnificationEntry(OrePrefix.nugget, metalMaterial), nuggetStack, Math.max(1, duration / 9));
