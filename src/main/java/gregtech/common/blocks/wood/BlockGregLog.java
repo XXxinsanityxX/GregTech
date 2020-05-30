@@ -81,7 +81,7 @@ public class BlockGregLog extends BlockLog {
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         Random rand = world instanceof World ? ((World) world).rand : RANDOM;
         if (state.getValue(NATURAL)) {
-            drops.add(MetaItems.RUBBER_DROP.getStackForm(1 + rand.nextInt(2)));
+            drops.add(MetaItems.RUBBER_DROP.getStackForm(rand.nextInt(2)));
         }
         drops.add(new ItemStack(this, 1, state.getValue(VARIANT).ordinal()));
     }

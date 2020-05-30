@@ -35,7 +35,7 @@ public class WorldGenRubberTree implements IWorldGenerator {
             BiomeDictionary.hasType(biome, Type.SPOOKY))
             return; //do not generate in inappropriate biomes
 
-        int rubberTreeChance = 6;
+        int rubberTreeChance = 75;
         if (BiomeDictionary.hasType(biome, Type.SWAMP) ||
             BiomeDictionary.hasType(biome, Type.WET))
             rubberTreeChance /= 2; //double chance of spawning in swamp or wet biomes

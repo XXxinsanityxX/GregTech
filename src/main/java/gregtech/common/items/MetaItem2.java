@@ -46,7 +46,6 @@ public class MetaItem2 extends MaterialMetaItem {
         WOODEN_FORM_BRICK = addItem(12, "wooden_form.brick").addComponents(selfContainerItemProvider);
 
         COMPRESSED_CLAY = addItem(13, "compressed.clay");
-        COMPRESSED_FIRECLAY = addItem(14, "compressed.fireclay");
         FIRECLAY_BRICK = addItem(15, "brick.fireclay");
         COKE_OVEN_BRICK = addItem(16, "brick.coke");
 

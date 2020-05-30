@@ -82,12 +82,6 @@ public class MachineRecipeLoader {
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().input(OrePrefix.dust, Materials.Ice, 1).outputs(new ItemStack(Blocks.ICE)).buildAndRegister();
         RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder().inputs(new ItemStack(Items.WHEAT, 9)).outputs(new ItemStack(Blocks.HAY_BLOCK)).buildAndRegister();
 
-        RecipeMaps.COMPRESSOR_RECIPES.recipeBuilder()
-            .input(OrePrefix.dust, Materials.Fireclay)
-            .outputs(MetaItems.COMPRESSED_FIRECLAY.getStackForm())
-            .duration(100).EUt(2)
-            .buildAndRegister();
-
         RecipeMaps.FORMING_PRESS_RECIPES.recipeBuilder()
             .duration(100).EUt(16)
             .notConsumable(MetaItems.SHAPE_MOLD_CREDIT.getStackForm())

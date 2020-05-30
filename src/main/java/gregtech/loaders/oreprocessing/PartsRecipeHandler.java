@@ -92,6 +92,10 @@ public class PartsRecipeHandler {
             .duration((int) material.getAverageMass()).EUt(24)
             .circuitMeta(0)
             .buildAndRegister();
+
+        ModHandler.addShapedRecipe(String.format("foil_%s", material.toString()),
+            GTUtility.copyAmount(2, foilStack), "hX",
+            'X', new UnificationEntry(OrePrefix.plate, material));
     }
 
     public static void processFineWire(OrePrefix fineWirePrefix, IngotMaterial material) {

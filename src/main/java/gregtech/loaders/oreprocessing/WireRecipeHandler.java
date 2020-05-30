@@ -75,18 +75,17 @@ public class WireRecipeHandler {
 
         if (isPaperInsulatedCable(material)) {
             if (cableAmount <= 7) {
-                Object[] ingredients = new Object[2 + cableAmount];
-                ingredients[0] = new UnificationEntry(wirePrefix, material);
-                ingredients[ingredients.length - 1] = OreDictNames.string;
-                for (int i = 1; i < ingredients.length - 1; i++) {
-                    ingredients[i] = new ItemStack(Blocks.CARPET, 1, EnumDyeColor.BLACK.getMetadata());
+                Object[] ingredients = new Object[1 + cableAmount];
+                ingredients[ingredients.length - 1] = OreDictUnifier.get(wirePrefix, material);
+                for (int i = 0; i < ingredients.length - 1; i++) {
+                    ingredients[i] = OreDictUnifier.get(OrePrefix.plate, Materials.Rubber);
                 }
                 ModHandler.addShapelessRecipe(String.format("%s_cable_%d", material, cableAmount), cableStack, ingredients);
             }
         }
 
         if (isPaperInsulatedCable(material)) {
-            ItemStack carpetStack = new ItemStack(Blocks.CARPET, cableAmount, EnumDyeColor.BLACK.getMetadata());
+            ItemStack carpetStack = OreDictUnifier.get(OrePrefix.plate, Materials.Rubber, cableAmount);
             RecipeMaps.PACKER_RECIPES.recipeBuilder()
                 .input(wirePrefix, material)
                 .inputs(carpetStack)

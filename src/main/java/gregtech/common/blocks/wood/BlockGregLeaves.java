@@ -48,15 +48,15 @@ public class BlockGregLeaves extends BlockLeaves {
     @Override
     public IBlockState getStateFromMeta(int meta) {
         return getDefaultState()
-            .withProperty(CHECK_DECAY, meta / 8 >= 1)
-            .withProperty(DECAYABLE, meta % 8 / 4 == 1)
-            .withProperty(VARIANT, LogVariant.values()[meta % 8 % 4 % LogVariant.values().length]);
+            .withProperty(CHECK_DECAY, meta >= 1)
+            .withProperty(DECAYABLE, true)
+            .withProperty(VARIANT, LogVariant.values()[0]);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        return (state.getValue(CHECK_DECAY) ? 8 : 0) +
-            (state.getValue(DECAYABLE) ? 4 : 0) +
+        return (state.getValue(CHECK_DECAY) ? 1 : 0) +
+            (state.getValue(DECAYABLE) ? 1 : 0) +
             state.getValue(VARIANT).ordinal();
     }
 
