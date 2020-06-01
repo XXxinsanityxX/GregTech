@@ -148,8 +148,7 @@ abstract public class LargeSimpleRecipeMapMultiblockController extends RecipeMap
                 .outputs(outputI)
                 .fluidOutputs(outputF)
                 .EUt((int) Math.max(1, EUt * this.EUtPercentage / 100))
-                .duration((int) Math.max(1.0, duration /* * minMultiplier*/ / (this.durationPercentage / 100.0)));
-
+                .duration((int) Math.max(1.0, duration * (this.durationPercentage / 100.0)));
             copyChancedItemOutputs(newRecipe, matchingRecipe, minMultiplier);
 
             return newRecipe.build().getResult();
