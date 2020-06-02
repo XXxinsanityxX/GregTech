@@ -26,7 +26,10 @@ import gregtech.common.metatileentities.steam.*;
 import gregtech.common.metatileentities.steam.boiler.SteamCoalBoiler;
 import gregtech.common.metatileentities.steam.boiler.SteamLavaBoiler;
 import gregtech.common.metatileentities.steam.boiler.SteamSolarBoiler;
-import gregtech.common.metatileentities.storage.*;
+import gregtech.common.metatileentities.storage.MetaTileEntityChest;
+import gregtech.common.metatileentities.storage.MetaTileEntityLockedSafe;
+import gregtech.common.metatileentities.storage.MetaTileEntityQuantumChest;
+import gregtech.common.metatileentities.storage.MetaTileEntityQuantumTank;
 import net.minecraft.util.ResourceLocation;
 
 @SuppressWarnings("WeakerAccess")

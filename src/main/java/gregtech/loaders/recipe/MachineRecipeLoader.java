@@ -49,7 +49,6 @@ import java.util.Collection;
 
 import static gregtech.api.GTValues.L;
 import static gregtech.api.GTValues.M;
-import static gregtech.common.items.MetaItems.LARGE_FLUID_CELL_STEEL;
 import static gregtech.common.items.MetaItems.RUBBER_DROP;
 
 public class MachineRecipeLoader {

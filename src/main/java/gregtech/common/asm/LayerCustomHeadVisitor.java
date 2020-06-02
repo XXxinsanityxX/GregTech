@@ -1,11 +1,10 @@
 package gregtech.common.asm;
 
+import gregtech.common.asm.util.ObfMapping;
+import gregtech.common.asm.util.SafeMethodVisitor;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
-
-import gregtech.common.asm.util.ObfMapping;
-import gregtech.common.asm.util.SafeMethodVisitor;
 
 class LayerCustomHeadVisitor extends SafeMethodVisitor {
 

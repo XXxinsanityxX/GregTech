@@ -1,10 +1,9 @@
 package gregtech.common.asm;
 
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
-
 import gregtech.common.asm.util.ObfMapping;
 import gregtech.common.asm.util.SafeMethodVisitor;
+import org.objectweb.asm.MethodVisitor;
+import org.objectweb.asm.Opcodes;
 
 public class SpecialArmorApplyVisitor extends SafeMethodVisitor {
 
