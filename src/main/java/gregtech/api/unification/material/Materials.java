@@ -171,7 +171,7 @@ public class Materials {
     public static DustMaterial Magnetite = new DustMaterial(132, "magnetite", 0x1E1E1E, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Iron, 3), new MaterialStack(Oxygen, 4)), GENERATE_ORE);
     public static DustMaterial Molybdenite = new DustMaterial(133, "molybdenite", 0x191919, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Molybdenum, 1), new MaterialStack(Sulfur, 2)), GENERATE_ORE);
     public static IngotMaterial Nichrome = new IngotMaterial(134, "nichrome", 0xCDCEF6, MaterialIconSet.METALLIC, 2, of(new MaterialStack(Nickel, 4), new MaterialStack(Chrome, 1)), EXT_METAL, null, 2700);
-    public static IngotMaterial NiobiumNitride = new IngotMaterial(135, "niobium_nitride", 0x1D291D, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1)), 0, null);
+    //public static IngotMaterial NiobiumNitride = new IngotMaterial(135, "niobium_nitride", 0x1D291D, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Nitrogen, 1)), 0, null);
     public static IngotMaterial NiobiumTitanium = new IngotMaterial(136, "niobium_titanium", 0x1D1D29, MaterialIconSet.DULL, 2, of(new MaterialStack(Niobium, 1), new MaterialStack(Titanium, 1)), EXT2_METAL, null, 4500);
     public static FluidMaterial NitrogenDioxide = new FluidMaterial(137, "nitrogen_dioxide", 0x64AFFF, MaterialIconSet.FLUID, of(new MaterialStack(Nitrogen, 1), new MaterialStack(Oxygen, 2)), 0);
     public static DustMaterial Obsidian = new DustMaterial(138, "obsidian", 0x503264, MaterialIconSet.DULL, 3, of(new MaterialStack(Magnesium, 1), new MaterialStack(Iron, 1), new MaterialStack(Silicon, 2), new MaterialStack(Oxygen, 8)), NO_SMASHING | EXCLUDE_BLOCK_CRAFTING_RECIPES);
@@ -517,8 +517,21 @@ public class Materials {
     public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,Element.If,10800);
     public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,null,9000);
 
+    //POLYBENZIMIDAZOLE
+    public static IngotMaterial Polybenzimidazole = new IngotMaterial(446, "pbi", 0x2D2D2D, MaterialIconSet.ROUGH, 1, of(new MaterialStack(Materials.Carbon, 20), new MaterialStack(Materials.Nitrogen, 4), new MaterialStack(Materials.Hydrogen, 12)), GENERATE_PLATE | GENERATE_GEAR | GENERATE_RING | FLAMMABLE | NO_SMASHING | DISABLE_DECOMPOSITION);
+    public static FluidMaterial Diaminobenzidine = new FluidMaterial(447, "diaminobenzidine", 0x337D59, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 12), new MaterialStack(Materials.Hydrogen, 14), new MaterialStack(Materials.Nitrogen, 4)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Diphenyl_Isophatalate = new FluidMaterial(448, "diphenyl_isophatalate", 0x246E57, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 20), new MaterialStack(Materials.Hydrogen, 20), new MaterialStack(Materials.Oxygen, 4)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Dichlorobenzidine = new FluidMaterial(449, "dichlorobenzidine", 0xA1DEA6, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 12), new MaterialStack(Materials.Hydrogen, 10), new MaterialStack(Materials.Nitrogen, 2), new MaterialStack(Materials.Chlorine, 2)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Phthalic_Acid = new FluidMaterial(450, "phthalic_acid", 0x368547, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 8), new MaterialStack(Materials.Hydrogen, 6), new MaterialStack(Materials.Oxygen, 4)), DISABLE_DECOMPOSITION);
+    public static DustMaterial Potassiumdichromate = new DustMaterial(451, "potassiumdichromate", 0xFF087F, MaterialIconSet.DULL, 1, of(new MaterialStack(Materials.Potassium, 2), new MaterialStack(Materials.Chrome, 2), new MaterialStack(Materials.Oxygen, 7)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Dimethylbenzene = new FluidMaterial(452, "dimethylbenzene", 0x669C40, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 8), new MaterialStack(Materials.Hydrogen, 10)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Nitrochlorobenzene = new FluidMaterial(453, "nitrochlorobenzene", 0x8FB51A, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 4), new MaterialStack(Materials.Chlorine, 1), new MaterialStack(Materials.Nitrogen, 1), new MaterialStack(Materials.Oxygen, 2)), DISABLE_DECOMPOSITION);
+    public static DustMaterial ChromiumTrioxide = new DustMaterial(454, "chromiumtrioxide", 0xFFE4E1, MaterialIconSet.DULL, 1, of(new MaterialStack(Materials.Chrome, 1), new MaterialStack(Materials.Oxygen, 3)), DISABLE_DECOMPOSITION);
+    public static DustMaterial ChromiumDioxide = new DustMaterial(455, "chromiumdioxide", 0xE6C8C8, MaterialIconSet.DULL, 1, of(new MaterialStack(Materials.Chrome, 1), new MaterialStack(Materials.Oxygen, 2)), DISABLE_DECOMPOSITION);
+    public static DustMaterial PotassiumNitrade = new DustMaterial(456, "potassiumnitrade", 0x81228D, MaterialIconSet.DULL, 1, of(new MaterialStack(Materials.Potassium, 1), new MaterialStack(Materials.Nitrogen, 1), new MaterialStack(Materials.Oxygen, 3)), DISABLE_DECOMPOSITION);
+    public static FluidMaterial Chlorobenzene = new FluidMaterial(457, "chlorobenzene", 0x003241, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 5), new MaterialStack(Materials.Chlorine, 1)), DISABLE_DECOMPOSITION);
 
-    //NEXT AVAILABLE ID 446
+    //NEXT AVAILABLE ID 458
 
     static {
         for (DustMaterial dustMaterial : new DustMaterial[]{Bastnasite, Monazite}) {

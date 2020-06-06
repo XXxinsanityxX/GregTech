@@ -1390,6 +1390,19 @@ material.awdrac=Awakened Draconium
 material.electrumflux=Fluxed Electrum
 material.inf=Infinity
 
+material.pbi=Polybenzimidazole
+material.diaminobenzidine=Diaminobenzidine
+material.diphenyl_isophatalate=Diphenyl Isophatalate
+material.dichlorobenzidine=Dichlorobenzidine
+material.phthalic_acid=Phthalic Acid
+material.potassiumdichromate=Potassiumdichromate
+material.dimethylbenzene=Dimethylbenzene
+material.nitrochlorobenzene=Nitrochlorobenzene
+material.chromiumtrioxide=Chromium Trioxide
+material.chromiumdioxide=Chromium Dioxide
+material.potassiumnitrade=Potassium Nitrade
+material.chlorobenzene=Chlorobenzene
+
 material.any_copper=AnyCopper
 material.any_bronze=AnyBronze
 material.any_iron=AnyIron
@@ -1746,8 +1759,11 @@ tile.machine_casing.extreme_voltage.name=EV Machine Casing
 tile.machine_casing.insane_voltage.name=IV Machine Casing
 tile.machine_casing.ludicrous_voltage.name=LuV Machine Casing
 tile.machine_casing.zero_point_module.name=ZPM Machine Casing
-tile.machine_casing.ultra_voltage.name=UV Machine Casing
+tile.machine_casing.ultimate_voltage.name=UV Machine Casing
 tile.machine_casing.ultra_high_voltage.name=UHV Machine Casing
+tile.machine_casing.ultra_extreme_voltage.name=UEV Machine Casing
+tile.machine_casing.ultra_insane_voltage.name=UIV Machine Casing
+
 tile.machine_casing.maximum_voltage.name=MAX Machine Casing
 
 tile.machine_casing.bronze_hull.name=Bronze Hull
@@ -2176,6 +2192,9 @@ gregtech.machine.hull.luv.name=LuV Machine Hull
 gregtech.machine.hull.zpm.name=ZPM Machine Hull
 gregtech.machine.hull.uv.name=UV Machine Hull
 gregtech.machine.hull.uhv.name=UHV Machine Hull
+gregtech.machine.hull.uev.name=UEV Machine Hull
+gregtech.machine.hull.uiv.name=UIV Machine Hull
+
 gregtech.machine.hull.max.name=Max Machine Hull
 
 # Battery buffers
@@ -2229,6 +2248,16 @@ gregtech.machine.battery_buffer.uhv.4.name=Ultra High Voltage Battery Buffer
 gregtech.machine.battery_buffer.uhv.9.name=Ultra High Voltage Battery Buffer
 gregtech.machine.battery_buffer.uhv.16.name=Ultra High Voltage Battery Buffer
 
+gregtech.machine.battery_buffer.uev.1.name=Ultra Extreme Voltage Battery Buffer
+gregtech.machine.battery_buffer.uev.4.name=Ultra Extreme Voltage Battery Buffer
+gregtech.machine.battery_buffer.uev.9.name=Ultra Extreme Voltage Battery Buffer
+gregtech.machine.battery_buffer.uev.16.name=Ultra Extreme Voltage Battery Buffer
+
+gregtech.machine.battery_buffer.uiv.1.name=Ultra Insane Voltage Battery Buffer
+gregtech.machine.battery_buffer.uiv.4.name=Ultra Insane Voltage Battery Buffer
+gregtech.machine.battery_buffer.uiv.9.name=Ultra Insane Voltage Battery Buffer
+gregtech.machine.battery_buffer.uiv.16.name=Ultra Insane Voltage Battery Buffer
+
 gregtech.machine.battery_buffer.max.1.name=MAX Voltage Battery Buffer
 gregtech.machine.battery_buffer.max.4.name=MAX Voltage Battery Buffer
 gregtech.machine.battery_buffer.max.9.name=MAX Voltage Battery Buffer
@@ -2250,6 +2279,9 @@ gregtech.machine.transformer.luv.name=Ludicrous Voltage Transformer
 gregtech.machine.transformer.zpm.name=ZPM Voltage Transformer
 gregtech.machine.transformer.uv.name=Ultimate Voltage Transformer
 gregtech.machine.transformer.uhv.name=Ultra High Voltage Transformer
+gregtech.machine.transformer.uev.name=Ultra Extreme Voltage Transformer
+gregtech.machine.transformer.uiv.name=Ultra Insane Voltage Transformer
+
 gregtech.machine.transformer.max.name=MAX Voltage Transformer
 
 # Chargers
@@ -2263,6 +2295,8 @@ gregtech.machine.charger.luv.name=Ludicrous Voltage Battery Charger
 gregtech.machine.charger.zpm.name=ZPM Voltage Battery Charger
 gregtech.machine.charger.uv.name=Ultimate Voltage Battery Charger
 gregtech.machine.charger.uhv.name=Ultra High Voltage Battery Charger
+gregtech.machine.charger.uev.name=Ultra Extreme Voltage Battery Charger
+gregtech.machine.charger.uiv.name=Ultra Insane Voltage Battery Charger
 gregtech.machine.charger.max.name=MAX Voltage Battery Charger
 
 # Pumps
@@ -2867,6 +2901,8 @@ gregtech.machine.energy_hatch.input.luv.name=Energy Input Hatch (LuV)
 gregtech.machine.energy_hatch.input.zpm.name=Energy Input Hatch (ZPM)
 gregtech.machine.energy_hatch.input.uv.name=Energy Input Hatch (UV)
 gregtech.machine.energy_hatch.input.uhv.name=Energy Input Hatch (UHV)
+gregtech.machine.energy_hatch.input.uev.name=Energy Input Hatch (UEV)
+gregtech.machine.energy_hatch.input.uiv.name=Energy Input Hatch (UIV)
 gregtech.machine.energy_hatch.input.max.name=Energy Input Hatch (MAX)
 
 gregtech.machine.energy_hatch.output.ulv.name=Energy Output Hatch (ULV)
@@ -2879,6 +2915,8 @@ gregtech.machine.energy_hatch.output.luv.name=Energy Output Hatch (LuV)
 gregtech.machine.energy_hatch.output.zpm.name=Energy Output Hatch (ZPM)
 gregtech.machine.energy_hatch.output.uv.name=Energy Output Hatch (UV)
 gregtech.machine.energy_hatch.output.uhv.name=Energy Output Hatch (UHV)
+gregtech.machine.energy_hatch.output.uev.name=Energy Output Hatch (UEV)
+gregtech.machine.energy_hatch.output.uiv.name=Energy Output Hatch (UIV)
 gregtech.machine.energy_hatch.output.max.name=Energy Output Hatch (MAX)
 
 gregtech.machine.rotor_holder.tooltip=Rotor Holder for Multiblocks/nHolds Rotor in place so it will not fly away
