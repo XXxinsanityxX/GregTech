@@ -1,5 +1,7 @@
 package gregtech.common.metatileentities;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
@@ -8,7 +10,11 @@ import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.render.Textures;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.util.GTLog;
+import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.electric.*;
+import gregtech.common.metatileentities.electric.energyconverter.MetaTileEntityEnergyConverter;
+import gregtech.common.metatileentities.electric.energyconverter.utils.ConverterType;
+import gregtech.common.metatileentities.electric.energyconverter.utils.EnergyConverterType;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityEnergyHatch;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityFluidHatch;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityItemBus;
@@ -155,6 +161,8 @@ public class MetaTileEntities {
     public static MetaTileEntityQuantumChest[] QUANTUM_CHEST = new MetaTileEntityQuantumChest[4];
     public static MetaTileEntityQuantumTank[] QUANTUM_TANK = new MetaTileEntityQuantumTank[4];
     public static MetaTileEntityFisher[] FISHER = new MetaTileEntityFisher[4];
+
+    public static ListMultimap<EnergyConverterType, MetaTileEntityEnergyConverter> ENERGY_CONVERTER = ArrayListMultimap.create();
 
     public static void init() {
         GTLog.logger.info("Registering MetaTileEntities");
@@ -510,6 +518,16 @@ public class MetaTileEntities {
             String voltageName = GTValues.VN[i].toLowerCase();
             BLOCK_BREAKER[i - 1] = new MetaTileEntityBlockBreaker(gregtechId("block_breaker." + voltageName), i);
             GregTechAPI.registerMetaTileEntity(1030 + (i - 1), BLOCK_BREAKER[i - 1]);
+        }
+
+        int id = 1200;
+        int slot = 1;
+        for (final ConverterType t : ConverterType.values()) {
+            for (int tier = 1; tier < 10; tier++) {
+                String vn = GTValues.VN[tier].toLowerCase();
+                    ENERGY_CONVERTER.put(t.getGTEUToForgeType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getGTEUToForgeType() + "." + vn + "." + slot), tier, t.getGTEUToForgeType(), slot)));
+                    ENERGY_CONVERTER.put(t.getForgeToGTEUType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getForgeToGTEUType() + "." + vn + "." + slot), tier, t.getForgeToGTEUType(), slot)));
+            }
         }
     }
 

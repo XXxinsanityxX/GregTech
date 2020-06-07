@@ -2360,6 +2360,131 @@ gregtech.machine.fisher.requirement=Requires a square of water with size of %d b
 gregtech.machine.basic.input_from_output_side.allow=Allow Input from Output Side
 gregtech.machine.basic.input_from_output_side.disallow=Disallow Input from Output Side
 
+# Energy converters
+gregtech.machine.convert_gteu.ulv.1.name=GTEU Transformer (ULV)
+gregtech.machine.convert_gteu.ulv.4.name=GTEU Transformer (ULV)
+gregtech.machine.convert_gteu.ulv.9.name=GTEU Transformer (ULV)
+gregtech.machine.convert_gteu.ulv.16.name=GTEU Transformer (ULV)
+
+gregtech.machine.convert_gteu.lv.1.name=GTEU Transformer (LV)
+gregtech.machine.convert_gteu.lv.4.name=GTEU Transformer (LV)
+gregtech.machine.convert_gteu.lv.9.name=GTEU Transformer (LV)
+gregtech.machine.convert_gteu.lv.16.name=GTEU Transformer (LV)
+
+gregtech.machine.convert_gteu.mv.1.name=GTEU Transformer (MV)
+gregtech.machine.convert_gteu.mv.4.name=GTEU Transformer (MV)
+gregtech.machine.convert_gteu.mv.9.name=GTEU Transformer (MV)
+gregtech.machine.convert_gteu.mv.16.name=GTEU Transformer (MV)
+
+gregtech.machine.convert_gteu.hv.1.name=GTEU Transformer (HV)
+gregtech.machine.convert_gteu.hv.4.name=GTEU Transformer (HV)
+gregtech.machine.convert_gteu.hv.9.name=GTEU Transformer (HV)
+gregtech.machine.convert_gteu.hv.16.name=GTEU Transformer (HV)
+
+gregtech.machine.convert_gteu.ev.1.name=GTEU Transformer (EV)
+gregtech.machine.convert_gteu.ev.4.name=GTEU Transformer (EV)
+gregtech.machine.convert_gteu.ev.9.name=GTEU Transformer (EV)
+gregtech.machine.convert_gteu.ev.16.name=GTEU Transformer (EV)
+
+gregtech.machine.convert_gteu.iv.1.name=GTEU Transformer (IV)
+gregtech.machine.convert_gteu.iv.4.name=GTEU Transformer (IV)
+gregtech.machine.convert_gteu.iv.9.name=GTEU Transformer (IV)
+gregtech.machine.convert_gteu.iv.16.name=GTEU Transformer (IV)
+
+gregtech.machine.convert_gteu.luv.1.name=GTEU Transformer (LuV)
+gregtech.machine.convert_gteu.luv.4.name=GTEU Transformer (LuV)
+gregtech.machine.convert_gteu.luv.9.name=GTEU Transformer (LuV)
+gregtech.machine.convert_gteu.luv.16.name=GTEU Transformer (LuV)
+
+gregtech.machine.convert_gteu.zpm.1.name=GTEU Transformer (ZPM)
+gregtech.machine.convert_gteu.zpm.4.name=GTEU Transformer (ZPM)
+gregtech.machine.convert_gteu.zpm.9.name=GTEU Transformer (ZPM)
+gregtech.machine.convert_gteu.zpm.16.name=GTEU Transformer (ZPM)
+
+gregtech.machine.convert_gteu.uv.1.name=GTEU Transformer (UV)
+gregtech.machine.convert_gteu.uv.4.name=GTEU Transformer (UV)
+gregtech.machine.convert_gteu.uv.9.name=GTEU Transformer (UV)
+gregtech.machine.convert_gteu.uv.16.name=GTEU Transformer (UV)
+
+gregtech.machine.convert_gteu.uhv.1.name=GTEU Transformer (UHV)
+gregtech.machine.convert_gteu.uhv.4.name=GTEU Transformer (UHV)
+gregtech.machine.convert_gteu.uhv.9.name=GTEU Transformer (UHV)
+gregtech.machine.convert_gteu.uhv.16.name=GTEU Transformer (UHV)
+
+gregtech.machine.convert_gteu.max.1.name=GTEU Transformer (MAX)
+gregtech.machine.convert_gteu.max.4.name=GTEU Transformer (MAX)
+gregtech.machine.convert_gteu.max.9.name=GTEU Transformer (MAX)
+gregtech.machine.convert_gteu.max.16.name=GTEU Transformer (MAX)
+
+
+gregtech.machine.convert_forge.ulv.1.name=Forge Transformer (ULV)
+gregtech.machine.convert_forge.ulv.4.name=Forge Transformer (ULV)
+gregtech.machine.convert_forge.ulv.9.name=Forge Transformer (ULV)
+gregtech.machine.convert_forge.ulv.16.name=Forge Transformer (ULV)
+
+gregtech.machine.convert_forge.lv.1.name=Forge Transformer (LV)
+gregtech.machine.convert_forge.lv.4.name=Forge Transformer (LV)
+gregtech.machine.convert_forge.lv.9.name=Forge Transformer (LV)
+gregtech.machine.convert_forge.lv.16.name=Forge Transformer (LV)
+
+gregtech.machine.convert_forge.mv.1.name=Forge Transformer (MV)
+gregtech.machine.convert_forge.mv.4.name=Forge Transformer (MV)
+gregtech.machine.convert_forge.mv.9.name=Forge Transformer (MV)
+gregtech.machine.convert_forge.mv.16.name=Forge Transformer (MV)
+
+gregtech.machine.convert_forge.hv.1.name=Forge Transformer (HV)
+gregtech.machine.convert_forge.hv.4.name=Forge Transformer (HV)
+gregtech.machine.convert_forge.hv.9.name=Forge Transformer (HV)
+gregtech.machine.convert_forge.hv.16.name=Forge Transformer (HV)
+
+gregtech.machine.convert_forge.ev.1.name=Forge Transformer (EV)
+gregtech.machine.convert_forge.ev.4.name=Forge Transformer (EV)
+gregtech.machine.convert_forge.ev.9.name=Forge Transformer (EV)
+gregtech.machine.convert_forge.ev.16.name=Forge Transformer (EV)
+
+gregtech.machine.convert_forge.iv.1.name=Forge Transformer (IV)
+gregtech.machine.convert_forge.iv.4.name=Forge Transformer (IV)
+gregtech.machine.convert_forge.iv.9.name=Forge Transformer (IV)
+gregtech.machine.convert_forge.iv.16.name=Forge Transformer (IV)
+
+gregtech.machine.convert_forge.luv.1.name=Forge Transformer (LuV)
+gregtech.machine.convert_forge.luv.4.name=Forge Transformer (LuV)
+gregtech.machine.convert_forge.luv.9.name=Forge Transformer (LuV)
+gregtech.machine.convert_forge.luv.16.name=Forge Transformer (LuV)
+
+gregtech.machine.convert_forge.zpm.1.name=Forge Transformer (ZPM)
+gregtech.machine.convert_forge.zpm.4.name=Forge Transformer (ZPM)
+gregtech.machine.convert_forge.zpm.9.name=Forge Transformer (ZPM)
+gregtech.machine.convert_forge.zpm.16.name=Forge Transformer (ZPM)
+
+gregtech.machine.convert_forge.uv.1.name=Forge Transformer (UV)
+gregtech.machine.convert_forge.uv.4.name=Forge Transformer (UV)
+gregtech.machine.convert_forge.uv.9.name=Forge Transformer (UV)
+gregtech.machine.convert_forge.uv.16.name=Forge Transformer (UV)
+
+gregtech.machine.convert_forge.uhv.1.name=Forge Transformer (UHV)
+gregtech.machine.convert_forge.uhv.4.name=Forge Transformer (UHV)
+gregtech.machine.convert_forge.uhv.9.name=Forge Transformer (UHV)
+gregtech.machine.convert_forge.uhv.16.name=Forge Transformer (UHV)
+
+gregtech.machine.convert_forge.max.1.name=Forge Transformer (MAX)
+gregtech.machine.convert_forge.max.4.name=Forge Transformer (MAX)
+gregtech.machine.convert_forge.max.9.name=Forge Transformer (MAX)
+gregtech.machine.convert_forge.max.16.name=Forge Transformer (MAX)
+
+gregtech.converter.energy.fe=FE
+gregtech.converter.energy.gteu=GTEU
+gregtech.converter.energy.simple.fe=FE
+gregtech.converter.energy.simple.gteu=EU
+
+gregtech.converter.energy_out=Maximum %s OUT: §e%d FE§7/tick
+gregtech.converter.energy_in=Maximum %s IN: §e%d FE§7/tick
+gregtech.converter.description=Emits %s from %s
+gregtech.convert_gteu=Emits FE from EU
+gregtech.convert_forge=Emits EU from FE
+gregtech.converter.disabled=§cDisabled
+
+
 # Achievement ores
 achievement.Naquadah=Find Naquadah Ore
 achievement.Naquadah.desc=Height: 10-60, Chance: 10, End

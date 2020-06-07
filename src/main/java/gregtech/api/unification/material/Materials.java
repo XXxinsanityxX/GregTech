@@ -531,6 +531,8 @@ public class Materials {
     public static DustMaterial PotassiumNitrade = new DustMaterial(456, "potassiumnitrade", 0x81228D, MaterialIconSet.DULL, 1, of(new MaterialStack(Materials.Potassium, 1), new MaterialStack(Materials.Nitrogen, 1), new MaterialStack(Materials.Oxygen, 3)), DISABLE_DECOMPOSITION);
     public static FluidMaterial Chlorobenzene = new FluidMaterial(457, "chlorobenzene", 0x003241, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 5), new MaterialStack(Materials.Chlorine, 1)), DISABLE_DECOMPOSITION);
 
+    public static IngotMaterial SamariumMagnetic = new IngotMaterial(458, "samarium_magnetic", 0xFFFFCC, MaterialIconSet.MAGNETIC, 2, of(new MaterialStack(Samarium, 1)), EXT2_METAL | GENERATE_LONG_ROD, null, 1500);
+
     //NEXT AVAILABLE ID 458
 
     static {
@@ -556,9 +558,14 @@ public class Materials {
             dustMaterial.washedIn = SodiumPersulfate;
         }
 
+        Samarium.magneticMaterial = SamariumMagnetic;
         Neodymium.magneticMaterial = NeodymiumMagnetic;
         Steel.magneticMaterial = SteelMagnetic;
         Iron.magneticMaterial = IronMagnetic;
+
+        SamariumMagnetic.setSmeltingInto(Samarium);
+        SamariumMagnetic.setArcSmeltingInto(Samarium);
+        SamariumMagnetic.setMaceratingInto(Samarium);
 
         NeodymiumMagnetic.setSmeltingInto(Neodymium);
         NeodymiumMagnetic.setArcSmeltingInto(Neodymium);
@@ -851,10 +858,10 @@ public class Materials {
 
         Naquadah.setCableProperties(GTValues.V[7], 2, 2);
 
-        NaquadahAlloy.setCableProperties(GTValues.V[8], 2, 4);
-        Duranium.setCableProperties(GTValues.V[8], 1, 8);
-        AwDrac.setCableProperties(GTValues.V[9], 1, 4);
-        Fluxed_Electrum.setCableProperties(GTValues.V[8], 3, 2);
+        NaquadahAlloy.setCableProperties(GTValues.V[8], 2, 16);
+        Duranium.setCableProperties(GTValues.V[8], 1, 32);
+        AwDrac.setCableProperties(GTValues.V[9], 1, 16);
+        Fluxed_Electrum.setCableProperties(GTValues.V[8], 3, 8);
 
         Copper.setFluidPipeProperties(25, 1000, true);
         Bronze.setFluidPipeProperties(35, 2000, true);

@@ -16,13 +16,13 @@ public class ConfigHolder {
     public static boolean hideFacadesInJEI = true;
 
     @Config.Comment("Specifies min amount of veins in section")
-    public static int minVeinsInSection = 0;
+    public static int minVeinsInSection = 4;
 
     @Config.Comment("Specifies additional random amount of veins in section")
-    public static int additionalVeinsInSection = 2;
+    public static int additionalVeinsInSection = 0;
 
     @Config.Comment("Whether to disable vanilla ores generation in world. Default is false.")
-    public static boolean disableVanillaOres = false;
+    public static boolean disableVanillaOres = true;
 
     @Config.Comment("Whether to disable rubber tree world generation. Default is false.")
     @Config.RequiresMcRestart
@@ -35,7 +35,7 @@ public class ConfigHolder {
     public static int energyUsageMultiplier = 100;
 
     @Config.Comment("Chance of generating abandoned base in chunk = 1 / THIS_VALUE. 0 disables abandoned base generation")
-    public static int abandonedBaseRarity = 1000;
+    public static int abandonedBaseRarity = 0;
 
     @Config.RangeInt(min = 0, max = 100)
     @Config.Comment("Chance with which flint and steel will create fire. Default: 50")
@@ -43,7 +43,7 @@ public class ConfigHolder {
 
     @Config.Comment("Recipes for machine hulls use more materials. Default: false")
     @Config.RequiresMcRestart
-    public static boolean harderMachineHulls = false;
+    public static boolean harderMachineHulls = true;
 
     @Config.Comment("If true, insufficient energy supply will reset recipe progress to zero. If false, progress will slowly go back (with 2x speed)")
     @Config.RequiresWorldRestart
@@ -91,10 +91,10 @@ public class ConfigHolder {
         public boolean flintAndSteelRequireSteel = true;
 
         @Config.Comment("Whether to nerf wood crafting to 2 planks from 1 log. Default is false.")
-        public boolean nerfWoodCrafting = false;
+        public boolean nerfWoodCrafting = true;
 
         @Config.Comment("Whether to nerf wood crafting to 2 sticks from 2 planks. Default is false.")
-        public boolean nerfStickCrafting = false;
+        public boolean nerfStickCrafting = true;
 
         @Config.Comment("Whether to make iron bucket recipe harder by requiring hammer and plates. Default is true.")
         public boolean bucketRequirePlatesAndHammer = true;
@@ -107,4 +107,24 @@ public class ConfigHolder {
 
     }
 
+    @Config.Comment("Config options for energyConverter features")
+    public static EnergyConverter energyConverter = new EnergyConverter();
+
+    public static class EnergyConverter {
+        public boolean Disable = false;
+        @Config.Comment("True if you want the Energy Converter to only accept batteries that match its current tier. False if you want the Energy Converter to accept any tier of batteries.")
+        public boolean PermitOnlyExactVoltage = false;
+
+        //@Config.Comment("Forge converter")
+        //public boolean FEconverter = true;
+
+        //@Config.Comment("GTEU converter")
+        //public boolean GTEUconverter = true;
+
+        @Config.Comment("Ratio 1 EU to X RF")
+        public int RatioEUtoRF = 4;
+
+        @Config.Comment("Ratio X RF to 1 EU")
+        public int RatioRFtoEU = 4;
+    }
 }
