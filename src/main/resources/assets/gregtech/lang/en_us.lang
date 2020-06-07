@@ -1381,6 +1381,7 @@ material.concrete=Concrete
 material.iron_magnetic=Magnetic Iron
 material.steel_magnetic=Magnetic Steel
 material.neodymium_magnetic=Magnetic Neodymium
+material.samarium_magnetic=Magnetic Samarium
 material.tungsten_carbide=Tungstencarbide
 material.vanadium_steel=Vanadiumsteel
 material.hssg=HSS-G
