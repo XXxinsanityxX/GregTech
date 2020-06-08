@@ -241,6 +241,7 @@ public class PartsRecipeHandler {
         if (material.cableProperties != null) {
             RecipeMaps.BENDER_RECIPES.recipeBuilder()
                 .input(OrePrefix.wireGtSingle, material)
+                .circuitMeta(2)
                 .outputs(OreDictUnifier.get(OrePrefix.springSmall, material, 2))
                 .duration(100).EUt(8)
                 .buildAndRegister();
