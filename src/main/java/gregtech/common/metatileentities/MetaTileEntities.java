@@ -526,7 +526,7 @@ public class MetaTileEntities {
             for (int tier = 1; tier < 10; tier++) {
                 String vn = GTValues.VN[tier].toLowerCase();
                     ENERGY_CONVERTER.put(t.getGTEUToForgeType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getGTEUToForgeType() + "." + vn + "." + slot), tier, t.getGTEUToForgeType(), slot)));
-                    ENERGY_CONVERTER.put(t.getForgeToGTEUType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getForgeToGTEUType() + "." + vn + "." + slot), tier, t.getForgeToGTEUType(), slot)));
+                    //ENERGY_CONVERTER.put(t.getForgeToGTEUType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getForgeToGTEUType() + "." + vn + "." + slot), tier, t.getForgeToGTEUType(), slot)));
             }
         }
     }
