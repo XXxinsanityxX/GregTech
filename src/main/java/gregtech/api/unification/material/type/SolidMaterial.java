@@ -32,6 +32,8 @@ public abstract class SolidMaterial extends DustMaterial {
         public static final long GENERATE_LONG_ROD = createFlag(22);
         public static final long MORTAR_GRINDABLE = createFlag(24);
         public static final long GENERATE_FRAME = createFlag(45);
+        public static final long GENERATE_TOOLS = createFlag(46);
+        public static final long GENERATE_ELECTRIC_TOOLS = createFlag(47);
 
         static {
             Material.MatFlags.registerMaterialFlagsHolder(MatFlags.class, SolidMaterial.class);

@@ -410,7 +410,7 @@ public class Materials {
     public static DustMaterial Blaze = new DustMaterial(349, "blaze", 0xFFC800, MaterialIconSet.DULL, 1, of(new MaterialStack(DarkAsh, 1), new MaterialStack(Sulfur, 1)), NO_SMELTING | SMELT_INTO_FLUID | MORTAR_GRINDABLE | BURNING);
     public static GemMaterial EnderPearl = new GemMaterial(350, "ender_pearl", 0x6CDCC8, MaterialIconSet.GEM_VERTICAL, 1, of(new MaterialStack(Beryllium, 1), new MaterialStack(Potassium, 4), new MaterialStack(Nitrogen, 5)), GENERATE_PLATE | GENERATE_LENSE | NO_SMASHING | NO_SMELTING);
     public static GemMaterial EnderEye = new GemMaterial(351, "ender_eye", 0x66FF66, MaterialIconSet.GEM_VERTICAL, 1, of(new MaterialStack(EnderPearl, 1), new MaterialStack(Blaze, 1)), GENERATE_PLATE | GENERATE_LENSE | NO_SMASHING | NO_SMELTING);
-    public static RoughSolidMaterial Flint = new RoughSolidMaterial(352, "flint", 0x002040, MaterialIconSet.FLINT, 1, of(new MaterialStack(SiliconDioxide, 1)), NO_SMASHING | MORTAR_GRINDABLE, () -> OrePrefix.gem);
+    public static RoughSolidMaterial Flint = new RoughSolidMaterial(352, "flint", 0x002040, MaterialIconSet.FLINT, 1, of(new MaterialStack(SiliconDioxide, 1)), NO_SMASHING | MORTAR_GRINDABLE | GENERATE_TOOLS, () -> OrePrefix.gem);
     public static DustMaterial Diatomite = new DustMaterial(353, "diatomite", 0xE1E1E1, MaterialIconSet.DULL, 1, of(new MaterialStack(Flint, 8), new MaterialStack(BandedIron, 1), new MaterialStack(Sapphire, 1)), 0);
     public static DustMaterial Niter = new DustMaterial(354, "niter", 0xFFC8C8, MaterialIconSet.FLINT, 1, of(new MaterialStack(Saltpeter, 1)), NO_SMASHING | NO_SMELTING);
     public static DustMaterial Tantalite = new DustMaterial(355, "tantalite", 0x915028, MaterialIconSet.METALLIC, 3, of(new MaterialStack(Manganese, 1), new MaterialStack(Tantalum, 2), new MaterialStack(Oxygen, 6)), GENERATE_ORE);
@@ -513,9 +513,10 @@ public class Materials {
     public static DustMaterial Cocoa = new DustMaterial(440, "cocoa", 0xBE5F00, MaterialIconSet.ROUGH, 0, of(), 0);
     public static DustMaterial Wheat = new DustMaterial(441, "wheat", 0xFFFFC4, MaterialIconSet.FINE, 0, of(), 0);
 
-    public static IngotMaterial AwDrac = new IngotMaterial(443, "awdrac", 0xF44E00, MaterialIconSet.SHINY, 6, of(), EXT2_METAL,Element.Aw,9900);
-    public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,Element.If,10800);
-    public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,null,9000);
+    public static IngotMaterial AwDrac = new IngotMaterial(443, "awdrac", 0xF44E00, MaterialIconSet.SHINY, 6, of(), EXT2_METAL,Element.Aw, 40, 4, 256000,9900);
+    public static IngotMaterial Inf = new IngotMaterial(444, "inf", 0xFFFFFF, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,Element.If,64, 4, 983040, 10800);
+
+    public static IngotMaterial Fluxed_Electrum = new IngotMaterial(445, "electrumflux", 0xFFFF78, MaterialIconSet.SHINY, 7, of(), EXT2_METAL,null, 16, 2, 480, 9000);
 
     //POLYBENZIMIDAZOLE
     public static IngotMaterial Polybenzimidazole = new IngotMaterial(446, "pbi", 0x2D2D2D, MaterialIconSet.ROUGH, 1, of(new MaterialStack(Materials.Carbon, 20), new MaterialStack(Materials.Nitrogen, 4), new MaterialStack(Materials.Hydrogen, 12)), GENERATE_PLATE | GENERATE_GEAR | GENERATE_RING | FLAMMABLE | NO_SMASHING | DISABLE_DECOMPOSITION);
