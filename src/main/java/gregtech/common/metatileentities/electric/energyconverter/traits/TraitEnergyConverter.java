@@ -30,7 +30,7 @@ public abstract class TraitEnergyConverter extends MTETrait {
 		}
 
 		public void update() {
-			if (!this.energyConverter.getWorld().isRemote && this.energyConverter.isThisEnabled()) {
+			if (!this.energyConverter.getWorld().isRemote) {
 				final TileEntity tileEntity = this.energyConverter.getWorld().getTileEntity(this.energyConverter.getPos().offset(this.energyConverter.getFrontFacing()));
 				if (tileEntity != null) {
 					final C capability = tileEntity.getCapability(this.getImplementingCapability(), this.energyConverter.getFrontFacing().getOpposite());

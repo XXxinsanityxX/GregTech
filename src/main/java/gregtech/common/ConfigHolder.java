@@ -16,7 +16,7 @@ public class ConfigHolder {
     public static boolean hideFacadesInJEI = true;
 
     @Config.Comment("Specifies min amount of veins in section")
-    public static int minVeinsInSection = 4;
+    public static int minVeinsInSection = 5;
 
     @Config.Comment("Specifies additional random amount of veins in section")
     public static int additionalVeinsInSection = 0;
@@ -107,19 +107,18 @@ public class ConfigHolder {
 
     }
 
-    @Config.Comment("Config options for energyConverter features")
+    @Config.Comment("Config options for Energy Converter features")
     public static EnergyConverter energyConverter = new EnergyConverter();
 
     public static class EnergyConverter {
-        public boolean Disable = false;
         @Config.Comment("True if you want the Energy Converter to only accept batteries that match its current tier. False if you want the Energy Converter to accept any tier of batteries.")
-        public boolean PermitOnlyExactVoltage = false;
+        public boolean PermitOnlyExactVoltage = true;
 
-        //@Config.Comment("Forge converter")
-        //public boolean FEconverter = true;
+        @Config.Comment("Should GregTech EU to RF energy converters be registered.")
+        public boolean registerEUtoRFconverter = true;
 
-        //@Config.Comment("GTEU converter")
-        //public boolean GTEUconverter = true;
+        @Config.Comment("Should RF to GregTech EU energy converters be registered.")
+        public boolean registerRFtoEUconverter = true;
 
         @Config.Comment("Ratio 1 EU to X RF")
         public int RatioEUtoRF = 4;

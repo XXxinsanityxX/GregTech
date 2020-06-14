@@ -1,22 +1,10 @@
 package gregtech.common.metatileentities.electric.energyconverter.utils;
 
-import gregtech.api.items.OreDictNames;
 import gregtech.common.ConfigHolder;
-import gregtech.loaders.recipe.CraftingComponent;
 
-public enum EnergyConverterType implements EnergyConverterCraftingHelper.RecipeFunction {
-	CONVERT_GTEU(ConverterType.GTEU_TO_FORGE, true) {
-		@Override
-		public Object[] createRecipe(final int tier, final int slots) {
-			return new Object[]{"WTW", "RMR", "WSW", 'M', CraftingComponent.HULL.getIngredient(tier), 'W', EnergyConverterCraftingHelper.HELPER.cable(tier, slots), 'T', OreDictNames.chestWood, 'R', EnergyConverterCraftingHelper.HELPER.redCable(slots), 'S', CraftingComponent.CIRCUIT.getIngredient(tier)};
-		}
-	},
-	CONVERT_FORGE(ConverterType.GTEU_TO_FORGE, false) {
-		@Override
-		public Object[] createRecipe(final int tier, final int slots) {
-			return new Object[]{"WSW", "RMR", "WTW", 'M', CraftingComponent.HULL.getIngredient(tier), 'W', EnergyConverterCraftingHelper.HELPER.cable(tier, slots), 'T', OreDictNames.chestWood, 'R', EnergyConverterCraftingHelper.HELPER.redCable(slots), 'S', CraftingComponent.CIRCUIT.getIngredient(tier)};
-		}
-	};
+public enum EnergyConverterType{
+	CONVERT_GTEU(ConverterType.GTEU_TO_FORGE, true) {},
+	CONVERT_FORGE(ConverterType.GTEU_TO_FORGE, false) {};
 
 	private final ConverterType type;
 	private final boolean isGTEU;
@@ -48,11 +36,7 @@ public enum EnergyConverterType implements EnergyConverterCraftingHelper.RecipeF
 				Ratio.ratioOf(ConfigHolder.energyConverter.RatioRFtoEU, 1); //RF to RF
 	}
 
-	public boolean isDisabled() {
-		return ConfigHolder.energyConverter.Disable;
-	}
-
-	@Override
+    @Override
 	public String toString() {
 		return this.name().toLowerCase();
 	}

@@ -151,10 +151,6 @@ public class MetaTileEntityEnergyConverter extends TieredMetaTileEntity implemen
 		return this.isGTEU() ? this.ratio().reverse() : this.ratio();
 	}
 
-	public boolean isThisEnabled() {
-		return !this.getType().isDisabled();
-	}
-
 	public boolean isGTEU() {
 		return this.type.isGTEU();
 	}
@@ -193,10 +189,7 @@ public class MetaTileEntityEnergyConverter extends TieredMetaTileEntity implemen
 	public void addInformation(final ItemStack stack, @Nullable final World player, final List<String> tooltip, final boolean advanced) {
 		tooltip.add(I18n.format("gregtech.converter.description", this.type.getOutput(), this.type.getInput()));
 		tooltip.add(I18n.format("gregtech.universal.tooltip.item_storage_capacity", this.invSize));
-		if (this.getType().isDisabled()) {
-			tooltip.add(I18n.format("gregtech.converter.disabled"));
-		} else {
-			if (this.type.getInput() == Energy.GTEU) {
+		if (this.type.getInput() == Energy.GTEU) {
 				tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_in", this.energyStorage.getInputVoltage(), GTValues.VN[this.getTier()]));
 			} else {
 				tooltip.add(I18n.format("gregtech.universal.tooltip.voltage_out", this.energyStorage.getOutputVoltage(), GTValues.VN[this.getTier()]));
@@ -204,7 +197,6 @@ public class MetaTileEntityEnergyConverter extends TieredMetaTileEntity implemen
 			tooltip.add(I18n.format(this.isGTEU() ? "gregtech.converter.energy_out" : "gregtech.converter.energy_in", this.type.getConverterType().getEnergyOutput(), this.ratioGteuAsInput().convert(GTValues.V[this.getTier()] * this.invSize, this.type.getConverterType().getEnergyOutput().getNumberType())));
 			tooltip.add(I18n.format("gregtech.universal.tooltip.energy_storage_capacity", this.energyStorage.getEnergyCapacity()));
 		}
-	}
 
 	public MetaTileEntity createMetaTileEntity(final MetaTileEntityHolder holder) {
 		return new MetaTileEntityEnergyConverter(this.metaTileEntityId, this.getTier(), this.type, this.size);

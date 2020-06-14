@@ -1,9 +1,9 @@
 package gregtech.common.metatileentities.electric.energyconverter.traits.charger;
 
-import gregtech.common.ConfigHolder;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.capability.IElectricItem;
 import gregtech.api.metatileentity.MTETrait;
+import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.electric.energyconverter.MetaTileEntityEnergyConverter;
 import gregtech.common.metatileentities.electric.energyconverter.energy.EnergyConverterCharger;
 import gregtech.common.metatileentities.electric.energyconverter.utils.Numbers;
@@ -36,7 +36,7 @@ public abstract class ChargeHandler extends MTETrait implements EnergyConverterC
     }
 
     public void update() {
-        if (!this.energyConverter.getWorld().isRemote && this.energyConverter.isThisEnabled()) {
+        if (!this.energyConverter.getWorld().isRemote) {
             final Ratio r = this.energyConverter.ratio();
             final Number charged = r.reverse().
                     convert(

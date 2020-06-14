@@ -1,7 +1,5 @@
 package gregtech.common.metatileentities;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.ListMultimap;
 import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleGeneratorMetaTileEntity;
@@ -13,7 +11,6 @@ import gregtech.api.util.GTLog;
 import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.electric.*;
 import gregtech.common.metatileentities.electric.energyconverter.MetaTileEntityEnergyConverter;
-import gregtech.common.metatileentities.electric.energyconverter.utils.ConverterType;
 import gregtech.common.metatileentities.electric.energyconverter.utils.EnergyConverterType;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityEnergyHatch;
 import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityFluidHatch;
@@ -162,7 +159,26 @@ public class MetaTileEntities {
     public static MetaTileEntityQuantumTank[] QUANTUM_TANK = new MetaTileEntityQuantumTank[4];
     public static MetaTileEntityFisher[] FISHER = new MetaTileEntityFisher[4];
 
-    public static ListMultimap<EnergyConverterType, MetaTileEntityEnergyConverter> ENERGY_CONVERTER = ArrayListMultimap.create();
+    //ENERGY CONVERTERS
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_LV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_MV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_HV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_EV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_IV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_LUV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_ZPM;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_UV;
+    public static MetaTileEntityEnergyConverter CONVERTER_GTEU_UHV;
+
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_LV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_MV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_HV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_EV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_IV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_LUV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_ZPM;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_UV;
+    public static MetaTileEntityEnergyConverter CONVERTER_FORGE_UHV;
 
     public static void init() {
         GTLog.logger.info("Registering MetaTileEntities");
@@ -520,14 +536,28 @@ public class MetaTileEntities {
             GregTechAPI.registerMetaTileEntity(1030 + (i - 1), BLOCK_BREAKER[i - 1]);
         }
 
-        int id = 1200;
-        int slot = 1;
-        for (final ConverterType t : ConverterType.values()) {
-            for (int tier = 1; tier < 10; tier++) {
-                String vn = GTValues.VN[tier].toLowerCase();
-                    ENERGY_CONVERTER.put(t.getGTEUToForgeType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getGTEUToForgeType() + "." + vn + "." + slot), tier, t.getGTEUToForgeType(), slot)));
-                    //ENERGY_CONVERTER.put(t.getForgeToGTEUType(), GregTechAPI.registerMetaTileEntity(id++, new MetaTileEntityEnergyConverter(gregtechId(t.getForgeToGTEUType() + "." + vn + "." + slot), tier, t.getForgeToGTEUType(), slot)));
-            }
+        if (ConfigHolder.energyConverter.registerEUtoRFconverter) {
+            CONVERTER_GTEU_LV = GregTechAPI.registerMetaTileEntity(1200, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.lv.1"), 1, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_MV = GregTechAPI.registerMetaTileEntity(1201, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.mv.1"), 2, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_HV = GregTechAPI.registerMetaTileEntity(1202, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.hv.1"), 3, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_EV = GregTechAPI.registerMetaTileEntity(1203, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.ev.1"), 4, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_IV = GregTechAPI.registerMetaTileEntity(1204, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.iv.1"), 5, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_LUV = GregTechAPI.registerMetaTileEntity(1205, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.luv.1"), 6, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_ZPM = GregTechAPI.registerMetaTileEntity(1206, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.zpm.1"), 7, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_UV = GregTechAPI.registerMetaTileEntity(1207, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.uv.1"), 8, EnergyConverterType.CONVERT_GTEU, 1));
+            CONVERTER_GTEU_UHV = GregTechAPI.registerMetaTileEntity(1208, new MetaTileEntityEnergyConverter(gregtechId("convert_gteu.uhv.1"), 9, EnergyConverterType.CONVERT_GTEU, 1));
+        }
+
+        if (ConfigHolder.energyConverter.registerRFtoEUconverter) {
+            CONVERTER_FORGE_LV = GregTechAPI.registerMetaTileEntity(1209, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.lv.1"), 1, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_MV = GregTechAPI.registerMetaTileEntity(1210, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.mv.1"), 2, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_HV = GregTechAPI.registerMetaTileEntity(1211, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.hv.1"), 3, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_EV = GregTechAPI.registerMetaTileEntity(1212, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.ev.1"), 4, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_IV = GregTechAPI.registerMetaTileEntity(1213, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.iv.1"), 5, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_LUV = GregTechAPI.registerMetaTileEntity(1214, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.luv.1"), 6, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_ZPM = GregTechAPI.registerMetaTileEntity(1215, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.zpm.1"), 7, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_UV = GregTechAPI.registerMetaTileEntity(1216, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.uv.1"), 8, EnergyConverterType.CONVERT_FORGE,1));
+            CONVERTER_FORGE_UHV = GregTechAPI.registerMetaTileEntity(1217, new MetaTileEntityEnergyConverter(gregtechId("convert_forge.uhv.1"), 9, EnergyConverterType.CONVERT_FORGE,1));
         }
     }
 
