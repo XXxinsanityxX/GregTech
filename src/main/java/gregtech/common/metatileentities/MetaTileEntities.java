@@ -154,7 +154,6 @@ public class MetaTileEntities {
     public static MetaTileEntityBlockBreaker[] BLOCK_BREAKER = new MetaTileEntityBlockBreaker[4];
     public static MetaTileEntityAirCollector[] AIR_COLLECTOR = new MetaTileEntityAirCollector[4];
     public static MetaTileEntityItemCollector[] ITEM_COLLECTOR = new MetaTileEntityItemCollector[4];
-    public static MetaTileEntityTeslaCoil TESLA_COIL;
     public static MetaTileEntityQuantumChest[] QUANTUM_CHEST = new MetaTileEntityQuantumChest[4];
     public static MetaTileEntityQuantumTank[] QUANTUM_TANK = new MetaTileEntityQuantumTank[4];
     public static MetaTileEntityFisher[] FISHER = new MetaTileEntityFisher[4];
@@ -526,9 +525,6 @@ public class MetaTileEntities {
             GregTechAPI.registerMetaTileEntity(900 + 10 * (i - 1), PUMP[i - 1]);
             GregTechAPI.registerMetaTileEntity(950 + 10 * (i - 1), AIR_COLLECTOR[i - 1]);
         }
-
-        TESLA_COIL = new MetaTileEntityTeslaCoil(gregtechId("tesla_coil"));
-        GregTechAPI.registerMetaTileEntity(1001, TESLA_COIL);
 
         for (int i = 1; i < 5; i++) {
             String voltageName = GTValues.VN[i].toLowerCase();
