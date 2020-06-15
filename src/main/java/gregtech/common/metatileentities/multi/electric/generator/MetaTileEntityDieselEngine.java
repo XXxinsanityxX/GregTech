@@ -53,8 +53,8 @@ public class MetaTileEntityDieselEngine extends FueledMultiblockController {
             int fuelAmount = fuelStack == null ? 0 : fuelStack.amount;
 
             ITextComponent fuelName = new TextComponentTranslation(fuelAmount == 0 ? "gregtech.fluid.empty" : fuelStack.getUnlocalizedName());
-            textList.add(new TextComponentTranslation("gregtech.multiblock.diesel_engine.lubricant_amount", lubricantAmount));
             textList.add(new TextComponentTranslation("gregtech.multiblock.diesel_engine.fuel_amount", fuelAmount, fuelName));
+            textList.add(new TextComponentTranslation("gregtech.multiblock.diesel_engine.lubricant_amount", lubricantAmount));
             textList.add(new TextComponentTranslation("gregtech.multiblock.diesel_engine.oxygen_amount", oxygenAmount));
             textList.add(new TextComponentTranslation(oxygenAmount >= 2 ? "gregtech.multiblock.diesel_engine.oxygen_boosted" : "gregtech.multiblock.diesel_engine.supply_oxygen_to_boost"));
         }
