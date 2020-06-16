@@ -1162,6 +1162,7 @@ material.glycerol=Glycerol
 material.methanol=Methanol
 material.carbon_monoxide=Carbon Monoxide
 material.nitro_fuel=Cetane-Boosted Diesel
+material.nitro_diesel=Nitro Diesel
 material.diluted_sulfuric_acid=Diluted Sulfuric Acid
 material.sodium_bisulfate=Sodium Bisulfate
 material.chloroform=Chloroform

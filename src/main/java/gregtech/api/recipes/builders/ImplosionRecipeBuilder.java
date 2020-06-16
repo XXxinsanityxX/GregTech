@@ -8,6 +8,7 @@ import gregtech.api.util.EnumValidationResult;
 import gregtech.api.util.GTLog;
 import gregtech.api.util.GTUtility;
 import gregtech.api.util.ValidationResult;
+import gregtech.common.items.MetaItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -54,7 +55,11 @@ public class ImplosionRecipeBuilder extends RecipeBuilder<ImplosionRecipeBuilder
 
     @Override
     public void buildAndRegister() {
+        int dynamiteAmount = explosivesAmount * 4;
         int tntAmount = Math.max(1, explosivesAmount / 2);
+        if (dynamiteAmount <= 16) {
+            recipeMap.addRecipe(this.copy().inputs(MetaItems.DYNAMITE.getStackForm(dynamiteAmount)).build());
+        }
         recipeMap.addRecipe(this.copy().inputs(new ItemStack(Blocks.TNT, tntAmount)).build());
     }
 

@@ -18,6 +18,7 @@ public class FuelRecipes {
         registerDieselGeneratorFuel(Materials.BioDiesel.getFluid(1), 8, GTValues.LV);
         registerDieselGeneratorFuel(Materials.LightFuel.getFluid(1), 10, GTValues.LV);
         registerDieselGeneratorFuel(Materials.Fuel.getFluid(1), 15, GTValues.LV);
+        //registerDieselGeneratorFuel(Materials.NitroDiesel.getFluid(1), 20, GTValues.LV);
         registerDieselGeneratorFuel(Materials.NitroFuel.getFluid(2), 45, GTValues.LV);
 
         //steam generator fuels

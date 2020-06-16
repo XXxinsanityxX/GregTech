@@ -153,7 +153,7 @@ public class Materials {
     public static GemMaterial Emerald = new GemMaterial(114, "emerald", 0x50FF50, MaterialIconSet.EMERALD, 2, of(new MaterialStack(Beryllium, 3), new MaterialStack(Aluminium, 2), new MaterialStack(Silicon, 6), new MaterialStack(Oxygen, 18)), STD_GEM | NO_SMASHING | NO_SMELTING | HIGH_SIFTER_OUTPUT, 10.0F, 2.0f, 368);
     public static DustMaterial Galena = new DustMaterial(115, "galena", 0x643C64, MaterialIconSet.ROUGH, 3, of(new MaterialStack(Lead, 3), new MaterialStack(Silver, 3), new MaterialStack(Sulfur, 2)), GENERATE_ORE | NO_SMELTING);
     public static DustMaterial Garnierite = new DustMaterial(116, "garnierite", 0x32C846, MaterialIconSet.ROUGH, 3, of(new MaterialStack(Nickel, 1), new MaterialStack(Oxygen, 1)), GENERATE_ORE);
-    public static FluidMaterial Glyceryl = new FluidMaterial(117, "glyceryl", 0x009696, MaterialIconSet.FLUID, of(new MaterialStack(Carbon, 3), new MaterialStack(Hydrogen, 5), new MaterialStack(Nitrogen, 3), new MaterialStack(Oxygen, 9)), FLAMMABLE | EXPLOSIVE | NO_SMELTING | NO_SMASHING);
+    public static FluidMaterial Glyceryl = new FluidMaterial(117, "glyceryl", 0x009696, MaterialIconSet.FLUID, of(new MaterialStack(Carbon, 3), new MaterialStack(Hydrogen, 5), new MaterialStack(Nitrogen, 3), new MaterialStack(Oxygen, 9)), FLAMMABLE | EXPLOSIVE | NO_SMELTING | NO_SMASHING | DISABLE_DECOMPOSITION);
     public static GemMaterial GreenSapphire = new GemMaterial(118, "green_sapphire", 0x64C882, MaterialIconSet.GEM_HORIZONTAL, 2, of(new MaterialStack(Aluminium, 2), new MaterialStack(Oxygen, 3)), GENERATE_ORE | NO_SMASHING | NO_SMELTING | HIGH_SIFTER_OUTPUT | GENERATE_LENSE, 8.0F, 3.0f, 368);
     public static DustMaterial Grossular = new DustMaterial(119, "grossular", 0xC86400, MaterialIconSet.GEM_VERTICAL, 1, of(new MaterialStack(Calcium, 3), new MaterialStack(Aluminium, 2), new MaterialStack(Silicon, 3), new MaterialStack(Oxygen, 12)), GENERATE_ORE);
     public static FluidMaterial DistilledWater = new FluidMaterial(120, "distilled_water", 0x0000FF, MaterialIconSet.FLUID, of(new MaterialStack(Hydrogen, 2), new MaterialStack(Oxygen, 1)), NO_RECYCLING | DISABLE_DECOMPOSITION);
@@ -533,8 +533,9 @@ public class Materials {
     public static FluidMaterial Chlorobenzene = new FluidMaterial(457, "chlorobenzene", 0x003241, MaterialIconSet.FLUID, of(new MaterialStack(Materials.Carbon, 6), new MaterialStack(Materials.Hydrogen, 5), new MaterialStack(Materials.Chlorine, 1)), DISABLE_DECOMPOSITION);
 
     public static IngotMaterial SamariumMagnetic = new IngotMaterial(458, "samarium_magnetic", 0xFFFFCC, MaterialIconSet.MAGNETIC, 2, of(new MaterialStack(Samarium, 1)), EXT2_METAL | GENERATE_LONG_ROD, null, 1500);
+    public static FluidMaterial NitroDiesel = new FluidMaterial(459, "nitro_diesel", 0x96BC00, MaterialIconSet.FLUID, of(), FLAMMABLE | EXPLOSIVE | NO_SMELTING | NO_SMASHING);
 
-    //NEXT AVAILABLE ID 458
+    //NEXT AVAILABLE ID 460
 
     static {
         for (DustMaterial dustMaterial : new DustMaterial[]{Bastnasite, Monazite}) {

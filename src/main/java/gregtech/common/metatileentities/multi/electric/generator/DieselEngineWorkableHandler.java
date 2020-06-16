@@ -32,28 +32,28 @@ public class DieselEngineWorkableHandler extends FuelRecipeLogic {
 
     @Override
     protected boolean checkRecipe(FuelRecipe recipe) {
-        FluidStack lubricantStack = Materials.Lubricant.getFluid(2);
+        FluidStack lubricantStack = Materials.Lubricant.getFluid(20);
         FluidStack drainStack = fluidTank.get().drain(lubricantStack, false);
-        return (drainStack != null && drainStack.amount >= 2) || currentCycle < maxCycleLength;
+        return (drainStack != null && drainStack.amount >= 20) || currentCycle < maxCycleLength;
     }
 
     @Override
     protected int calculateFuelAmount(FuelRecipe currentRecipe) {
-        FluidStack oxygenStack = Materials.Oxygen.getFluid(2);
+        FluidStack oxygenStack = Materials.Oxygen.getFluid(20);
         FluidStack drainOxygenStack = fluidTank.get().drain(oxygenStack, false);
-        this.isUsingOxygen = drainOxygenStack != null && drainOxygenStack.amount >= 2;
+        this.isUsingOxygen = drainOxygenStack != null && drainOxygenStack.amount >= 20;
         return super.calculateFuelAmount(currentRecipe) * (isUsingOxygen ? 2 : 1);
     }
 
     @Override
     protected long startRecipe(FuelRecipe currentRecipe, int fuelAmountUsed, int recipeDuration) {
         if (this.currentCycle >= maxCycleLength) {
-            FluidStack lubricantStack = Materials.Lubricant.getFluid(2);
+            FluidStack lubricantStack = Materials.Lubricant.getFluid(20);
             fluidTank.get().drain(lubricantStack, true);
             this.currentCycle = 0;
         } else this.currentCycle++;
         if (isUsingOxygen) {
-            FluidStack oxygenStack = Materials.Oxygen.getFluid(2);
+            FluidStack oxygenStack = Materials.Oxygen.getFluid(20);
             fluidTank.get().drain(oxygenStack, true);
         }
         return maxVoltage * (isUsingOxygen ? 3 : 1);
