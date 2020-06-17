@@ -96,11 +96,11 @@ public class MetaTileEntityPyrolyseOven extends RecipeMapMultiblockController {
 
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart sourcePart) {
-        return Textures.VOLTAGE_CASINGS[0];
+        return Textures.STEAM_CASING_STEEL;
     }
 
     protected IBlockState getCasingState() {
-        return MetaBlocks.MACHINE_CASING.getState(MachineCasingType.ULV);
+        return MetaBlocks.MACHINE_CASING.getState(MachineCasingType.STEEL_HULL);
     }
 
     protected class PyrolyseOvenWorkable extends MultiblockRecipeLogic {
