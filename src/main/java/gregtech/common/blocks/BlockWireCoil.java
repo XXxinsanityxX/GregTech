@@ -54,15 +54,15 @@ public class BlockWireCoil extends VariantBlock<BlockWireCoil.CoilType> {
 
     public enum CoilType implements IStringSerializable {
 
-        CUPRONICKEL("cupronickel", 1800, 1, 1, Materials.Cupronickel),
-        KANTHAL("kanthal", 2700, 2, 1, Materials.Kanthal),
-        NICHROME("nichrome", 3600, 4, 1, Materials.Nichrome),
-        TUNGSTENSTEEL("tungstensteel", 4500, 8, 1, Materials.TungstenSteel),
-        HSS_G("hss_g", 5400, 8, 2, Materials.HSSG),
-        NAQUADAH("naquadah", 7200, 16, 1, Materials.Naquadah),
-        NAQUADAH_ALLOY("naquadah_alloy", 8600, 16, 2, Materials.NaquadahAlloy),
-        FLUXED_ELECTRUM("electrumflux", 12000,16,4,Materials.Fluxed_Electrum),
-        AW_DRACO("awdrac", 15000,16,4,Materials.AwDrac);
+        CUPRONICKEL("cupronickel", 1800, 1, 50,1, Materials.Cupronickel),
+        KANTHAL("kanthal", 2700, 2, 100,1, Materials.Kanthal),
+        NICHROME("nichrome", 3600, 4, 150,1, Materials.Nichrome),
+        TUNGSTENSTEEL("tungstensteel", 4500, 8, 200,1, Materials.TungstenSteel),
+        HSS_G("hss_g", 5400, 8, 250,2, Materials.HSSG),
+        NAQUADAH("naquadah", 7200, 16, 300,1, Materials.Naquadah),
+        NAQUADAH_ALLOY("naquadah_alloy", 8600, 16, 350,2, Materials.NaquadahAlloy),
+        FLUXED_ELECTRUM("electrumflux", 12000,16,400,4,Materials.Fluxed_Electrum),
+        AW_DRACO("awdrac", 15000,16,450,4,Materials.AwDrac);
 
         //SUPERCONDUCTOR("superconductor", 0, 16, 0, Tier.Superconductor),
         //FUSION_COIL("fusion_coil", 0, 16, 0, null);
@@ -74,11 +74,14 @@ public class BlockWireCoil extends VariantBlock<BlockWireCoil.CoilType> {
         private final int level;
         private final int energyDiscount;
         private final Material material;
+        //pyro oven overclock
+        private final int tierOverclock;
 
-        CoilType(String name, int coilTemperature, int level, int energyDiscount, Material material) {
+        CoilType(String name, int coilTemperature, int level, int tierOverclock, int energyDiscount, Material material) {
             this.name = name;
             this.coilTemperature = coilTemperature;
             this.level = level;
+            this.tierOverclock = tierOverclock;
             this.energyDiscount = energyDiscount;
             this.material = material;
         }
@@ -94,6 +97,10 @@ public class BlockWireCoil extends VariantBlock<BlockWireCoil.CoilType> {
 
         public int getLevel() {
             return level;
+        }
+
+        public int getTierOverclock() {
+            return tierOverclock;
         }
 
         public int getEnergyDiscount() {

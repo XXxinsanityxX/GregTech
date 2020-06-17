@@ -3147,6 +3147,10 @@ gregtech.multiblock.multi_furnace.heating_coil_discount=Heating Coil EU Boost: %
 gregtech.multiblock.distillation_tower.distilling_fluid=Distilling %s
 gregtech.multiblock.cracker.cracking_fluid=Cracking %s
 
+gregtech.multiblock.pyrolyze_oven.coil_tier=Coil Overclock: %s%%
+gregtech.multiblock.pyrolyze_oven.coil_overclock=Coil overclock
+gregtech.multiblock.pyrolyze_oven.coil_overclock.desc=Processing speed scales linearly with Coil tier.
+
 gregtech.multiblock.diesel_engine.lubricant_amount=Lubricant Amount: %sL
 gregtech.multiblock.diesel_engine.fuel_amount=Fuel Amount: %sL (%s)
 gregtech.multiblock.diesel_engine.oxygen_amount=Oxygen Amount: %sL
