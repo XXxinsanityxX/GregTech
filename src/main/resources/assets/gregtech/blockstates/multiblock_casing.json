@@ -45,12 +45,12 @@
       },
       "fusion": {
         "textures": {
-          "all": "gregtech:blocks/multiblock/fusion/fusioni_8"
+          "all": "gregtech:blocks/casings/fusion/machine_casing_fusion"
         }
       },
       "fusion_mk2": {
         "textures": {
-          "all": "gregtech:blocks/multiblock/fusion/fusionii_8"
+          "all": "gregtech:blocks/casings/fusion/machine_casing_fusion_2"
         }
       }
     }
