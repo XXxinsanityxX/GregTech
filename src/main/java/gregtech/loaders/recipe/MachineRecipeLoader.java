@@ -750,6 +750,7 @@ public class MachineRecipeLoader {
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1020).EUt(30720).input(OrePrefix.dust, Materials.Osmium, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Osmium, 1)).blastFurnaceTemp(4500).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1980).EUt(1920).input(OrePrefix.dust, Materials.Titanium, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Titanium, 1)).blastFurnaceTemp(1940).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(10960).EUt(1920).input(OrePrefix.dust, Materials.Tungsten, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Tungsten, 1)).blastFurnaceTemp(3000).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3640).EUt(120).input(OrePrefix.dust, Materials.Palladium, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Palladium, 1)).blastFurnaceTemp(1828).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(2180).EUt(120).input(OrePrefix.dust, Materials.Vanadium, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Vanadium, 1)).blastFurnaceTemp(2183).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3600).EUt(120).input(OrePrefix.dust, Materials.Yttrium, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Yttrium, 1)).blastFurnaceTemp(1799).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1800).EUt(120).input(OrePrefix.dust, Materials.Kanthal, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Kanthal, 1)).blastFurnaceTemp(1800).buildAndRegister();
@@ -774,6 +775,27 @@ public class MachineRecipeLoader {
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(6120).EUt(122880).input(OrePrefix.dust, Materials.AwDrac, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.AwDrac, 1)).blastFurnaceTemp(9900).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(26180).EUt(500000).input(OrePrefix.dust, Materials.Inf, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Inf, 1)).blastFurnaceTemp(10800).buildAndRegister();
         RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1240).EUt(122880).input(OrePrefix.dust, Materials.Fluxed_Electrum, 1).outputs(OreDictUnifier.get(OrePrefix.ingotHot, Materials.Fluxed_Electrum, 1)).blastFurnaceTemp(9000).buildAndRegister();
+
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1700).EUt(480).input(OrePrefix.dust, Materials.StainlessSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.StainlessSteel, 1)).blastFurnaceTemp(1700).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1700).EUt(120).input(OrePrefix.dust, Materials.Silicon, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Silicon, 1)).blastFurnaceTemp(1700).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(4020).EUt(120).input(OrePrefix.dust, Materials.Samarium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Samarium, 1)).blastFurnaceTemp(1345).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3900).EUt(120).input(OrePrefix.dust, Materials.Neodymium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Neodymium, 1)).blastFurnaceTemp(1297).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3600).EUt(120).input(OrePrefix.dust, Materials.Lanthanum, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Lanthanum, 1)).blastFurnaceTemp(1193).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3300).EUt(120).input(OrePrefix.dust, Materials.Europium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Europium, 1)).blastFurnaceTemp(1099).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1700).EUt(120).input(OrePrefix.dust, Materials.Chrome, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Chrome, 1)).blastFurnaceTemp(1700).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3200).EUt(120).input(OrePrefix.dust, Materials.Cerium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Cerium, 1)).blastFurnaceTemp(1068).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1300).EUt(120).input(OrePrefix.dust, Materials.Aluminium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Aluminium, 1)).blastFurnaceTemp(1700).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1500).EUt(120).input(OrePrefix.dust, Materials.DamascusSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.DamascusSteel, 1)).blastFurnaceTemp(1500).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1400).EUt(120).input(OrePrefix.dust, Materials.BlueSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.BlueSteel, 1)).blastFurnaceTemp(1400).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1300).EUt(120).input(OrePrefix.dust, Materials.RedSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RedSteel, 1)).blastFurnaceTemp(1300).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1200).EUt(120).input(OrePrefix.dust, Materials.BlackSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.BlackSteel, 1)).blastFurnaceTemp(1200).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(2200).EUt(120).input(OrePrefix.dust, Materials.BismuthBronze, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.BismuthBronze, 1)).blastFurnaceTemp(1100).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(6400).EUt(120).input(OrePrefix.dust, Materials.RoseGold, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.RoseGold, 1)).blastFurnaceTemp(1600).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(3400).EUt(120).input(OrePrefix.dust, Materials.SterlingSilver, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.SterlingSilver, 1)).blastFurnaceTemp(1700).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1200).EUt(120).input(OrePrefix.dust, Materials.GalliumArsenide, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.GalliumArsenide, 1)).blastFurnaceTemp(1200).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1000).EUt(120).input(OrePrefix.dust, Materials.Steel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Steel, 1)).blastFurnaceTemp(1000).buildAndRegister();
+        RecipeMaps.BLAST_RECIPES.recipeBuilder().duration(1440).EUt(120).input(OrePrefix.dust, Materials.VanadiumSteel, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.VanadiumSteel, 1)).blastFurnaceTemp(1440).buildAndRegister();
+
     }
 
     private static void registerVacuumFreezerRecipes() {
@@ -785,6 +807,7 @@ public class MachineRecipeLoader {
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(540).EUt(1920).input(OrePrefix.ingotHot, Materials.Tungsten, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Tungsten, 1)).buildAndRegister();
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(160).EUt(120).input(OrePrefix.ingotHot, Materials.Vanadium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Vanadium, 1)).buildAndRegister();
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(260).EUt(120).input(OrePrefix.ingotHot, Materials.Yttrium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Yttrium, 1)).buildAndRegister();
+        RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(320).EUt(480).input(OrePrefix.ingotHot, Materials.Palladium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Palladium, 1)).buildAndRegister();
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(140).EUt(120).input(OrePrefix.ingotHot, Materials.Kanthal, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Kanthal, 1)).buildAndRegister();
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(160).EUt(480).input(OrePrefix.ingotHot, Materials.Nichrome, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.Nichrome, 1)).buildAndRegister();
         RecipeMaps.VACUUM_RECIPES.recipeBuilder().duration(220).EUt(480).input(OrePrefix.ingotHot, Materials.NiobiumTitanium, 1).outputs(OreDictUnifier.get(OrePrefix.ingot, Materials.NiobiumTitanium, 1)).buildAndRegister();
