@@ -12,10 +12,7 @@ import gregtech.common.ConfigHolder;
 import gregtech.common.metatileentities.electric.*;
 import gregtech.common.metatileentities.electric.energyconverter.MetaTileEntityEnergyConverter;
 import gregtech.common.metatileentities.electric.energyconverter.utils.EnergyConverterType;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityEnergyHatch;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityFluidHatch;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityItemBus;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityRotorHolder;
+import gregtech.common.metatileentities.electric.multiblockpart.*;
 import gregtech.common.metatileentities.multi.MetaTileEntityCokeOven;
 import gregtech.common.metatileentities.multi.MetaTileEntityCokeOvenHatch;
 import gregtech.common.metatileentities.multi.MetaTileEntityLargeBoiler;
@@ -119,6 +116,7 @@ public class MetaTileEntities {
     public static MetaTileEntityEnergyHatch[] ENERGY_OUTPUT_HATCH = new MetaTileEntityEnergyHatch[GTValues.V.length];
     public static MetaTileEntityRotorHolder[] ROTOR_HOLDER = new MetaTileEntityRotorHolder[3]; //HV, LuV, UHV
     public static MetaTileEntityCokeOvenHatch COKE_OVEN_HATCH;
+    public static MetaTileEntityBufferedEnergyHatch[] BUFFERED_ENERGY_OUTPUT_HATCH = new MetaTileEntityBufferedEnergyHatch[GTValues.V.length];
 
     //MULTIBLOCKS SECTION
     public static MetaTileEntityPrimitiveBlastFurnace PRIMITIVE_BLAST_FURNACE;
@@ -487,9 +485,11 @@ public class MetaTileEntities {
             String voltageName = GTValues.VN[i].toLowerCase();
             ENERGY_INPUT_HATCH[i] = new MetaTileEntityEnergyHatch(gregtechId("energy_hatch.input." + voltageName), i, false);
             ENERGY_OUTPUT_HATCH[i] = new MetaTileEntityEnergyHatch(gregtechId("energy_hatch.output." + voltageName), i, true);
+            BUFFERED_ENERGY_OUTPUT_HATCH[i] = new MetaTileEntityBufferedEnergyHatch(gregtechId("buffered_energy_hatch.output." + voltageName), i,4);
 
             GregTechAPI.registerMetaTileEntity(800 * (i), ENERGY_INPUT_HATCH[i]);
             GregTechAPI.registerMetaTileEntity(800 * (i) + 1, ENERGY_OUTPUT_HATCH[i]);
+            GregTechAPI.registerMetaTileEntity(800 * (i) + 2, BUFFERED_ENERGY_OUTPUT_HATCH[i]);
         }
 
         STEEL_CHEST = GregTechAPI.registerMetaTileEntity(888, new MetaTileEntityChest(gregtechId("steel_chest"), Materials.Steel, 9, 8));
