@@ -9,22 +9,28 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.MetaTileEntityHolder;
 import gregtech.api.render.SimpleOverlayRenderer;
 import gregtech.api.render.Textures;
+import gregtech.api.util.GTUtility;
 import gregtech.api.util.PipelineUtil;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
+import java.util.List;
 
-public class MetaTileEntityBufferedEnergyHatch extends MetaTileEntityEnergyHatch {
+public class MetaTileEntityHighAmpDynamoHatch extends MetaTileEntityEnergyHatch {
 
     private final int amps;
 
-    public MetaTileEntityBufferedEnergyHatch(ResourceLocation metaTileEntityId, int tier, int amps) {
+    public MetaTileEntityHighAmpDynamoHatch(ResourceLocation metaTileEntityId, int tier, int amps) {
         super(metaTileEntityId, tier, true);
         this.amps = amps;
         Field energyContainer = ObfuscationReflectionHelper.findField(MetaTileEntityEnergyHatch.class, "energyContainer");
         try {
-            energyContainer.set(this, EnergyContainerHandler.emitterContainer(this, (GTValues.V[tier]*GTValues.V[tier]), GTValues.V[tier], amps));
+            energyContainer.set(this, EnergyContainerHandler.emitterContainer(this, GTValues.V[tier]*8, GTValues.V[tier], amps));
         } catch (IllegalAccessException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -42,6 +48,6 @@ public class MetaTileEntityBufferedEnergyHatch extends MetaTileEntityEnergyHatch
 
     @Override
     public MetaTileEntity createMetaTileEntity(MetaTileEntityHolder holder) {
-        return new MetaTileEntityBufferedEnergyHatch(metaTileEntityId, getTier(), amps);
+        return new MetaTileEntityHighAmpDynamoHatch(metaTileEntityId, getTier(), amps);
     }
 }

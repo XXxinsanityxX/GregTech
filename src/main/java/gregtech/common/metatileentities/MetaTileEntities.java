@@ -116,7 +116,7 @@ public class MetaTileEntities {
     public static MetaTileEntityEnergyHatch[] ENERGY_OUTPUT_HATCH = new MetaTileEntityEnergyHatch[GTValues.V.length];
     public static MetaTileEntityRotorHolder[] ROTOR_HOLDER = new MetaTileEntityRotorHolder[3]; //HV, LuV, UHV
     public static MetaTileEntityCokeOvenHatch COKE_OVEN_HATCH;
-    public static MetaTileEntityBufferedEnergyHatch[] BUFFERED_ENERGY_OUTPUT_HATCH = new MetaTileEntityBufferedEnergyHatch[GTValues.V.length];
+    public static MetaTileEntityHighAmpDynamoHatch[] HIGH_AMP_DYNAMO_HATCH = new MetaTileEntityHighAmpDynamoHatch[GTValues.V.length];
 
     //MULTIBLOCKS SECTION
     public static MetaTileEntityPrimitiveBlastFurnace PRIMITIVE_BLAST_FURNACE;
@@ -485,11 +485,11 @@ public class MetaTileEntities {
             String voltageName = GTValues.VN[i].toLowerCase();
             ENERGY_INPUT_HATCH[i] = new MetaTileEntityEnergyHatch(gregtechId("energy_hatch.input." + voltageName), i, false);
             ENERGY_OUTPUT_HATCH[i] = new MetaTileEntityEnergyHatch(gregtechId("energy_hatch.output." + voltageName), i, true);
-            BUFFERED_ENERGY_OUTPUT_HATCH[i] = new MetaTileEntityBufferedEnergyHatch(gregtechId("buffered_energy_hatch.output." + voltageName), i,4);
+            HIGH_AMP_DYNAMO_HATCH[i] = new MetaTileEntityHighAmpDynamoHatch(gregtechId("high_amp_energy_hatch.output." + voltageName), i,4);
 
             GregTechAPI.registerMetaTileEntity(800 * (i), ENERGY_INPUT_HATCH[i]);
             GregTechAPI.registerMetaTileEntity(800 * (i) + 1, ENERGY_OUTPUT_HATCH[i]);
-            GregTechAPI.registerMetaTileEntity(800 * (i) + 2, BUFFERED_ENERGY_OUTPUT_HATCH[i]);
+            GregTechAPI.registerMetaTileEntity(800 * (i) + 2, HIGH_AMP_DYNAMO_HATCH[i]);
         }
 
         STEEL_CHEST = GregTechAPI.registerMetaTileEntity(888, new MetaTileEntityChest(gregtechId("steel_chest"), Materials.Steel, 9, 8));
