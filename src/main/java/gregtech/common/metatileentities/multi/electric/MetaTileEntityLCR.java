@@ -25,7 +25,7 @@ public class MetaTileEntityLCR extends LargeSimpleRecipeMapMultiblockController 
     };
 
     public MetaTileEntityLCR(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMaps.CHEMICAL_RECIPES,100,50,100,1);
+        super(metaTileEntityId, RecipeMaps.LARGE_CHEMICAL_RECIPES,100,50,100,1);
     }
 
     @Override

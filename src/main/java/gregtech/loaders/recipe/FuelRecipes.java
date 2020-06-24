@@ -18,16 +18,14 @@ public class FuelRecipes {
         registerDieselGeneratorFuel(Materials.BioDiesel.getFluid(1), 8, GTValues.LV);
         registerDieselGeneratorFuel(Materials.LightFuel.getFluid(1), 10, GTValues.LV);
         registerDieselGeneratorFuel(Materials.Fuel.getFluid(1), 15, GTValues.LV);
-        //registerDieselGeneratorFuel(Materials.NitroDiesel.getFluid(1), 20, GTValues.LV);
+        registerDieselGeneratorFuel(Materials.NitroDiesel.getFluid(2), 35, GTValues.LV);
         registerDieselGeneratorFuel(Materials.NitroFuel.getFluid(2), 45, GTValues.LV);
 
         //steam generator fuels
-        registerSteamGeneratorFuel(Materials.Steam.getFluid(60), 1, GTValues.LV);
+        registerSteamGeneratorFuel(Materials.Steam.getFluid(64), 1, GTValues.LV);
 
         //low-tier gas turbine fuels
-        registerGasGeneratorFuel(Materials.Hydrogen.getFluid(1), 1, GTValues.LV);
         registerGasGeneratorFuel(Materials.Methane.getFluid(1), 2, GTValues.LV);
-
         registerGasGeneratorFuel(Materials.NaturalGas.getFluid(8), 5, GTValues.LV);
         registerGasGeneratorFuel(Materials.Hydrogen.getFluid(8), 5, GTValues.LV);
         registerGasGeneratorFuel(Materials.CarbonMonoxde.getFluid(8), 6, GTValues.LV);
@@ -50,10 +48,12 @@ public class FuelRecipes {
         registerGasGeneratorFuel(Materials.Toluene.getFluid(4), 41, GTValues.LV);
 
         //semi-fluid fuels, like creosote
-        registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(14), 1, GTValues.LV);
-        registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(14), 1, GTValues.LV);
-        registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(64), 5, GTValues.LV);
-        registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(32), 15, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.FishOil.getFluid(64), 1, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.SeedOil.getFluid(64), 1, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.Creosote.getFluid(16), 1, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.Biomass.getFluid(16), 1, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.OilLight.getFluid(32), 5, GTValues.LV);
+        registerSemiFluidGeneratorFuel(Materials.OilMedium.getFluid(64), 15, GTValues.LV);
         registerSemiFluidGeneratorFuel(Materials.OilHeavy.getFluid(16), 5, GTValues.LV);
         registerSemiFluidGeneratorFuel(Materials.SulfuricHeavyFuel.getFluid(16), 5, GTValues.LV);
         registerSemiFluidGeneratorFuel(Materials.HeavyFuel.getFluid(8), 15, GTValues.LV);
@@ -61,6 +61,7 @@ public class FuelRecipes {
         //plasma turbine
         registerPlasmaFuel(Materials.Helium.getPlasma(1), 2560, GTValues.LV);
         registerPlasmaFuel(Materials.Nitrogen.getPlasma(1), 4032, GTValues.LV);
+        registerPlasmaFuel(Materials.Radon.getPlasma(1), 6144, GTValues.LV);
         registerPlasmaFuel(Materials.Oxygen.getPlasma(1), 4096, GTValues.LV);
         registerPlasmaFuel(Materials.Iron.getPlasma(16), 103219, GTValues.LV);
         registerPlasmaFuel(Materials.Nickel.getPlasma(16), 106905, GTValues.LV);

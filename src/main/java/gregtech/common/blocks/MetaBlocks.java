@@ -183,6 +183,17 @@ public class MetaBlocks {
             }
         }
         FLUID_PIPE.addPipeMaterial(Materials.Wood, new FluidPipeProperties(310, 20, false));
+        FLUID_PIPE.addPipeMaterial(Materials.HighPressurePipe, new FluidPipeProperties(1500, 2400, true));
+        FLUID_PIPE.addPipeMaterial(Materials.Plasma, new FluidPipeProperties(1000000, 30, true));
+
+        CABLE.addCableMaterial(Materials.MVSuperconductor, new WireProperties(128, 2, 0));
+        CABLE.addCableMaterial(Materials.HVSuperconductor, new WireProperties(512, 2, 0));
+        CABLE.addCableMaterial(Materials.EVSuperconductor, new WireProperties(2048, 4, 0));
+        CABLE.addCableMaterial(Materials.IVSuperconductor, new WireProperties(8192, 4, 0));
+        CABLE.addCableMaterial(Materials.LuVSuperconductor, new WireProperties(32768, 8, 0));
+        CABLE.addCableMaterial(Materials.ZPMSuperconductor, new WireProperties(131072, 8, 0));
+        CABLE.addCableMaterial(Materials.UVSuperconductor, new WireProperties(524288, 16, 0));
+        CABLE.addCableMaterial(Materials.UHVSuperconductor, new WireProperties(2097152, 16, 0));
         CABLE.addCableMaterial(MarkerMaterials.Tier.Superconductor, new WireProperties(Integer.MAX_VALUE, 4, 0));
         registerTileEntity();
 

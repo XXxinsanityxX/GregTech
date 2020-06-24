@@ -141,6 +141,7 @@ public enum Element {
     Dr(120, 180, -1, null, "Duranium", false),
     Nq(121, 172, 140, null, "Naquadah", true),
     //Other
+    Nt(0, 5000, -1, null, "neutronium", false),
     Aw(121, 172, -1, null, "awdrac", false),
     If(121, 172, -1, null, "inf", false);
 

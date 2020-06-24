@@ -2,10 +2,12 @@ package gregtech.api.recipes;
 
 import crafttweaker.annotations.ZenRegister;
 import gregtech.api.gui.GuiTextures;
+import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.gui.widgets.ProgressWidget.MoveType;
 import gregtech.api.recipes.builders.*;
 import gregtech.api.recipes.machines.*;
 import gregtech.api.recipes.recipes.CokeOvenRecipe;
+import gregtech.api.recipes.recipes.LargeRecipeMap;
 import gregtech.api.recipes.recipes.PrimitiveBlastFurnaceRecipe;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
@@ -685,6 +687,14 @@ public class RecipeMaps {
     @ZenProperty
     public static final RecipeMap<AmplifierRecipeBuilder> AMPLIFIERS = new RecipeMap<>("uuamplifier", 1, 1, 0, 0, 0, 0, 1, 1, new AmplifierRecipeBuilder().EUt(32));
 
+    @ZenProperty
+    public static final RecipeMap<LargeRecipeBuilder> LARGE_CHEMICAL_RECIPES = new LargeRecipeMap("large_chemical_reactor", 0, 3, 0, 3, 0, 6, 0, 3, (new LargeRecipeBuilder(RecipeMaps.CHEMICAL_RECIPES)).EUt(30))
+        .setSlotOverlay(false, false, false,GuiTextures.MOLECULAR_OVERLAY_1)
+        .setSlotOverlay(false, false, true,GuiTextures.MOLECULAR_OVERLAY_2)
+        .setSlotOverlay(false, true,GuiTextures.MOLECULAR_OVERLAY_3)
+        .setSlotOverlay(true, false,GuiTextures.VIAL_OVERLAY_1)
+        .setSlotOverlay(true, true,GuiTextures.VIAL_OVERLAY_2)
+        .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, MoveType.HORIZONTAL);
 
     @ZenProperty
     public static final FuelRecipeMap DIESEL_GENERATOR_FUELS = new FuelRecipeMap("diesel_generator");
