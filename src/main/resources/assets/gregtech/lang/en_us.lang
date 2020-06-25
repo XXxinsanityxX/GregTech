@@ -1507,6 +1507,9 @@ material.cosmic_neutronium=Cosmic Neutronium
 material.rp1=Rocket Propellant-1
 material.dense_hydrazine=Hydrazine Fuel
 material.unsymmetrical_dimethylhydrazine=UDHM
+material.xenon=Xenon
+material.neon=Neon
+material.krypton=Krypton
 
 item.nether_quartz.oreNetherrack=Nether Quartz Ore
 item.gunpowder.dustTiny=Tiny Pile of Gunpowder
