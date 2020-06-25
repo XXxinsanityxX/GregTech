@@ -461,8 +461,8 @@ public class RecipeMaps {
 
     @ZenProperty
     public static final RecipeMap<SimpleRecipeBuilder> CHEMICAL_RECIPES = new RecipeMap<>("chemical_reactor", 0, 2, 0, 2, 0, 3, 0, 2, new SimpleRecipeBuilder().EUt(30))
-        .setSlotOverlay(false, false, false, GuiTextures.MOLECULAR_OVERLAY_1)
-        .setSlotOverlay(false, false, true, GuiTextures.MOLECULAR_OVERLAY_2)
+        .setSlotOverlay(false, false, true, GuiTextures.MOLECULAR_OVERLAY_1)
+        .setSlotOverlay(false, false, false, GuiTextures.MOLECULAR_OVERLAY_2)
         .setSlotOverlay(false, true, GuiTextures.MOLECULAR_OVERLAY_3)
         .setSlotOverlay(true, false, GuiTextures.VIAL_OVERLAY_1)
         .setSlotOverlay(true, true, GuiTextures.VIAL_OVERLAY_2)
@@ -688,7 +688,7 @@ public class RecipeMaps {
     public static final RecipeMap<AmplifierRecipeBuilder> AMPLIFIERS = new RecipeMap<>("uuamplifier", 1, 1, 0, 0, 0, 0, 1, 1, new AmplifierRecipeBuilder().EUt(32));
 
     @ZenProperty
-    public static final RecipeMap<LargeRecipeBuilder> LARGE_CHEMICAL_RECIPES = new LargeRecipeMap("large_chemical_reactor", 0, 3, 0, 3, 0, 6, 0, 3, (new LargeRecipeBuilder(RecipeMaps.CHEMICAL_RECIPES)).EUt(30))
+    public static final RecipeMap<LargeRecipeBuilder> LARGE_CHEMICAL_RECIPES = new LargeRecipeMap("large_chemical_reactor", 0, 3, 0, 2, 0, 5, 0, 3, (new LargeRecipeBuilder(RecipeMaps.CHEMICAL_RECIPES)).EUt(30))
         .setSlotOverlay(false, false, false,GuiTextures.MOLECULAR_OVERLAY_1)
         .setSlotOverlay(false, false, true,GuiTextures.MOLECULAR_OVERLAY_2)
         .setSlotOverlay(false, true,GuiTextures.MOLECULAR_OVERLAY_3)

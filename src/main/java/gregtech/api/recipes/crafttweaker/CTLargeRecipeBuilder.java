@@ -5,7 +5,7 @@ import gregtech.api.recipes.LargeRecipeBuilder;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-@ZenClass("mods.gtadditions.recipe.LargeRecipeBuilder")
+@ZenClass("mods.gregtech.recipe.LargeRecipeBuilder")
 @ZenRegister
 public class CTLargeRecipeBuilder extends CTRecipeBuilder {
 

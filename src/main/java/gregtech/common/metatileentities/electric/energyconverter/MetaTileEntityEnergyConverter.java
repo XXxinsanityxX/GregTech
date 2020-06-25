@@ -230,7 +230,7 @@ public class MetaTileEntityEnergyConverter extends TieredMetaTileEntity implemen
 	}
 
 	protected ModularUI createUI(final EntityPlayer entityPlayer) {
-		final ModularUI.Builder b = ModularUI.builder(GuiTextures.BACKGROUND, 176, 18 + 18 * this.size + 94).label(10, 5, this.getMetaFullName());
+		final ModularUI.Builder b = ModularUI.builder(GuiTextures.BACKGROUND, 176, 18 + 18 * this.size + 94).label(5, 5, this.getMetaFullName());
 		for (int y = 0; y < this.size; ++y) {
 			for (int x = 0; x < this.size; ++x) {
 				final int index = y * this.size + x;

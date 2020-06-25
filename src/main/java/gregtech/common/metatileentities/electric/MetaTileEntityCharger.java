@@ -93,7 +93,7 @@ public class MetaTileEntityCharger extends TieredMetaTileEntity {
         int rowSize = (int) Math.sqrt(inventorySize);
         Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176,
             18 + 18 * rowSize + 94)
-            .label(10, 5, getMetaFullName());
+            .label(5, 5, getMetaFullName());
 
         for (int y = 0; y < rowSize; y++) {
             for (int x = 0; x < rowSize; x++) {

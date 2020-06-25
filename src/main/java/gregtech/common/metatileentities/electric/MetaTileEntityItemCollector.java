@@ -219,7 +219,7 @@ public class MetaTileEntityItemCollector extends TieredMetaTileEntity {
         int rowSize = (int) Math.sqrt(exportItems.getSlots());
         Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176,
             45 + rowSize * 18 + 105 + 82)
-            .label(10, 5, getMetaFullName());
+            .label(5, 5, getMetaFullName());
 
         builder.widget(new ClickButtonWidget(10, 20, 20, 20, "-1", data -> adjustSuckingRange(-1)));
         builder.widget(new ClickButtonWidget(146, 20, 20, 20, "+1", data -> adjustSuckingRange(+1)));

@@ -61,7 +61,7 @@ public class MetaTileEntityFisher extends TieredMetaTileEntity {
 
         ModularUI.Builder builder = ModularUI.builder(GuiTextures.BACKGROUND, 176,
             18 + 18 * rowSize + 94)
-            .label(10, 5, getMetaFullName())
+            .label(5, 5, getMetaFullName())
             .widget(new SlotWidget(importItems, 0, 18, 18, true, true)
                 .setBackgroundTexture(GuiTextures.SLOT, GuiTextures.STRING_SLOT_OVERLAY));
 

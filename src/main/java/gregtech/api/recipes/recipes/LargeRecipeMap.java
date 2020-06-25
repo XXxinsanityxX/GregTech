@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Optional.Method;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-@ZenClass("mods.gtadditions.recipe.LargeRecipeMap")
+@ZenClass("mods.gregtech.recipe.LargeRecipeMap")
 @ZenRegister
 public class LargeRecipeMap extends RecipeMap<LargeRecipeBuilder> {
 

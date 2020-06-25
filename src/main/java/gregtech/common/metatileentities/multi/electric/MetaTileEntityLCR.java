@@ -39,7 +39,7 @@ public class MetaTileEntityLCR extends LargeSimpleRecipeMapMultiblockController 
             .aisle("XXX", "XXX", "XXX")
             .aisle("XXX", "X#X", "XXX")
             .aisle("XXX", "XSX", "XXX")
-            .setAmountAtLeast('L', 14)
+            .setAmountAtLeast('L', 12)
             .where('S', selfPredicate())
             .where('L', statePredicate(getCasingState()))
             .where('X', statePredicate(getCasingState()).or(abilityPartPredicate(ALLOWED_ABILITIES)))

@@ -3,6 +3,7 @@ package gregtech.loaders.recipe;
 import com.google.common.base.CaseFormat;
 import gregtech.api.GTValues;
 import gregtech.api.recipes.CountableIngredient;
+import gregtech.api.recipes.LargeRecipeBuilder;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.recipes.builders.CokeOvenRecipeBuilder;
@@ -75,6 +76,7 @@ public class MachineRecipeLoader {
         registerRecyclingRecipes();
         registerStoneBricksRecipes();
         registerOrganicRecyclingRecipes();
+        registerLargeChemicalRecipes();
     }
 
     private static void registerBendingCompressingRecipes() {
@@ -1149,6 +1151,23 @@ public class MachineRecipeLoader {
         RecipeMaps.CHEMICAL_BATH_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 1, OreDictionary.WILDCARD_VALUE)).fluidInputs(Materials.Chlorine.getFluid(50)).outputs(new ItemStack(Blocks.HARDENED_CLAY)).buildAndRegister();
         RecipeMaps.CHEMICAL_BATH_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(new ItemStack(Blocks.STAINED_GLASS, 1, OreDictionary.WILDCARD_VALUE)).fluidInputs(Materials.Chlorine.getFluid(50)).outputs(new ItemStack(Blocks.GLASS)).buildAndRegister();
         RecipeMaps.CHEMICAL_BATH_RECIPES.recipeBuilder().duration(400).EUt(2).inputs(new ItemStack(Blocks.STAINED_GLASS_PANE, 1, OreDictionary.WILDCARD_VALUE)).fluidInputs(Materials.Chlorine.getFluid(20)).outputs(new ItemStack(Blocks.GLASS_PANE)).buildAndRegister();
+    }
+
+    public static void registerLargeChemicalRecipes() {
+        RecipeMaps.CHEMICAL_RECIPES.getRecipeList().forEach(recipe -> {
+            LargeRecipeBuilder largeRecipeMap = RecipeMaps.LARGE_CHEMICAL_RECIPES.recipeBuilder()
+                .EUt(recipe.getEUt())
+                .duration(recipe.getDuration())
+                .fluidInputs(recipe.getFluidInputs())
+                .inputsIngredients(recipe.getInputs())
+                .outputs(recipe.getOutputs())
+                .fluidOutputs(recipe.getFluidOutputs());
+
+            recipe.getChancedOutputs().forEach(chanceEntry -> {
+                largeRecipeMap.chancedOutput(chanceEntry.getItemStack(), chanceEntry.getChance(), chanceEntry.getBoostPerTier());
+            });
+            largeRecipeMap.buildAndRegister();
+        });
     }
 
     private static <T extends Enum<T> & IStringSerializable> void registerBrickRecipe(StoneBlock<T> stoneBlock, T normalVariant, T brickVariant) {
