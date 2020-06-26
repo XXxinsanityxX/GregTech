@@ -406,7 +406,7 @@ public class GTUtility {
         byte tier = 0;
         while (++tier < V.length) {
             if (voltage == V[tier]) {
-                return tier;
+                return (byte) Math.min(V.length -1, tier);
             } else if (voltage < V[tier]) {
                 return (byte) Math.max(0, tier - 1);
             }
