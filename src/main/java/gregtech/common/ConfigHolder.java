@@ -27,6 +27,9 @@ public class ConfigHolder {
     @Config.Comment("Specifies additional random amount of veins in section")
     public static int additionalVeinsInSection = 0;
 
+    @Config.Comment("Whether veins should be generated in center of chunk. Default is false.")
+    public static boolean generateVeinsInCenterOfChunk = false;
+
     @Config.Comment("Whether to disable vanilla ores generation in world. Default is false.")
     public static boolean disableVanillaOres = true;
 
@@ -76,6 +79,9 @@ public class ConfigHolder {
     @Config.RequiresMcRestart
     public static VanillaRecipes vanillaRecipes = new VanillaRecipes();
 
+    @Config.Comment("Category that contains configs for machines with specific behavior")
+    public static VanillaRecipes.MachineSpecificConfiguration machineSpecific = new VanillaRecipes.MachineSpecificConfiguration();
+
     @Config.Comment("Sets the bonus EU output of Steam Turbines.")
     @Config.RequiresMcRestart
     public static int steamTurbineBonusOutput = 6144;
@@ -110,6 +116,11 @@ public class ConfigHolder {
 
         @Config.Comment("Require a knife for bowl crafting instead of only plank? Default is true.")
         public boolean bowlRequireKnife = true;
+
+        public static class MachineSpecificConfiguration {
+            @Config.Comment("Array of blacklisted dimension IDs in which Air Collector does not work.")
+            public int[] airCollectorDimensionBlacklist = new int[]{};
+        }
 
     }
 

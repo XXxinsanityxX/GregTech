@@ -1,6 +1,7 @@
 package gregtech.loaders.oreprocessing;
 
 import gregtech.api.recipes.ModHandler;
+import gregtech.api.recipes.Recipe;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
@@ -15,13 +16,17 @@ import gregtech.common.items.behaviors.TurbineRotorBehavior;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 
+import java.util.Collections;
+
 import static gregtech.api.GTValues.L;
+import static gregtech.api.recipes.RecipeMaps.LATHE_RECIPES;
 import static gregtech.api.unification.material.type.DustMaterial.MatFlags.GENERATE_PLATE;
 import static gregtech.api.unification.material.type.DustMaterial.MatFlags.NO_SMASHING;
 import static gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
 import static gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_SPRING;
 import static gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_ROD;
 import static gregtech.api.unification.material.type.SolidMaterial.MatFlags.MORTAR_GRINDABLE;
+import static gregtech.api.unification.ore.OrePrefix.*;
 
 public class PartsRecipeHandler {
 
@@ -277,11 +282,14 @@ public class PartsRecipeHandler {
         }
 
         if (material instanceof GemMaterial || material instanceof IngotMaterial) {
-            RecipeMaps.LATHE_RECIPES.recipeBuilder()
-                .input(material instanceof GemMaterial ? OrePrefix.gem : OrePrefix.ingot, material)
-                .outputs(OreDictUnifier.get(OrePrefix.stick, material, 2))
-                .duration((int) Math.max(material.getAverageMass() * 2, 1)).EUt(16)
-                .buildAndRegister();
+            OrePrefix orePrefix = material instanceof IngotMaterial ? ingot : gem;
+                LATHE_RECIPES.recipeBuilder()
+                    .input(orePrefix, material)
+                    .outputs(OreDictUnifier.get(stickPrefix, material))
+                    .outputs(OreDictUnifier.get(dustSmall, material, 2))
+                    .duration((int) Math.max(material.getAverageMass() * 2, 1))
+                    .EUt(16)
+                    .buildAndRegister();
         }
 
         if (material.hasFlag(GENERATE_BOLT_SCREW)) {

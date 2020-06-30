@@ -905,7 +905,7 @@ public class Materials {
         Copper.setCableProperties(GTValues.V[2], 1, 2);
 
         Cobalt.setCableProperties(GTValues.V[1], 2, 2);
-        Lead.setCableProperties(GTValues.V[1], 2, 2);
+        Lead.setCableProperties(GTValues.V[0], 2, 2);
         Tin.setCableProperties(GTValues.V[1], 1, 1);
         Zinc.setCableProperties(GTValues.V[1], 1, 1);
         SolderingAlloy.setCableProperties(GTValues.V[1], 1, 1);
