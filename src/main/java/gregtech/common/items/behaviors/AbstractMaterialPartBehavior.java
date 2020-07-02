@@ -7,6 +7,7 @@ import gregtech.api.items.metaitem.stats.IItemNameProvider;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.type.IngotMaterial;
 import gregtech.api.unification.material.type.Material;
+import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.util.GTUtility;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
@@ -30,7 +31,7 @@ public abstract class AbstractMaterialPartBehavior implements IItemBehaviour, II
 
     public IngotMaterial getPartMaterial(ItemStack itemStack) {
         NBTTagCompound compound = getPartStatsTag(itemStack);
-        IngotMaterial defaultMaterial = Materials.Darmstadtium;
+        IngotMaterial defaultMaterial = Materials.Neutronium;
         if (compound == null || !compound.hasKey("Material", NBT.TAG_STRING)) {
             return defaultMaterial;
         }

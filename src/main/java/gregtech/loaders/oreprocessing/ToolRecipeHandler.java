@@ -1,25 +1,20 @@
 package gregtech.loaders.oreprocessing;
 
-import gregtech.api.GTValues;
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.items.metaitem.MetaItem.MetaValueItem;
 import gregtech.api.items.toolitem.ToolMetaItem.MetaToolValueItem;
 import gregtech.api.recipes.ModHandler;
-import gregtech.api.recipes.RecipeMaps;
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;
-import gregtech.api.unification.material.type.*;
+import gregtech.api.unification.material.type.DustMaterial;
+import gregtech.api.unification.material.type.IngotMaterial;
+import gregtech.api.unification.material.type.SolidMaterial;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.ArrayList;
 
 import static gregtech.api.unification.material.type.DustMaterial.MatFlags.GENERATE_PLATE;
 import static gregtech.api.unification.material.type.DustMaterial.MatFlags.NO_WORKING;
@@ -31,23 +26,6 @@ public class ToolRecipeHandler {
     public static void register() {
         OrePrefix.stick.addProcessingHandler(SolidMaterial.class, ToolRecipeHandler::processStick);
         OrePrefix.stickLong.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processLongStick);
-
-        OrePrefix.toolHeadShovel.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processShovelHead);
-        OrePrefix.toolHeadAxe.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processAxeHead);
-        OrePrefix.toolHeadPickaxe.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processPickaxeHead);
-        OrePrefix.toolHeadSword.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processSwordHead);
-        OrePrefix.toolHeadHoe.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processHoeHead);
-        OrePrefix.toolHeadSaw.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processSawHead);
-        OrePrefix.toolHeadChainsaw.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processChainSawHead);
-        OrePrefix.toolHeadDrill.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processDrillHead);
-
-        OrePrefix.toolHeadSense.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processSenseHead);
-        OrePrefix.toolHeadWrench.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processWrenchHead);
-        OrePrefix.toolHeadBuzzSaw.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processBuzzSawHead);
-        OrePrefix.toolHeadFile.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processFileHead);
-        OrePrefix.toolHeadUniversalSpade.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processSpadeHead);
-        OrePrefix.toolHeadScrewdriver.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processScrewdriverHead);
-        OrePrefix.toolHeadHammer.addProcessingHandler(IngotMaterial.class, ToolRecipeHandler::processHammerHead);
     }
 
     public static MetaValueItem[] motorItems;
@@ -131,26 +109,6 @@ public class ToolRecipeHandler {
         }
     }
 
-    public static void processSimpleToolHead(OrePrefix toolPrefix, SolidMaterial solidMaterial, MetaToolValueItem toolItem, Object... recipe) {
-        Material handleMaterial = Materials.Wood;
-
-        ModHandler.addShapelessRecipe(String.format("%s_%s_%s", toolPrefix.name(), solidMaterial, handleMaterial),
-            toolItem.getStackForm(solidMaterial),
-            new UnificationEntry(toolPrefix, solidMaterial),
-            new UnificationEntry(OrePrefix.stick, handleMaterial));
-
-        if (solidMaterial instanceof IngotMaterial && solidMaterial.hasFlag(GENERATE_PLATE)) {
-            addSimpleToolRecipe(toolPrefix, solidMaterial, toolItem,
-                new UnificationEntry(OrePrefix.plate, solidMaterial),
-                new UnificationEntry(OrePrefix.ingot, solidMaterial), recipe);
-        }
-        if (solidMaterial instanceof GemMaterial) {
-            addSimpleToolRecipe(toolPrefix, solidMaterial, toolItem,
-                new UnificationEntry(OrePrefix.gem, solidMaterial),
-                new UnificationEntry(OrePrefix.gem, solidMaterial), recipe);
-        }
-    }
-
     public static void processStick(OrePrefix stickPrefix, SolidMaterial material) {
         if (material.hasFlag(DustMaterial.MatFlags.NO_SMASHING)) {
             return;
@@ -178,11 +136,20 @@ public class ToolRecipeHandler {
                 'S', new UnificationEntry(OrePrefix.stick, material),
                 'D', new UnificationEntry(OrePrefix.dye, MarkerMaterials.Color.COLORS.get(EnumDyeColor.BLUE)));
 
-            ModHandler.addShapedRecipe(String.format("scoop_%s", material.toString()),
-                MetaItems.SCOOP.getStackForm(material),
-                "SWS", "SSS", "xSh",
-                'S', new UnificationEntry(OrePrefix.stick, material),
-                'W', new ItemStack(Blocks.WOOL, 1, GTValues.W));
+            if (material instanceof IngotMaterial) {
+                ModHandler.addShapedRecipe(String.format("file_%s", material),
+                    MetaItems.FILE.getStackForm(material),
+                    "P", "P", "S",
+                    'P', new UnificationEntry(OrePrefix.plate, material),
+                    'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
+            }
+            if (material instanceof IngotMaterial) {
+                ModHandler.addShapedRecipe(String.format("saw_%s", material),
+                    MetaItems.SAW.getStackForm(material),
+                    "PPS", "fh ",
+                    'P', new UnificationEntry(OrePrefix.plate, material),
+                    'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
+            }
         }
 
         if (material.hasFlag(GENERATE_PLATE) && material.toolDurability > 0) {
@@ -191,6 +158,14 @@ public class ToolRecipeHandler {
                 "fPh", " S ",
                 'S', new UnificationEntry(stickPrefix, material),
                 'P', new UnificationEntry(OrePrefix.plate, material));
+        }
+
+        if (material instanceof IngotMaterial) {
+            ModHandler.addShapedRecipe(String.format("hammer_%s", material.toString()),
+                MetaItems.HARD_HAMMER.getStackForm(material),
+                "XX ", "XXS", "XX ",
+                'X', new UnificationEntry(OrePrefix.ingot, material),
+                'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
         }
 
         if (material.hasFlag(GENERATE_PLATE | GENERATE_ROD) && material.toolDurability > 0) {
@@ -208,15 +183,10 @@ public class ToolRecipeHandler {
                 'S', new UnificationEntry(stickPrefix, material),
                 'P', new UnificationEntry(OrePrefix.plate, material),
                 'T', new UnificationEntry(OrePrefix.screw, material));
-
-            ModHandler.addShapedRecipe(String.format("branch_cutter_%s", material.toString()),
-                MetaItems.BRANCH_CUTTER.getStackForm(material),
-                "PfP", "PdP", "STS",
-                'S', new UnificationEntry(stickPrefix, material),
-                'P', new UnificationEntry(OrePrefix.plate, material),
-                'T', new UnificationEntry(OrePrefix.screw, material));
         }
     }
+
+
 
     public static void processLongStick(OrePrefix orePrefix, IngotMaterial material) {
         if (material.toolDurability <= 0) return;
@@ -248,222 +218,4 @@ public class ToolRecipeHandler {
             'H', new UnificationEntry(orePrefix, material),
             'U', powerUnitStack);
     }
-
-    public static void processDrillHead(OrePrefix drillHead, IngotMaterial ingotMaterial) {
-        processSimpleElectricToolHead(drillHead, ingotMaterial, new MetaToolValueItem[]{MetaItems.DRILL_LV, MetaItems.DRILL_MV, MetaItems.DRILL_HV});
-        ModHandler.addShapedRecipe(String.format("drill_head_%s", ingotMaterial.toString()),
-            OreDictUnifier.get(OrePrefix.toolHeadDrill, ingotMaterial),
-            "XSX", "XSX", "ShS",
-            'X', new UnificationEntry(OrePrefix.plate, ingotMaterial),
-            'S', new UnificationEntry(OrePrefix.plate, Materials.Steel));
-    }
-
-    public static void processChainSawHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleElectricToolHead(toolPrefix, ingotMaterial, new MetaToolValueItem[]{MetaItems.CHAINSAW_LV, MetaItems.CHAINSAW_MV, MetaItems.CHAINSAW_HV});
-        ModHandler.addShapedRecipe(String.format("chainsaw_head_%s", ingotMaterial.toString()),
-            OreDictUnifier.get(toolPrefix, ingotMaterial),
-            "SRS", "XhX", "SRS",
-            'X', new UnificationEntry(OrePrefix.plate, ingotMaterial),
-            'S', new UnificationEntry(OrePrefix.plate, Materials.Steel),
-            'R', new UnificationEntry(OrePrefix.ring, Materials.Steel));
-    }
-
-    public static void processWrenchHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleElectricToolHead(toolPrefix, ingotMaterial, new MetaToolValueItem[]{MetaItems.WRENCH_LV, MetaItems.WRENCH_MV, MetaItems.WRENCH_HV});
-        ModHandler.addShapedRecipe(String.format("wrench_head_%s", ingotMaterial.toString()),
-            OreDictUnifier.get(OrePrefix.toolHeadWrench, ingotMaterial),
-            "hXW", "XRX", "WXd",
-            'X', new UnificationEntry(OrePrefix.plate, ingotMaterial),
-            'R', new UnificationEntry(OrePrefix.ring, Materials.Steel),
-            'W', new UnificationEntry(OrePrefix.screw, Materials.Steel));
-    }
-
-    public static void processBuzzSawHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleElectricToolHead(toolPrefix, ingotMaterial, new MetaToolValueItem[]{MetaItems.BUZZSAW});
-        ModHandler.addShapedRecipe(String.format("buzzsaw_head_%s", ingotMaterial.toString()),
-            OreDictUnifier.get(OrePrefix.toolHeadBuzzSaw, ingotMaterial),
-            "wXh", "X X", "fXx",
-            'X', new UnificationEntry(OrePrefix.plate, ingotMaterial));
-    }
-
-    public static void processScrewdriverHead(OrePrefix toolPrefix, Material material) {
-        if (!(material instanceof IngotMaterial)) return;
-        IngotMaterial ingotMaterial = (IngotMaterial) material;
-        processSimpleElectricToolHead(toolPrefix, ingotMaterial, new MetaToolValueItem[]{MetaItems.SCREWDRIVER_LV});
-        ModHandler.addShapedRecipe(String.format("screwdriver_head_%s", ingotMaterial.toString()),
-            OreDictUnifier.get(OrePrefix.toolHeadScrewdriver, ingotMaterial),
-            "fX", "Xh",
-            'X', new UnificationEntry(OrePrefix.stick, ingotMaterial));
-    }
-
-    public static void addSimpleToolRecipe(OrePrefix toolPrefix, SolidMaterial solidMaterial, MetaToolValueItem toolItem, UnificationEntry plate, UnificationEntry ingot, Object[] recipe) {
-        ArrayList<Character> usedChars = new ArrayList<>();
-        for (Object object : recipe) {
-            if (!(object instanceof String))
-                continue;
-            char[] chars = ((String) object).toCharArray();
-            for (char character : chars)
-                usedChars.add(character);
-        }
-
-        if (usedChars.contains('P')) {
-            recipe = ArrayUtils.addAll(recipe, 'P', plate);
-        }
-        if (usedChars.contains('I')) {
-            recipe = ArrayUtils.addAll(recipe, 'I', ingot);
-        }
-
-        ModHandler.addShapedRecipe(
-            String.format("head_%s_%s", toolPrefix.name(), solidMaterial.toString()),
-            OreDictUnifier.get(toolPrefix, solidMaterial), recipe);
-    }
-
-    public static void processAxeHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.AXE, "PIh", "P  ", "f  ");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 3)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_AXE)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 3)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-
-    }
-
-    public static void processHoeHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.HOE, "PIh", "f  ");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 3)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_HOE)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 3)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-    }
-
-    public static void processPickaxeHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.PICKAXE, "PII", "f h");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 3)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_PICKAXE)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 3)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-
-    }
-
-    public static void processSawHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.SAW, "PP", "fh");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 2)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_SAW)
-            .outputs(OreDictUnifier.get(OrePrefix.toolHeadSaw, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 2)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-    }
-
-    public static void processSenseHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.SENSE, "PPI", "hf ");
-    }
-
-    public static void processShovelHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.SHOVEL, "fPh");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_SHOVEL)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass())
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-    }
-
-    public static void processSwordHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.SWORD, " P ", "fPh");
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 2)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_SWORD)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 2)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-    }
-
-    public static void processSpadeHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.UNIVERSAL_SPADE, "PPP", "IhI", " I ");
-    }
-
-    public static void processHammerHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        if (!ingotMaterial.hasFlag(NO_WORKING)) {
-            processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.HARD_HAMMER, "II ", "IIh", "II ");
-        }
-        SolidMaterial handleMaterial = Materials.Wood;
-        if (!ingotMaterial.hasFlag(NO_WORKING)) {
-            ModHandler.addShapedRecipe(String.format("hammer_%s", ingotMaterial.toString()),
-                MetaItems.HARD_HAMMER.getStackForm(ingotMaterial),
-                "XX ", "XXS", "XX ",
-                'X', new UnificationEntry(OrePrefix.ingot, ingotMaterial),
-                'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
-        }
-
-        if (!ingotMaterial.hasFlag(DustMaterial.MatFlags.NO_SMASHING)) {
-            int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-            RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-                .input(OrePrefix.ingot, ingotMaterial, 6)
-                .notConsumable(MetaItems.SHAPE_EXTRUDER_HAMMER)
-                .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-                .duration((int) ingotMaterial.getAverageMass() * 6)
-                .EUt(8 * voltageMultiplier)
-                .buildAndRegister();
-        }
-    }
-
-    public static void processFileHead(OrePrefix toolPrefix, IngotMaterial ingotMaterial) {
-        processSimpleToolHead(toolPrefix, ingotMaterial, MetaItems.FILE, " I ", " I ", " fh");
-        if (ingotMaterial instanceof IngotMaterial) {
-            SolidMaterial handleMaterial = Materials.Wood;
-            ModHandler.addShapedRecipe(String.format("file_%s", ingotMaterial),
-                MetaItems.FILE.getStackForm(ingotMaterial),
-                "P", "P", "S",
-                'P', new UnificationEntry(OrePrefix.plate, ingotMaterial),
-                'S', new UnificationEntry(OrePrefix.stick, handleMaterial));
-        }
-
-        int voltageMultiplier = getVoltageMultiplier(ingotMaterial);
-
-        RecipeMaps.EXTRUDER_RECIPES.recipeBuilder()
-            .input(OrePrefix.ingot, ingotMaterial, 2)
-            .notConsumable(MetaItems.SHAPE_EXTRUDER_FILE)
-            .outputs(OreDictUnifier.get(toolPrefix, ingotMaterial))
-            .duration((int) ingotMaterial.getAverageMass() * 2)
-            .EUt(8 * voltageMultiplier)
-            .buildAndRegister();
-
-    }
-
-    private static int getVoltageMultiplier(Material material) {
-        return material instanceof IngotMaterial && ((IngotMaterial) material)
-            .blastFurnaceTemperature >= 2800 ? 32 : 8;
-    }
-
 }

@@ -88,28 +88,12 @@ public class MetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> {
             .setFullRepairCost(4.125)
             .addOreDict(ToolDictNames.craftingToolWireCutter);
 
-        SCOOP = addItem(14, "tool.scoop").setToolStats(new ToolScoop())
-            .setFullRepairCost(3)
-            .addOreDict(ToolDictNames.craftingToolScoop);
-
-        BRANCH_CUTTER = addItem(15, "tool.branch_cutter").setToolStats(new ToolBranchCutter())
-            .setFullRepairCost(5.125)
-            .addOreDict(ToolDictNames.craftingToolBranchCutter);
-
-        UNIVERSAL_SPADE = addItem(16, "tool.universal_spade").setToolStats(new ToolUniversalSpade())
-            .setFullRepairCost(5)
-            .addOreDict(ToolDictNames.craftingToolBlade, ToolDictNames.craftingToolShovel, ToolDictNames.craftingToolCrowbar, ToolDictNames.craftingToolSaw);
-
         KNIFE = addItem(17, "tool.knife").setToolStats(new ToolKnife())
             .setFullRepairCost(1.5)
             .addOreDict(ToolDictNames.craftingToolBlade, ToolDictNames.craftingToolKnife);
 
         BUTCHERY_KNIFE = addItem(18, "tool.butchery_knife").setToolStats(new ToolButcheryKnife())
             .setFullRepairCost(4.5)
-            .addOreDict(ToolDictNames.craftingToolBlade);
-
-        SENSE = addItem(19, "tool.sense").setToolStats(new ToolSense())
-            .setFullRepairCost(3)
             .addOreDict(ToolDictNames.craftingToolBlade);
 
         DRILL_LV = addItem(23, "tool.drill.lv").setToolStats(new ToolDrillLV())
