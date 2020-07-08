@@ -2,7 +2,7 @@ package gregtech.loaders.oreprocessing;
 
 import gregtech.api.capability.GregtechCapabilities;
 import gregtech.api.items.metaitem.MetaItem.MetaValueItem;
-import gregtech.api.items.toolitem.ToolMetaItem.MetaToolValueItem;
+import gregtech.api.items.toolitem.ToolMetaItem;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Materials;
@@ -17,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
 import static gregtech.api.unification.material.type.DustMaterial.MatFlags.GENERATE_PLATE;
-import static gregtech.api.unification.material.type.DustMaterial.MatFlags.NO_WORKING;
 import static gregtech.api.unification.material.type.IngotMaterial.MatFlags.GENERATE_BOLT_SCREW;
 import static gregtech.api.unification.material.type.SolidMaterial.MatFlags.GENERATE_ROD;
 
@@ -31,12 +30,10 @@ public class ToolRecipeHandler {
     public static MetaValueItem[] motorItems;
     public static SolidMaterial[] baseMaterials;
     public static MetaValueItem[][] batteryItems;
-    public static MetaValueItem[] powerUnitItems;
 
     public static void initializeMetaItems() {
         motorItems = new MetaValueItem[]{MetaItems.ELECTRIC_MOTOR_LV, MetaItems.ELECTRIC_MOTOR_MV, MetaItems.ELECTRIC_MOTOR_HV};
         baseMaterials = new SolidMaterial[]{Materials.StainlessSteel, Materials.Titanium, Materials.TungstenSteel};
-        powerUnitItems = new MetaValueItem[] {MetaItems.POWER_UNIT_LV, MetaItems.POWER_UNIT_MV, MetaItems.POWER_UNIT_HV};
         batteryItems = new MetaValueItem[][]{
             {MetaItems.BATTERY_RE_LV_LITHIUM, MetaItems.BATTERY_RE_LV_CADMIUM, MetaItems.BATTERY_RE_LV_SODIUM},
             {MetaItems.BATTERY_RE_MV_LITHIUM, MetaItems.BATTERY_RE_MV_CADMIUM, MetaItems.BATTERY_RE_MV_SODIUM},
@@ -44,24 +41,6 @@ public class ToolRecipeHandler {
     }
 
     public static void registerPowerUnitRecipes() {
-        for(int i = 0; i < powerUnitItems.length; i++) {
-            for(MetaValueItem batteryItem : batteryItems[i]) {
-                ItemStack batteryStack = batteryItem.getStackForm();
-                long maxCharge = batteryStack.getCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null).getMaxCharge();
-                ItemStack powerUnitStack = powerUnitItems[i].getMaxChargeOverrideStack(maxCharge);
-                String recipeName = String.format("%s_%s", powerUnitItems[i].unlocalizedName, batteryItem.unlocalizedName);
-
-                ModHandler.addShapedEnergyTransferRecipe(recipeName, powerUnitStack,
-                    Ingredient.fromStacks(batteryStack), false,
-                    "S  ", "GMG", "PBP",
-                    'M', motorItems[i].getStackForm(),
-                    'S', new UnificationEntry(OrePrefix.screw, baseMaterials[i]),
-                    'P', new UnificationEntry(OrePrefix.plate, baseMaterials[i]),
-                    'G', new UnificationEntry(OrePrefix.gearSmall, baseMaterials[i]),
-                    'B', batteryStack);
-            }
-        }
-
         for(MetaValueItem batteryItem : batteryItems[2]) {
             ItemStack batteryStack = batteryItem.getStackForm();
             long maxCharge = batteryStack.getCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null).getMaxCharge();
@@ -76,36 +55,6 @@ public class ToolRecipeHandler {
                 'P', new UnificationEntry(OrePrefix.plateDense, Materials.Titanium),
                 'R', new UnificationEntry(OrePrefix.spring, Materials.Titanium),
                 'B', batteryStack);
-        }
-    }
-
-    public static void processSimpleElectricToolHead(OrePrefix toolPrefix, SolidMaterial solidMaterial, MetaToolValueItem[] toolItems) {
-        for (int i = 0; i < toolItems.length; i++) {
-            for(MetaValueItem batteryItem : batteryItems[i]) {
-                ItemStack batteryStack = batteryItem.getStackForm();
-                long maxCharge = batteryStack.getCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null).getMaxCharge();
-                ItemStack chargedDrillStack = toolItems[i].getMaxChargeOverrideStack(solidMaterial, maxCharge);
-
-                String recipeNameFirst = String.format("%s_%s_%s_full", toolItems[i].unlocalizedName, solidMaterial, batteryItem.unlocalizedName);
-                ModHandler.addShapedEnergyTransferRecipe(recipeNameFirst, chargedDrillStack,
-                    Ingredient.fromStacks(batteryStack), false,
-                    "SXd", "GMG", "PBP",
-                    'X', new UnificationEntry(toolPrefix, solidMaterial),
-                    'M', motorItems[i].getStackForm(),
-                    'S', new UnificationEntry(OrePrefix.screw, baseMaterials[i]),
-                    'P', new UnificationEntry(OrePrefix.plate, baseMaterials[i]),
-                    'G', new UnificationEntry(OrePrefix.gearSmall, baseMaterials[i]),
-                    'B', batteryStack);
-            }
-
-            ItemStack drillStack = toolItems[i].getStackForm(solidMaterial);
-            ItemStack powerUnitStack = powerUnitItems[i].getStackForm();
-            String recipeNameSecond = String.format("%s_%s_unit", toolItems[i].unlocalizedName, solidMaterial);
-            ModHandler.addShapedEnergyTransferRecipe(recipeNameSecond, drillStack,
-                Ingredient.fromStacks(powerUnitStack), true,
-                "wHd", " U ",
-                'H', new UnificationEntry(toolPrefix, solidMaterial),
-                'U', powerUnitStack);
         }
     }
 
@@ -190,8 +139,6 @@ public class ToolRecipeHandler {
 
     public static void processLongStick(OrePrefix orePrefix, IngotMaterial material) {
         if (material.toolDurability <= 0) return;
-        processSimpleElectricToolHead(orePrefix, material, new MetaToolValueItem[]{MetaItems.SCREWDRIVER_LV});
-
         for (MetaValueItem batteryItem : batteryItems[2]) {
             ItemStack batteryStack = batteryItem.getStackForm();
             long maxCharge = batteryStack.getCapability(GregtechCapabilities.CAPABILITY_ELECTRIC_ITEM, null).getMaxCharge();

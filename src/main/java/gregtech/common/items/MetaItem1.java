@@ -99,14 +99,14 @@ public class MetaItem1 extends MaterialMetaItem {
         SHAPE_EXTRUDER_PIPE_MEDIUM = addItem(360, "shape.extruder.pipe.medium");
         SHAPE_EXTRUDER_PIPE_LARGE = addItem(361, "shape.extruder.pipe.large");
         SHAPE_EXTRUDER_BLOCK = addItem(363, "shape.extruder.block");
-        SHAPE_EXTRUDER_SWORD = addItem(364, "shape.extruder.sword");
-        SHAPE_EXTRUDER_PICKAXE = addItem(365, "shape.extruder.pickaxe");
-        SHAPE_EXTRUDER_SHOVEL = addItem(366, "shape.extruder.shovel");
-        SHAPE_EXTRUDER_AXE = addItem(367, "shape.extruder.axe");
-        SHAPE_EXTRUDER_HOE = addItem(368, "shape.extruder.hoe");
-        SHAPE_EXTRUDER_HAMMER = addItem(369, "shape.extruder.hammer");
-        SHAPE_EXTRUDER_FILE = addItem(370, "shape.extruder.file");
-        SHAPE_EXTRUDER_SAW = addItem(371, "shape.extruder.saw");
+        //SHAPE_EXTRUDER_SWORD = addItem(364, "shape.extruder.sword");
+        //SHAPE_EXTRUDER_PICKAXE = addItem(365, "shape.extruder.pickaxe");
+        //SHAPE_EXTRUDER_SHOVEL = addItem(366, "shape.extruder.shovel");
+        //SHAPE_EXTRUDER_AXE = addItem(367, "shape.extruder.axe");
+        //SHAPE_EXTRUDER_HOE = addItem(368, "shape.extruder.hoe");
+        //SHAPE_EXTRUDER_HAMMER = addItem(369, "shape.extruder.hammer");
+        //SHAPE_EXTRUDER_FILE = addItem(370, "shape.extruder.file");
+        //SHAPE_EXTRUDER_SAW = addItem(371, "shape.extruder.saw");
         SHAPE_EXTRUDER_GEAR = addItem(372, "shape.extruder.gear");
         SHAPE_EXTRUDER_BOTTLE = addItem(373, "shape.extruder.bottle");
 

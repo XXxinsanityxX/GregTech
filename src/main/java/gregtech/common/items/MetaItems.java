@@ -73,14 +73,14 @@ public final class MetaItems {
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_PIPE_MEDIUM;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_PIPE_LARGE;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_BLOCK;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SWORD;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_PICKAXE;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SHOVEL;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_AXE;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_HOE;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_HAMMER;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_FILE;
-    public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SAW;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SWORD;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_PICKAXE;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SHOVEL;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_AXE;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_HOE;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_HAMMER;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_FILE;
+    //public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_SAW;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_GEAR;
     public static MetaItem<?>.MetaValueItem SHAPE_EXTRUDER_BOTTLE;
 
@@ -338,9 +338,9 @@ public final class MetaItems {
     public static MetaItem<?>.MetaValueItem RUBBER_DROP;
     public static MetaItem<?>.MetaValueItem ENERGIUM_DUST;
 
-    public static MetaItem<?>.MetaValueItem POWER_UNIT_LV;
-    public static MetaItem<?>.MetaValueItem POWER_UNIT_MV;
-    public static MetaItem<?>.MetaValueItem POWER_UNIT_HV;
+    //public static MetaItem<?>.MetaValueItem POWER_UNIT_LV;
+    //public static MetaItem<?>.MetaValueItem POWER_UNIT_MV;
+    //public static MetaItem<?>.MetaValueItem POWER_UNIT_HV;
     public static MetaItem<?>.MetaValueItem JACKHAMMER_BASE;
 
     public static MetaItem<?>.MetaValueItem NANO_SABER;
@@ -376,18 +376,18 @@ public final class MetaItems {
     public static ToolMetaItem<?>.MetaToolValueItem BUTCHERY_KNIFE;
     //public static ToolMetaItem<?>.MetaToolValueItem SENSE;
     public static ToolMetaItem<?>.MetaToolValueItem PLUNGER;
-    public static ToolMetaItem<?>.MetaToolValueItem DRILL_LV;
-    public static ToolMetaItem<?>.MetaToolValueItem DRILL_MV;
-    public static ToolMetaItem<?>.MetaToolValueItem DRILL_HV;
-    public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_LV;
-    public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_MV;
-    public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_HV;
-    public static ToolMetaItem<?>.MetaToolValueItem WRENCH_LV;
-    public static ToolMetaItem<?>.MetaToolValueItem WRENCH_MV;
-    public static ToolMetaItem<?>.MetaToolValueItem WRENCH_HV;
+    //public static ToolMetaItem<?>.MetaToolValueItem DRILL_LV;
+    //public static ToolMetaItem<?>.MetaToolValueItem DRILL_MV;
+    //public static ToolMetaItem<?>.MetaToolValueItem DRILL_HV;
+    //public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_LV;
+    //public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_MV;
+    //public static ToolMetaItem<?>.MetaToolValueItem CHAINSAW_HV;
+    //public static ToolMetaItem<?>.MetaToolValueItem WRENCH_LV;
+    //public static ToolMetaItem<?>.MetaToolValueItem WRENCH_MV;
+    //public static ToolMetaItem<?>.MetaToolValueItem WRENCH_HV;
     public static ToolMetaItem<?>.MetaToolValueItem JACKHAMMER;
-    public static ToolMetaItem<?>.MetaToolValueItem BUZZSAW;
-    public static ToolMetaItem<?>.MetaToolValueItem SCREWDRIVER_LV;
+    //public static ToolMetaItem<?>.MetaToolValueItem BUZZSAW;
+    //public static ToolMetaItem<?>.MetaToolValueItem SCREWDRIVER_LV;
 
     public static void init() {
         MetaItem1 first = new MetaItem1();

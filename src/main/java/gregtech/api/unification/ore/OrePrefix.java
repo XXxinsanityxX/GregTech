@@ -100,7 +100,7 @@ public enum OrePrefix {
     //toolHeadSaw("Saw Blades", M * 2, null, MaterialIconType.toolHeadSaw, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 2 Ingots.
     //toolHeadBuzzSaw("Buzzsaw Blades", M * 4, null, MaterialIconType.toolHeadBuzzSaw, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 4 Ingots.
     //toolHeadScrewdriver("Screwdriver Tips", M, null, MaterialIconType.toolHeadScrewdriver, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 1 Ingots.
-    //toolHeadDrill("Drill Tips", M * 4, null, MaterialIconType.toolHeadDrill, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 4 Ingots.
+    //toolHeadDrill("Drill Tips", M * 4, null, MaterialIconType.toolHeadDrill, ENABLE_UNIFICATION, Conditions.isElectricToolMaterial), // made of 4 Ingots.
     //toolHeadChainsaw("Chainsaw Tips", M * 2, null, MaterialIconType.toolHeadChainsaw, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 2 Ingots.
     //toolHeadWrench("Wrench Tips", M * 4, null, MaterialIconType.toolHeadWrench, ENABLE_UNIFICATION, isElectricToolMaterial), // made of 4 Ingots.
     turbineBlade("Turbine Blades", M * 5, null, MaterialIconType.turbineBlade, ENABLE_UNIFICATION, Conditions.isElectricToolMaterial), // made of 5 Ingots.

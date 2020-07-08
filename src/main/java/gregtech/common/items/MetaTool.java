@@ -96,69 +96,10 @@ public class MetaTool extends ToolMetaItem<ToolMetaItem<?>.MetaToolValueItem> {
             .setFullRepairCost(4.5)
             .addOreDict(ToolDictNames.craftingToolBlade);
 
-        DRILL_LV = addItem(23, "tool.drill.lv").setToolStats(new ToolDrillLV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolMiningDrill)
-            .addComponents(ElectricStats.createElectricItem(100000L, 1L));
-
-        DRILL_MV = addItem(24, "tool.drill.mv").setToolStats(new ToolDrillMV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolMiningDrill)
-            .addComponents(ElectricStats.createElectricItem(400000L, 2L));
-
-        DRILL_HV = addItem(25, "tool.drill.hv").setToolStats(new ToolDrillHV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolMiningDrill)
-            .addComponents(ElectricStats.createElectricItem(1600000L, 3L));
-
-        CHAINSAW_LV = addItem(26, "tool.chainsaw.lv").setToolStats(new ToolChainsawLV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolSaw)
-            .addComponents(ElectricStats.createElectricItem(100000L, 1L));
-
-        CHAINSAW_MV = addItem(27, "tool.chainsaw.mv").setToolStats(new ToolChainsawMV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolSaw)
-            .addComponents(ElectricStats.createElectricItem(400000L, 2L));
-
-        CHAINSAW_HV = addItem(28, "tool.chainsaw.hv").setToolStats(new ToolChainsawHV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolSaw)
-            .addComponents(ElectricStats.createElectricItem(1600000L, 3L));
-
-        WRENCH_LV = addItem(29, "tool.wrench.lv").setToolStats(new ToolWrenchLV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolWrench)
-            .addComponents(new WrenchItemStat())
-            .addComponents(ElectricStats.createElectricItem(100000L, 1L));
-
-        WRENCH_MV = addItem(30, "tool.wrench.mv").setToolStats(new ToolWrenchMV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolWrench)
-            .addComponents(new WrenchItemStat())
-            .addComponents(ElectricStats.createElectricItem(400000L, 2L));
-
-        WRENCH_HV = addItem(31, "tool.wrench.hv").setToolStats(new ToolWrenchHV())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolWrench)
-            .addComponents(new WrenchItemStat())
-            .addComponents(ElectricStats.createElectricItem(1600000L, 3L));
-
-        SCREWDRIVER_LV = addItem(34, "tool.screwdriver.lv").setToolStats(new ToolScrewdriverLV())
-            .setFullRepairCost(1)
-            .addOreDict(ToolDictNames.craftingToolScrewdriver)
-            .addComponents(new ScrewdriverItemStat())
-            .addComponents(ElectricStats.createElectricItem(100000L, 1L));
-
         JACKHAMMER = addItem(32, "tool.jackhammer").setToolStats(new ToolJackHammer())
             .setFullRepairCost(5)
             .addOreDict(ToolDictNames.craftingToolJackHammer)
             .addComponents(ElectricStats.createElectricItem(1600000L, GTValues.HV));
-
-        BUZZSAW = addItem(33, "tool.buzzsaw").setToolStats(new ToolBuzzSaw())
-            .setFullRepairCost(4)
-            .addOreDict(ToolDictNames.craftingToolSaw)
-            .addComponents(ElectricStats.createElectricItem(100000L, 1L));
 
         PLUNGER = addItem(37, "tool.plunger").setToolStats(new ToolPlunger())
             .addOreDict(ToolDictNames.craftingToolPlunger);
