@@ -299,7 +299,7 @@ public class MachineRecipeLoader {
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(4000).EUt(120).inputs(MetaItems.PLATE_IRIDIUM_ALLOY.getStackForm()).input(OrePrefix.plate, Materials.Beryllium, 32).input(OrePrefix.plate, Materials.TungstenCarbide, 4).fluidInputs(Materials.TinAlloy.getFluid(L * 32)).outputs(MetaItems.NEUTRON_REFLECTOR.getStackForm()).buildAndRegister();
 
         //circuit board recipes
-        ModHandler.addShapedRecipe("coated_board", MetaItems.COATED_BOARD.getStackForm(3), " R ", "PPP", " R ", 'R', MetaItems.RUBBER_DROP.getStackForm(), 'P', new UnificationEntry(OrePrefix.plate, Materials.Wood));
+        ModHandler.addShapelessRecipe("coated_board", MetaItems.COATED_BOARD.getStackForm(), MetaItems.RUBBER_DROP, MetaItems.RUBBER_DROP, new UnificationEntry(OrePrefix.plate, Materials.Wood));
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(160).EUt(8).input(OrePrefix.plate, Materials.Wood, 8).inputs(MetaItems.RUBBER_DROP.getStackForm()).fluidInputs(Materials.Glue.getFluid(100)).outputs(MetaItems.COATED_BOARD.getStackForm(8)).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(30).EUt(8).input(OrePrefix.dust, Materials.Wood).notConsumable(MetaItems.SHAPE_MOLD_PLATE.getStackForm()).fluidInputs(Materials.Glue.getFluid(100)).outputs(MetaItems.PHENOLIC_BOARD.getStackForm()).buildAndRegister();
         RecipeMaps.ASSEMBLER_RECIPES.recipeBuilder().duration(30).EUt(8).input(OrePrefix.dust, Materials.Wood).notConsumable(MetaItems.SHAPE_MOLD_PLATE.getStackForm()).fluidInputs(Materials.BisphenolA.getFluid(100)).outputs(MetaItems.PHENOLIC_BOARD.getStackForm(4)).buildAndRegister();
