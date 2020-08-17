@@ -114,6 +114,8 @@ public class MetaTileEntityPyrolyseOven extends RecipeMapMultiblockController {
             Recipe modified = recipeMap.recipeBuilder()
                 .inputsIngredients(recipe.getInputs())
                 .outputs(recipe.getOutputs())
+                .fluidInputs(recipe.getFluidInputs())
+                .fluidOutputs(recipe.getFluidOutputs())
                 .EUt(recipe.getEUt())
                 .duration((recipeDuration * 100 / coilTierDiscount))
                 .build().getResult();

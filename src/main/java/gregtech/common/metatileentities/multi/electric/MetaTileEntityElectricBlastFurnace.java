@@ -189,6 +189,8 @@ public class MetaTileEntityElectricBlastFurnace extends RecipeMapMultiblockContr
 			Recipe modified = recipeMap.recipeBuilder()
 					.inputsIngredients(recipe.getInputs())
 					.outputs(recipe.getOutputs())
+                    .fluidInputs(recipe.getFluidInputs())
+                    .fluidOutputs(recipe.getFluidOutputs())
 					.EUt(initialEUt)
 					.duration(recipeDuration)
 					.build().getResult();
